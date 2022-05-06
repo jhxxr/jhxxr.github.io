@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C_4月29日作业 | 星染Blog</title><meta name="keywords" content="C语言,学习笔记,练习"><meta name="author" content="星染"><meta name="copyright" content="星染"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="今天布置了个作业，我也算是一口气做完了，期间也出了一些问题，我将会在代码注释中标注出来 本文仅供作者本人学习记录，若有违规请联系我删除   A题目   题目描述 输入三个数a,b,c，输出一元二次方程 ax2+bx+c&#x3D;0方程的根。如果有实根，刚输出两个根。      输入输出 输入：3个数，整数或小数  输出：x1&#x3D;-1.00,x2&#x3D;-2.00 根的值与样例一致，保留2位小数     示例输入输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C_4月29日作业">
+<meta property="og:url" content="http://example.com/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="星染Blog">
+<meta property="og:description" content="今天布置了个作业，我也算是一口气做完了，期间也出了一些问题，我将会在代码注释中标注出来 本文仅供作者本人学习记录，若有违规请联系我删除   A题目   题目描述 输入三个数a,b,c，输出一元二次方程 ax2+bx+c&#x3D;0方程的根。如果有实根，刚输出两个根。      输入输出 输入：3个数，整数或小数  输出：x1&#x3D;-1.00,x2&#x3D;-2.00 根的值与样例一致，保留2位小数     示例输入输">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/04/29/psgfB4y6Qdea2T9.jpg">
+<meta property="article:published_time" content="2022-04-29T11:53:00.000Z">
+<meta property="article:modified_time" content="2022-05-06T05:58:04.033Z">
+<meta property="article:author" content="星染">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="练习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/04/29/psgfB4y6Qdea2T9.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C_4月29日作业',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-06 13:58:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/tags.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&amp;spec=5" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/bb/"><i class="fa-fw fas fa-bomb"></i><span> 我的动态</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-archive"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星染Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/bb/"><i class="fa-fw fas fa-bomb"></i><span> 我的动态</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-archive"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">C_4月29日作业</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-29T11:53:00.000Z" title="发表于 2022-04-29 19:53:00">2022-04-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-06T05:58:04.033Z" title="更新于 2022-05-06 13:58:04">2022-05-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C_4月29日作业"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>今天布置了个作业，我也算是一口气做完了，期间也出了一些问题，我将会在代码注释中标注出来</p>
+<div class="note warning simple"><p>本文仅供作者本人学习记录，若有违规请联系我删除</p>
+</div>
+
+<h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+输入三个数a,b,c，输出一元二次方程 ax2+bx+c=0方程的根。如果有实根，刚输出两个根。 
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：3个数，整数或小数 
+输出：x1=-1.00,x2=-2.00 根的值与样例一致，保留2位小数 
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：<br>        2<br>        5<br>        1</p><p>输出：x1&#x3D;-1.00,x2&#x3D;-2.00 根的值与样例一致，保留2位小数 </p>
+              </div>
+            </details>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> a,b,c,d;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//输入三个数a,b,c，输出一元二次方程 ax2+bx+c=0方程的根。如果有实根，刚输出两个根。 </span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    d=b*b<span class="number">-4</span>*a*c;</span><br><span class="line">    <span class="keyword">if</span>(d&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;x1=%f,x2=%f&quot;</span>,(-b+<span class="built_in">sqrt</span>(d))/(<span class="number">2</span>*a),(-b-<span class="built_in">sqrt</span>(d))/(<span class="number">2</span>*a));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(d==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;x1=x2=%f&quot;</span>,(-b)/(<span class="number">2</span>*a));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;无实根&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+判断某人体型是否正常，可根据身高与体重等因素来判断，医务工作者经广泛的调查分析推出以下按“体指数”对体型程度进行划分：
+
+<p>体指数t&#x3D;体重w&#x2F;(身高h)2      （w单位为kg，h单位为m）</p>
+<p>当t&lt;18时，为偏瘦；</p>
+<p>当18≤t&lt;25时，为正常体重；</p>
+<p>当25≤t&lt;27时，为超重体重；</p>
+<p>当t≥27时，为肥胖。</p>
+<p>编写程序，要求从键盘输入某人的身高h和体重w，根据给定公式计算体指数t，然后判断他的体型属于哪种类型。</p>
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：输入身高和体重
+
+<p>输出：体型之一：</p>
+<p>Lower weight!</p>
+<p>Standard weight!</p>
+<p>Higher weight!</p>
+<p>Too fat!</p>
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：1.68,55</p><p>输出：Standard weight!</p>
+              </div>
+            </details>
+## 代码
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">float</span> t,w,h;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%f,%f&quot;</span>,&amp;h,&amp;w);</span><br><span class="line">	t=w/(h*h);</span><br><span class="line">	<span class="keyword">if</span>(t&lt;<span class="number">18</span>) </span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Lower weight!&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t&gt;=<span class="number">18</span>&amp;t&lt;<span class="number">25</span>)</span><br><span class="line">    &#123;</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">&quot;Standard weight!&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t&gt;=<span class="number">25</span>&amp;t&lt;<span class="number">27</span>) </span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Higher weight!&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(t&gt;=<span class="number">27</span>) </span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Too fat!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+给出一百分制成绩，要求输出成绩等级‘A’、‘B’、‘C’、‘D’、‘E’。 90分以上为A 80-89分为B 70-79分为C 60-69分为D 60分以下为E 
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：一个整数0－100以内 
+
+<p>输出：一个字符，表示成绩等级 </p>
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：90</p><p>输出：A</p>
+              </div>
+            </details>
+
+<h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a);</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=<span class="number">90</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="number">80</span>&amp;&amp;a&lt;<span class="number">90</span>)<span class="comment">//不能写成80&lt;=a&lt;90，按照优先级，将会从左到右判断，真为1假为0</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="number">70</span>&amp;&amp;a&lt;<span class="number">80</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a&gt;=<span class="number">60</span>&amp;&amp;a&lt;<span class="number">70</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><h2 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+企业发放的奖金根据利润提成。利润低于或等于100000元的，奖金可提10%;
+利润高于100000元，低于200000元（100000<I≤200000）时，低于100000元的部分按10％提成，高于100000元的部分，可提成 7.5%;
+200000<I≤400000时，低于200000元部分仍按上述办法提成，（下同），高于200000元的部分按5％提成；
+400000<I≤600000元时，高于400000元的部分按3％提成；600000<I≤1000000时，高于600000元的部分按1.5%提成；
+I>1000000时，超过1000000元的部分按1%提成。从键盘输入当月利润I,求应发奖金总数。
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：一个整数，当月利润。
+
+<p>输出：一个整数，奖金。</p>
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：900</p><p>输出：90</p>
+              </div>
+            </details>
+
+<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">float</span> i;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;i);</span><br><span class="line">    <span class="keyword">if</span>(i&lt;=<span class="number">100000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.0f&quot;</span>,i*<span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">100000</span>&amp;&amp;i&lt;=<span class="number">200000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.0f&quot;</span>,(i<span class="number">-100000</span>)*<span class="number">0.075</span>+<span class="number">100000</span>*<span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">200000</span>&amp;&amp;i&lt;=<span class="number">400000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.0f&quot;</span>,(i<span class="number">-200000</span>)*<span class="number">0.05</span>+<span class="number">200000</span>*<span class="number">0.075</span>+<span class="number">100000</span>*<span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">400000</span>&amp;&amp;i&lt;=<span class="number">600000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.0f&quot;</span>,(i<span class="number">-400000</span>)*<span class="number">0.03</span>+<span class="number">400000</span>*<span class="number">0.05</span>+<span class="number">200000</span>*<span class="number">0.075</span>+<span class="number">100000</span>*<span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">600000</span>&amp;&amp;i&lt;=<span class="number">1000000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.0f&quot;</span>,(i<span class="number">-600000</span>)*<span class="number">0.015</span>+<span class="number">600000</span>*<span class="number">0.03</span>+<span class="number">400000</span>*<span class="number">0.05</span>+<span class="number">200000</span>*<span class="number">0.075</span>+<span class="number">100000</span>*<span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%f.0&quot;</span>,i*<span class="number">0.01</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><h2 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+根据用户输入的年和月，显示指定月份的天数 
+  
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：2020 2 
+
+<p>输出：29</p>
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：2020 2 </p><p>输出：29</p>
+              </div>
+            </details>
+
+<h2 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> year,month;</span><br><span class="line"><span class="comment">/*这边使用swich语句</span></span><br><span class="line"><span class="comment">switch语句允许测试变量与值列表的相等性,每个值称之为案例或者case,程序会检查switch后面的值并且与case后面的值比对，如果相等则执行后面的代码或代码块</span></span><br><span class="line"><span class="comment">switch(表达式) &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   case 常数表达式  :</span></span><br><span class="line"><span class="comment">      statement(s);</span></span><br><span class="line"><span class="comment">      break;   可选</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   case 常数表达式  :</span></span><br><span class="line"><span class="comment">      statement(s);</span></span><br><span class="line"><span class="comment">      break; 可选</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  你可以有任意数量的案例陈述</span></span><br><span class="line"><span class="comment">   default : 可选</span></span><br><span class="line"><span class="comment">   statement(s);</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;year,&amp;month);</span><br><span class="line">    <span class="keyword">switch</span>(month)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;31&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;30&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">if</span>(year%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;year%<span class="number">100</span>!=<span class="number">0</span>||year%<span class="number">400</span>==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;29&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;28&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;错误&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="F"><a href="#F" class="headerlink" title="F"></a>F</h1><h2 id="题目-5"><a href="#题目-5" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+输入整数a,b的值，输出其和
+  
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：3,4
+输出：7
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：3,4</p><p>输出：7</p>
+              </div>
+            </details>
+
+<h2 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> a,b;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d,%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,a+b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><h2 id="题目-6"><a href="#题目-6" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+
+
+<p>18位身份证号码的前17位数字由6位数字地址码和8位出生日期码和3位数字顺序码组成，最后一位是校验位。</p>
+<p>输入用户身份证号码，输出其出生年、月、日和年月日的和，要求这4项输出各占6个输出位，其中年输出要求左对齐，其余为右对齐；月，日为个位数的需要补满2位。</p>
+<p>例如<br>输入45222319950814004X<br>输出 1995^^^^^^08^^^^14^^2017</p>
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：45222319950814004X
+
+<p>输出：1995^^^^^^08^^^^14^^2017</p>
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：45222319950814004X</p><p>输出：1995      08    14  2017</p>
+              </div>
+            </details>
+
+<h2 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个是我最新挑出来写的，谁知道提交一直错误</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//问题原因，在旧版中变量所有声明应该在表达式前</span></span><br><span class="line"><span class="type">int</span> year;</span><br><span class="line"><span class="type">int</span> month;</span><br><span class="line"><span class="type">int</span> day;</span><br><span class="line"><span class="type">int</span> he;</span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//思路很简单，因为身份证有x，所以就存放在char数组中</span></span><br><span class="line">    <span class="type">char</span> id[<span class="number">18</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,id);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">18</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        id[i] = id[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将char数组转化为int类型</span></span><br><span class="line">    year = id[<span class="number">6</span>]*<span class="number">1000</span> + id[<span class="number">7</span>]*<span class="number">100</span> + id[<span class="number">8</span>]*<span class="number">10</span> + id[<span class="number">9</span>];</span><br><span class="line">    month = id[<span class="number">10</span>]*<span class="number">10</span> + id[<span class="number">11</span>];</span><br><span class="line">    day = id[<span class="number">12</span>]*<span class="number">10</span> + id[<span class="number">13</span>];</span><br><span class="line">    he = year+month+day;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%-6d&quot;</span>,year);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;    %02d&quot;</span>,month);<span class="comment">//实在不知道怎么写了，那就直接空格吧。</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;    %02d&quot;</span>,day);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%6d&quot;</span>,he);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="H"><a href="#H" class="headerlink" title="H"></a>H</h1><h2 id="题目-7"><a href="#题目-7" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+
+
+<p>请参照本章例题，编写一个C程序，输出以下信息：</p>
+<pre><code>        **************************
+                Very    Good!
+        **************************
+</code></pre>
+<p>数＊号可看出，Very前面9空格，Good前面……</p>
+<p>*也是输出的一部分，别光打印Very Good!</p>
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：无需输入
+
+<p>输出：<br>            **************************<br>                    Very    Good!<br>            **************************</p>
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：无需输入</p><p>输出：<br>        **************************<br>              Very    Good!<br>        **************************</p>
+              </div>
+            </details>
+
+<h2 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接复制黏贴</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;**************************\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;         Very    Good!\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;**************************&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="I"><a href="#I" class="headerlink" title="I"></a>I</h1><h2 id="题目-8"><a href="#题目-8" class="headerlink" title="题目"></a>题目</h2><div class="snote quote">
+  <p class="p subtitle">题目描述</p>
+根据用户输入的四则运算表达式，输出表达式及结果。 
+  
+</div>
+<div class="snote quote">
+  <p class="p subtitle">输入输出</p>
+输入：2+3 
+输出：2.00 + 3.00 = 5.00 
+</div>
+ <details ><summary> 示例输入输出 </summary>
+              <div class='content'>
+              <p>输入：2.0 * 4</p><p>输出：2.00 * 4.00 &#x3D; 8.00</p>
+              </div>
+            </details>
+
+<h2 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">float</span> a,b;</span><br><span class="line"><span class="type">char</span> op;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f %c %f&quot;</span>,&amp;a,&amp;op,&amp;b);<span class="comment">//用%c获取字符串型格式符</span></span><br><span class="line">    <span class="keyword">if</span> (op==<span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.2f %c %.2f = %.2f\n&quot;</span>,a,op,b,a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.2f %c %.2f = %.2f\n&quot;</span>,a,op,b,a-b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.2f %c %.2f = %.2f\n&quot;</span>,a,op,b,a*b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.2f %c %.2f = %.2f\n&quot;</span>,a,op,b,a/b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;失败&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">星染</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/">http://example.com/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">星染Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/tags/%E7%BB%83%E4%B9%A0/">练习</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/04/29/psgfB4y6Qdea2T9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/"><img class="prev-cover" src="https://s2.loli.net/2022/05/01/ZYTFxGAH5DKtMLz.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">笔记·JavaScript之jQuery库</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/28/CZU%E6%89%93%E5%8D%A1%E6%9F%A5%E8%AF%A2py%E7%89%88/"><img class="next-cover" src="https://s2.loli.net/2022/04/28/mALh3pMTSIoKqzO.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">一键查询未打卡同学</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/10/C%E8%AF%AD%E8%A8%80_%E5%9F%BA%E7%A1%80/" title="C的学习日记_基础"><img class="cover" src="https://s2.loli.net/2022/04/10/JXVbPfrQcuE54vt.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-10</div><div class="title">C的学习日记_基础</div></div></a></div><div><a href="/2022/04/08/C%E8%AF%AD%E8%A8%80_%E6%8C%87%E9%92%88/" title="C的学习日记-指针"><img class="cover" src="https://s2.loli.net/2022/04/08/rPTgLBaZwUICWx8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-08</div><div class="title">C的学习日记-指针</div></div></a></div><div><a href="/2022/04/19/C%E8%AF%AD%E8%A8%80_%E6%96%87%E4%BB%B6/" title="C的学习日记_文件"><img class="cover" src="https://s2.loli.net/2022/04/19/dhDqVYNpZTvEfn4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-19</div><div class="title">C的学习日记_文件</div></div></a></div><div><a href="/2022/03/30/C%E8%AF%AD%E8%A8%80_%E6%95%B0%E7%BB%84/" title="C的学习日记_数组"><img class="cover" src="https://s2.loli.net/2022/03/31/V7DAaiHZy8d4NzM.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-30</div><div class="title">C的学习日记_数组</div></div></a></div><div><a href="/2022/04/12/C%E8%AF%AD%E8%A8%80_%E7%BB%93%E6%9E%84%E4%BD%93/" title="C的学习日记_结构体"><img class="cover" src="https://s2.loli.net/2022/04/12/MvtYXubrI9enod5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-12</div><div class="title">C的学习日记_结构体</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&amp;spec=5" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星染</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jhxxr"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jhxxr" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2471717907@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A"><span class="toc-number">1.</span> <span class="toc-text">A</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B"><span class="toc-number">2.</span> <span class="toc-text">B</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1"><span class="toc-number">2.1.</span> <span class="toc-text">题目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">3.</span> <span class="toc-text">C</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2"><span class="toc-number">3.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-number">3.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#D"><span class="toc-number">4.</span> <span class="toc-text">D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3"><span class="toc-number">4.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">4.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E"><span class="toc-number">5.</span> <span class="toc-text">E</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-4"><span class="toc-number">5.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="toc-number">5.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#F"><span class="toc-number">6.</span> <span class="toc-text">F</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-5"><span class="toc-number">6.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="toc-number">6.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#G"><span class="toc-number">7.</span> <span class="toc-text">G</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-6"><span class="toc-number">7.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-5"><span class="toc-number">7.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#H"><span class="toc-number">8.</span> <span class="toc-text">H</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-7"><span class="toc-number">8.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-6"><span class="toc-number">8.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I"><span class="toc-number">9.</span> <span class="toc-text">I</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-8"><span class="toc-number">9.1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-7"><span class="toc-number">9.2.</span> <span class="toc-text">代码</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/Hexo+Butterfly/" title="Hexo备份"><img src="https://s2.loli.net/2022/03/29/JdzIBc8LjRsStOy.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo备份"/></a><div class="content"><a class="title" href="/2022/05/06/Hexo+Butterfly/" title="Hexo备份">Hexo备份</a><time datetime="2022-05-06T15:00:00.000Z" title="发表于 2022-05-06 23:00:00">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/03/python%E5%A4%84%E7%90%86xls/" title="python提取Excel中超链接并下载"><img src="https://s2.loli.net/2022/05/03/rL2DfTMyVbsv8zR.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python提取Excel中超链接并下载"/></a><div class="content"><a class="title" href="/2022/05/03/python%E5%A4%84%E7%90%86xls/" title="python提取Excel中超链接并下载">python提取Excel中超链接并下载</a><time datetime="2022-05-03T06:00:00.000Z" title="发表于 2022-05-03 14:00:00">2022-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库"><img src="https://s2.loli.net/2022/05/01/ZYTFxGAH5DKtMLz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记·JavaScript之jQuery库"/></a><div class="content"><a class="title" href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库">笔记·JavaScript之jQuery库</a><time datetime="2022-05-01T14:00:00.000Z" title="发表于 2022-05-01 22:00:00">2022-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/" title="C_4月29日作业"><img src="https://s2.loli.net/2022/04/29/psgfB4y6Qdea2T9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C_4月29日作业"/></a><div class="content"><a class="title" href="/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/" title="C_4月29日作业">C_4月29日作业</a><time datetime="2022-04-29T11:53:00.000Z" title="发表于 2022-04-29 19:53:00">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/28/CZU%E6%89%93%E5%8D%A1%E6%9F%A5%E8%AF%A2py%E7%89%88/" title="一键查询未打卡同学"><img src="https://s2.loli.net/2022/04/28/mALh3pMTSIoKqzO.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一键查询未打卡同学"/></a><div class="content"><a class="title" href="/2022/04/28/CZU%E6%89%93%E5%8D%A1%E6%9F%A5%E8%AF%A2py%E7%89%88/" title="一键查询未打卡同学">一键查询未打卡同学</a><time datetime="2022-04-28T10:00:00.000Z" title="发表于 2022-04-28 18:00:00">2022-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 星染</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="/live2d-widget/autoload.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" href="categories/编程/">编程</a><span class="categoryBar-list-count">15</span><span class="categoryBar-list-descr">Ubuntu指南</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" href="categories/编程/python/">python</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">玩转Win10</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" href="categories/编程/C/">C</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">长篇小说连载</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" href="categories/编程/Node-js/">Node.js</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">个人日记</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover5.webp);"> <a class="categoryBar-list-link" href="categories/Hexo/">Hexo</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">诗词歌赋</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover6.webp);"> <a class="categoryBar-list-link" href="categories/编程/MarkDown/">MarkDown</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">杂谈教程</span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/编程/JavaScript/">JavaScript</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>笔记·正则表达式示例 | 星染Blog</title><meta name="keywords" content="正则表达式,笔记"><meta name="author" content="星染"><meta name="copyright" content="星染"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="这里介绍一些常用正则，也可以安装正则插件，比如 VS code中的 any-rule 插件。安装后 Ctrl + Shift +P , 输入关键字搜索就行，比如 手机 车牌号等等。以下均来自any-rule     火车车次 1&#x2F;^[GCDZTSPKXLY1-9]\d&amp;#123;1,4&amp;#125;$&#x2F;  手机机身码(IMEI) 12&#x2F;^\d&amp;#123;15,17&amp;#125;$&#x2F;  必须带端口号的网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记·正则表达式示例">
+<meta property="og:url" content="http://example.com/2022/04/02/%E7%AC%94%E8%AE%B0%C2%B7%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%A4%BA%E4%BE%8B/index.html">
+<meta property="og:site_name" content="星染Blog">
+<meta property="og:description" content="这里介绍一些常用正则，也可以安装正则插件，比如 VS code中的 any-rule 插件。安装后 Ctrl + Shift +P , 输入关键字搜索就行，比如 手机 车牌号等等。以下均来自any-rule     火车车次 1&#x2F;^[GCDZTSPKXLY1-9]\d&amp;#123;1,4&amp;#125;$&#x2F;  手机机身码(IMEI) 12&#x2F;^\d&amp;#123;15,17&amp;#125;$&#x2F;  必须带端口号的网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/04/02/KNL3V5kxivPswQE.jpg">
+<meta property="article:published_time" content="2022-04-02T07:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-02T07:24:25.861Z">
+<meta property="article:author" content="星染">
+<meta property="article:tag" content="正则表达式">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/04/02/KNL3V5kxivPswQE.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/2022/04/02/%E7%AC%94%E8%AE%B0%C2%B7%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%A4%BA%E4%BE%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '笔记·正则表达式示例',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-04-02 15:24:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/tags.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&amp;spec=5" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/bb/"><i class="fa-fw fas fa-bomb"></i><span> 我的动态</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-archive"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星染Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/bb/"><i class="fa-fw fas fa-bomb"></i><span> 我的动态</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-archive"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">笔记·正则表达式示例</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-02T07:00:00.000Z" title="发表于 2022-04-02 15:00:00">2022-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-02T07:24:25.861Z" title="更新于 2022-04-02 15:24:25">2022-04-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="笔记·正则表达式示例"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><div class="tip "><p>这里介绍一些常用正则，也可以安装正则插件，比如 VS code中的 any-rule 插件。安装后 <code>Ctrl</code> + <code>Shift</code> +<code>P </code>, 输入关键字搜索就行，比如 手机 车牌号等等。以下均来自any-rule</p>
+</div>
+
+
+<ol>
+<li><p>火车车次</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[GCDZTSPKXLY1-9]\d&#123;1,4&#125;$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手机机身码(IMEI)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^\d&#123;15,17&#125;$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>必须带端口号的网址(或ip)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^((ht|f)tps?:\/\/)?[\w-]+(\.[\w-]+)+:\d&#123;1,5&#125;\/?$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网址(url,支持端口和”?+参数”和”#+参数)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^(((ht|f)tps?):\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>统一社会信用代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^[0-9A-HJ-NPQRTUWXY]&#123;2&#125;\d&#123;6&#125;[0-9A-HJ-NPQRTUWXY]&#123;10&#125;$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>统一社会信用代码(宽松匹配)(15位&#x2F;18位&#x2F;20位数字&#x2F;字母)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^(([0-9A-Za-z]&#123;15&#125;)|([0-9A-Za-z]&#123;18&#125;)|([0-9A-Za-z]&#123;20&#125;))$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>迅雷链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^thunderx?:\/\/[a-zA-Z\d]+=$/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ed2k链接(宽松匹配)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^ed2k:\/\/\|file\|.+\|\/$/</span><br></pre></td></tr></table></figure></li>
+<li><p>磁力链接(宽松匹配)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^magnet:\?xt=urn:btih:[0-9a-fA-F]&#123;40,&#125;.*$/</span><br></pre></td></tr></table></figure></li>
+<li><p>子网掩码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])(?:\.(?:\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5]))&#123;3&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>linux”隐藏文件”路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\/(?:[^/]+\/)*\.[^/]*/</span><br></pre></td></tr></table></figure></li>
+<li><p>linux文件夹路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\/(?:[^/]+\/)*$/</span><br></pre></td></tr></table></figure></li>
+<li><p>linux文件路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\/(?:[^/]+\/)*[^/]+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>window”文件夹”路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z]:\\(?:\w+\\?)*$/</span><br></pre></td></tr></table></figure></li>
+<li><p>window下”文件”路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z]:\\(?:\w+\\)*\w+\.\w+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>股票代码(A股)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(s[hz]|S[HZ])(000[\d]&#123;3&#125;|002[\d]&#123;3&#125;|300[\d]&#123;3&#125;|600[\d]&#123;3&#125;|60[\d]&#123;4&#125;)$/</span><br></pre></td></tr></table></figure></li>
+<li><p>大于等于0, 小于等于150, 支持小数位出现5, 如145.5, 用于判断考卷分数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^150$|^(?:\d|[1-9]\d|1[0-4]\d)(?:\.5)?$/</span><br></pre></td></tr></table></figure></li>
+<li><p>html注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^&lt;!--[\s\S]*?--&gt;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>md5格式(32位)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^([a-f\d]&#123;32&#125;|[A-F\d]&#123;32&#125;)$/</span><br></pre></td></tr></table></figure></li>
+<li><p>GUID&#x2F;UUID</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-f\d]&#123;4&#125;(?:[a-f\d]&#123;4&#125;-)&#123;4&#125;[a-f\d]&#123;12&#125;$/i</span><br></pre></td></tr></table></figure></li>
+<li><p>版本号(version)格式必须为X.Y.Z</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d+(?:\.\d+)&#123;2&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>视频(video)链接地址（视频格式可按需增删）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^https?:\/\/(.+\/)+.+(\.(swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4))$/i</span><br></pre></td></tr></table></figure></li>
+<li><p>图片(image)链接地址（图片格式可按需增删）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/i</span><br></pre></td></tr></table></figure></li>
+<li><p>24小时制时间（HH:mm:ss）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/</span><br></pre></td></tr></table></figure></li>
+<li><p>12小时制时间（hh:mm:ss）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:1[0-2]|0?[1-9]):[0-5]\d:[0-5]\d$/</span><br></pre></td></tr></table></figure></li>
+<li><p>base64格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\s*data:(?:[a-z]+\/[a-z0-9-+.]+(?:;[a-z-]+=[a-z0-9-]+)?)?(?:;base64)?,([a-z0-9!$&amp;&#x27;,()*+;=\-._~:@/?%\s]*?)\s*$/i</span><br></pre></td></tr></table></figure></li>
+<li><p>数字&#x2F;货币金额（支持负数、千分位分隔符）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^-?\d+(,\d&#123;3&#125;)*(\.\d&#123;1,2&#125;)?$/</span><br></pre></td></tr></table></figure></li>
+<li><p>数字&#x2F;货币金额 (只支持正数、不支持校验千分位分隔符)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(?:^[1-9]([0-9]+)?(?:\.[0-9]&#123;1,2&#125;)?$)|(?:^(?:0)$)|(?:^[0-9]\.[0-9](?:[0-9])?$)/</span><br></pre></td></tr></table></figure></li>
+<li><p>银行卡号（10到30位, 覆盖对公&#x2F;私账户, 参考微信支付）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]\d&#123;9,29&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>中文姓名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:[\u4e00-\u9fa5·]&#123;2,16&#125;)$/</span><br></pre></td></tr></table></figure></li>
+<li><p>英文姓名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(^[a-zA-Z][a-zA-Z\s]&#123;0,20&#125;[a-zA-Z]$)/</span><br></pre></td></tr></table></figure></li>
+<li><p>车牌号(新能源)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](?:((\d&#123;5&#125;[A-HJK])|([A-HJK][A-HJ-NP-Z0-9][0-9]&#123;4&#125;))|[A-HJ-NP-Z0-9]&#123;4&#125;[A-HJ-NP-Z0-9挂学警港澳])$/</span><br></pre></td></tr></table></figure></li>
+<li><p>车牌号(非新能源)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]&#123;4&#125;[A-HJ-NP-Z0-9挂学警港澳]$/</span><br></pre></td></tr></table></figure></li>
+<li><p>车牌号(新能源+非新能源)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]&#123;4,5&#125;[A-HJ-NP-Z0-9挂学警港澳]$/</span><br></pre></td></tr></table></figure></li>
+<li><p>手机号(mobile phone)中国(严谨), 根据工信部2019年最新公布的手机号段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[189]))\d&#123;8&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>手机号(mobile phone)中国(宽松), 只要是13,14,15,16,17,18,19开头即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:(?:\+|00)86)?1[3-9]\d&#123;9&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>手机号(mobile phone)中国(最宽松), 只要是1开头即可, 如果你的手机号是用来接收短信, 优先建议选择这一条</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:(?:\+|00)86)?1\d&#123;10&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>date(日期)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d&#123;1,4&#125;(-)(1[0-2]|0?[1-9])\1(0?[1-9]|[1-2]\d|30|31)$/</span><br></pre></td></tr></table></figure></li>
+<li><p>email(邮箱)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(([^&lt;&gt;()[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span><br></pre></td></tr></table></figure></li>
+<li><p>座机(tel phone)电话(国内),如: 0341-86091234</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:(?:\d&#123;3&#125;-)?\d&#123;8&#125;|^(?:\d&#123;4&#125;-)?\d&#123;7,8&#125;)(?:-\d+)?$/</span><br></pre></td></tr></table></figure></li>
+<li><p>身份证号(1代,15位数字)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]\d&#123;7&#125;(?:0\d|10|11|12)(?:0[1-9]|[1-2][\d]|30|31)\d&#123;3&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>身份证号(2代,18位数字),最后一位是校验位,可能为数字或字符X</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9]\d&#123;5&#125;(?:18|19|20)\d&#123;2&#125;(?:0[1-9]|10|11|12)(?:0[1-9]|[1-2]\d|30|31)\d&#123;3&#125;[\dXx]$/</span><br></pre></td></tr></table></figure></li>
+<li><p>身份证号, 支持1&#x2F;2代(15位&#x2F;18位数字)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(^\d&#123;8&#125;(0\d|10|11|12)([0-2]\d|30|31)\d&#123;3&#125;$)|(^\d&#123;6&#125;(18|19|20)\d&#123;2&#125;(0[1-9]|10|11|12)([0-2]\d|30|31)\d&#123;3&#125;(\d|X|x)$)/</span><br></pre></td></tr></table></figure></li>
+<li><p>护照（包含香港、澳门）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(^[EeKkGgDdSsPpHh]\d&#123;8&#125;$)|(^(([Ee][a-fA-F])|([DdSsPp][Ee])|([Kk][Jj])|([Mm][Aa])|(1[45]))\d&#123;7&#125;$)/</span><br></pre></td></tr></table></figure></li>
+<li><p>帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线组合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z]\w&#123;4,15&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>中文&#x2F;汉字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:[\u3400-\u4DB5\u4E00-\u9FEA\uFA0E\uFA0F\uFA11\uFA13\uFA14\uFA1F\uFA21\uFA23\uFA24\uFA27-\uFA29]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0])+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>小数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d+\.\d+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d&#123;1,&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>html标签(宽松匹配)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&lt;(\w+)[^&gt;]*&gt;(.*?&lt;\/\1&gt;)?/</span><br></pre></td></tr></table></figure></li>
+<li><p>qq号格式正确</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1-9][0-9]&#123;4,10&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>数字和字母组成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[A-Za-z0-9]+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>英文字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z]+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>小写英文字母组成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-z]+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>大写英文字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[A-Z]+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>密码强度校验，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\S*(?=\S&#123;6,&#125;)(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&amp;*? ])\S*$/</span><br></pre></td></tr></table></figure></li>
+<li><p>用户名校验，4到16位（字母，数字，下划线，减号）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z0-9_-]&#123;4,16&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>ip-v4[:端口]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.)&#123;3&#125;(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])(?::(?:[0-9]|[1-9][0-9]&#123;1,3&#125;|[1-5][0-9]&#123;4&#125;|6[0-4][0-9]&#123;3&#125;|65[0-4][0-9]&#123;2&#125;|655[0-2][0-9]|6553[0-5]))?$/</span><br></pre></td></tr></table></figure></li>
+<li><p>ip-v6[:端口]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?:(?:(?:[0-9A-Fa-f]&#123;1,4&#125;:)&#123;7&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;6&#125;:[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;5&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)?[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;4&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,2&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;3&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,3&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;2&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,4&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;6&#125;((\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b)\.)&#123;3&#125;(\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b))|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,5&#125;:((\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b)\.)&#123;3&#125;(\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b))|(::([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,5&#125;((\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b)\.)&#123;3&#125;(\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b))|([0-9A-Fa-f]&#123;1,4&#125;::([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,5&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(::([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,6&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;1,7&#125;:))|\[(?:(?:(?:[0-9A-Fa-f]&#123;1,4&#125;:)&#123;7&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;6&#125;:[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;5&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)?[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;4&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,2&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;3&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,3&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;2&#125;:([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,4&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;6&#125;((\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b)\.)&#123;3&#125;(\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b))|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,5&#125;:((\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b)\.)&#123;3&#125;(\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b))|(::([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,5&#125;((\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b)\.)&#123;3&#125;(\b((25[0-5])|(1\d&#123;2&#125;)|(2[0-4]\d)|(\d&#123;1,2&#125;))\b))|([0-9A-Fa-f]&#123;1,4&#125;::([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,5&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(::([0-9A-Fa-f]&#123;1,4&#125;:)&#123;0,6&#125;[0-9A-Fa-f]&#123;1,4&#125;)|(([0-9A-Fa-f]&#123;1,4&#125;:)&#123;1,7&#125;:))\](?::(?:[0-9]|[1-9][0-9]&#123;1,3&#125;|[1-5][0-9]&#123;4&#125;|6[0-4][0-9]&#123;3&#125;|65[0-4][0-9]&#123;2&#125;|655[0-2][0-9]|6553[0-5]))?$/i</span><br></pre></td></tr></table></figure></li>
+<li><p>16进制颜色</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^#?([a-fA-F0-9]&#123;6&#125;|[a-fA-F0-9]&#123;3&#125;)$/</span><br></pre></td></tr></table></figure></li>
+<li><p>微信号(wx)，6至20位，以字母开头，字母，数字，减号，下划线</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z][-_a-zA-Z0-9]&#123;5,19&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>邮政编码(中国)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(0[1-7]|1[0-356]|2[0-7]|3[0-6]|4[0-7]|5[1-7]|6[1-7]|7[0-5]|8[013-6])\d&#123;4&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>中文和数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^((?:[\u3400-\u4DB5\u4E00-\u9FEA\uFA0E\uFA0F\uFA11\uFA13\uFA14\uFA1F\uFA21\uFA23\uFA24\uFA27-\uFA29]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0])|(\d))+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>不能包含字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[^A-Za-z]*$/</span><br></pre></td></tr></table></figure></li>
+<li><p>java包名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^([a-zA-Z_]\w*)+([.][a-zA-Z_]\w*)+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>mac地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^((([a-f0-9]&#123;2&#125;:)&#123;5&#125;)|(([a-f0-9]&#123;2&#125;-)&#123;5&#125;))[a-f0-9]&#123;2&#125;$/i</span><br></pre></td></tr></table></figure></li>
+<li><p>匹配连续重复的字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(.)\1+/</span><br></pre></td></tr></table></figure></li>
+<li><p>数字和英文字母组成，并且同时含有数字和英文字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?=.*[a-zA-Z])(?=.*\d).+$/</span><br></pre></td></tr></table></figure></li>
+<li><p>香港身份证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z]\d&#123;6&#125;\([\dA]\)$/</span><br></pre></td></tr></table></figure></li>
+<li><p>澳门身份证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[1|5|7]\d&#123;6&#125;[(\d)]&#123;3&#125;$/</span><br></pre></td></tr></table></figure></li>
+<li><p>台湾身份证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z][0-9]&#123;9&#125;$/</span><br></pre></td></tr></table></figure></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">星染</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/04/02/%E7%AC%94%E8%AE%B0%C2%B7%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%A4%BA%E4%BE%8B/">http://example.com/2022/04/02/%E7%AC%94%E8%AE%B0%C2%B7%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%A4%BA%E4%BE%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">星染Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/04/02/KNL3V5kxivPswQE.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/08/C%E8%AF%AD%E8%A8%80_%E6%8C%87%E9%92%88/"><img class="prev-cover" src="https://s2.loli.net/2022/04/08/rPTgLBaZwUICWx8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C的学习日记-指针</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/02/Python%E8%BD%ACexe/"><img class="next-cover" src="https://s2.loli.net/2022/04/02/w3cIuODzPpTAJho.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">python打包成exe</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/31/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="笔记·正则表达式和re库"><img class="cover" src="/img/bj6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-31</div><div class="title">笔记·正则表达式和re库</div></div></a></div><div><a href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库"><img class="cover" src="https://s2.loli.net/2022/05/01/ZYTFxGAH5DKtMLz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-01</div><div class="title">笔记·JavaScript之jQuery库</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&amp;spec=5" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星染</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jhxxr"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jhxxr" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2471717907@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/Hexo+Butterfly/" title="Hexo备份"><img src="https://s2.loli.net/2022/03/29/JdzIBc8LjRsStOy.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo备份"/></a><div class="content"><a class="title" href="/2022/05/06/Hexo+Butterfly/" title="Hexo备份">Hexo备份</a><time datetime="2022-05-06T15:00:00.000Z" title="发表于 2022-05-06 23:00:00">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/03/python%E5%A4%84%E7%90%86xls/" title="python提取Excel中超链接并下载"><img src="https://s2.loli.net/2022/05/03/rL2DfTMyVbsv8zR.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python提取Excel中超链接并下载"/></a><div class="content"><a class="title" href="/2022/05/03/python%E5%A4%84%E7%90%86xls/" title="python提取Excel中超链接并下载">python提取Excel中超链接并下载</a><time datetime="2022-05-03T06:00:00.000Z" title="发表于 2022-05-03 14:00:00">2022-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库"><img src="https://s2.loli.net/2022/05/01/ZYTFxGAH5DKtMLz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记·JavaScript之jQuery库"/></a><div class="content"><a class="title" href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库">笔记·JavaScript之jQuery库</a><time datetime="2022-05-01T14:00:00.000Z" title="发表于 2022-05-01 22:00:00">2022-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/" title="C_4月29日作业"><img src="https://s2.loli.net/2022/04/29/psgfB4y6Qdea2T9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C_4月29日作业"/></a><div class="content"><a class="title" href="/2022/04/29/C%E8%AF%AD%E8%A8%802022%E5%B9%B44%E6%9C%8829%E6%97%A5%E4%BD%9C%E4%B8%9A/" title="C_4月29日作业">C_4月29日作业</a><time datetime="2022-04-29T11:53:00.000Z" title="发表于 2022-04-29 19:53:00">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/28/CZU%E6%89%93%E5%8D%A1%E6%9F%A5%E8%AF%A2py%E7%89%88/" title="一键查询未打卡同学"><img src="https://s2.loli.net/2022/04/28/mALh3pMTSIoKqzO.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一键查询未打卡同学"/></a><div class="content"><a class="title" href="/2022/04/28/CZU%E6%89%93%E5%8D%A1%E6%9F%A5%E8%AF%A2py%E7%89%88/" title="一键查询未打卡同学">一键查询未打卡同学</a><time datetime="2022-04-28T10:00:00.000Z" title="发表于 2022-04-28 18:00:00">2022-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 星染</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="/live2d-widget/autoload.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" href="categories/编程/">编程</a><span class="categoryBar-list-count">15</span><span class="categoryBar-list-descr">Ubuntu指南</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" href="categories/编程/python/">python</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">玩转Win10</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" href="categories/编程/C/">C</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">长篇小说连载</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" href="categories/编程/Node-js/">Node.js</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">个人日记</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover5.webp);"> <a class="categoryBar-list-link" href="categories/Hexo/">Hexo</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">诗词歌赋</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover6.webp);"> <a class="categoryBar-list-link" href="categories/编程/MarkDown/">MarkDown</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">杂谈教程</span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/编程/JavaScript/">JavaScript</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
