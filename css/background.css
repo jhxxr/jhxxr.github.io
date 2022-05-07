@@ -1,6 +1,6 @@
 /*页脚与背景统一*/
 #footer {
-    background: rgba(255, 255, 255, 0.136);
+    background: rgba(255, 255, 255, 0);
     color: #000;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -12,11 +12,11 @@
 }
 
 #footer #footer-wrap {
-    color: var(--font-color)
+    color: #fff
 }
 
 #footer #footer-wrap a {
-    color: var(--font-color)
+    color: #d2ebfd
 }
 /*背景图背景*/
 #web_bg {
