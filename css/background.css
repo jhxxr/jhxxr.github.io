@@ -21,13 +21,13 @@
 /*背景图背景*/
 #web_bg {
 
-  background-image: url("https://s2.loli.net/2022/05/03/nfHZJ3lGicWjFL1.png"),
+  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
     -moz-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
-  background-image: url("https://s2.loli.net/2022/05/03/nfHZJ3lGicWjFL1.png"),
+  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
     -webkit-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
-  background-image: url("https://s2.loli.net/2022/05/03/nfHZJ3lGicWjFL1.png"),
+  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
     -ms-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
-  background-image: url("https://s2.loli.net/2022/05/03/nfHZJ3lGicWjFL1.png"),
+  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
     linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
 }
 
