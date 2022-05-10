@@ -21,13 +21,13 @@
 /*背景图背景*/
 #web_bg {
 
-  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
+  background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
     -moz-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
-  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
+  background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
     -webkit-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
-  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
+  background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
     -ms-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
-  background-image: url("https://jhx.stdcdn.com/bjl.jpg"),
+  background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
     linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
 }
 
