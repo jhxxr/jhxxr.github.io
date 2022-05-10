@@ -6,3 +6,108 @@ svg.icon {
     overflow: hidden;
  }
  
+
+/*aplay 手机端自动隐藏*/
+ .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+    left: -66px !important;
+    /* 默认情况下缩进左侧66px，只留一点箭头部分 */
+  }
+  
+  .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+    left: 0 !important;
+    /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
+  }
+  
+/*强制不显示歌词*/
+.aplayer.aplayer-fixed .aplayer-lrc{
+    display: none!important;
+}
+
+/*修改插件整体背景*/
+.aplayer.aplayer-fixed {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    border-radius:0 4px 0 0!important;
+}
+
+.aplayer-body{
+    background: rgba(255,255,255,0.1)!important;
+    backdrop-filter: blur(10px);
+}
+
+/*修改列表正在播放的歌曲背景*/
+.aplayer-list-light{
+    background: rgba(255,255,255,0.1)!important;
+    backdrop-filter: blur(10px);
+}
+
+/*修改歌曲列表背景*/
+.aplayer-list {
+    border: 1px solid #f1f1f1!important;
+    border-radius: 4px!important;
+}
+
+/*修改歌曲列表鼠标悬停时背景*/
+.aplayer-list li:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px);
+}
+
+/*修改播放列表正在播放歌曲左侧提示条颜色*/
+.aplayer-list-cur{
+    background: #666!important;
+}
+
+/*修改进度条颜色，不设置此项默认是蓝色 #2980b9*/
+.aplayer-bar .aplayer-played,.aplayer-thumb{
+    background: #4c4948!important;
+}
+
+/*删除底部歌曲播放信息边框*/
+.aplayer-info{
+    border: none!important;
+}
+
+/*删除歌曲列表边框*/
+.aplayer-list li {
+    border: none!important;
+}
+
+/*删除歌词按钮*/
+.aplayer-icon.aplayer-icon-lrc{
+    display: none!important;
+}
+
+/*修改插件主体在深色模式下的样式*/
+[data-theme="dark"]
+.aplayer.aplayer-fixed {
+    background: rgba(0, 0, 0, 0.6)!important;
+    color: #e1e1e1;
+}
+
+/*修改深色模式下鼠标悬停在列表时的样式*/
+[data-theme="dark"]
+.aplayer-list li:hover {
+    background: rgba(0, 0, 0, 0.5) !important;
+
+}
+
+/*修改歌曲列表在深色模式下的样式*/
+[data-theme="dark"]
+.aplayer-list {
+    background: rgba(12, 12, 12, 0) !important;
+    border: 1px solid #0d0d0d!important;
+}
+
+/*修改深色模式下列表当前选中的歌曲样式*/
+[data-theme="dark"]
+.aplayer-list-light{
+    background: rgba(0,0,0,0.5)!important;
+}
+
+/*深色模式下给歌曲封面增加遮罩*/
+[data-theme="dark"]
+.aplayer-pic {
+    -webkit-filter: brightness(.7)!important;
+    filter: brightness(.7)!important;
+}
