@@ -165,5 +165,8 @@
   box-shadow: var(--heo-shadow-blue);
 }
 .cardHover, .layout > div:first-child:not(.recent-posts), #recent-posts > .recent-post-item, #aside-content .card-widget, .layout > .recent-posts .pagination > *:not(.space){
-    background:#ffffff47 !important;
+    background:#ffffff9c !important;
+}
+#page-header{
+  background: #49b1f500 !important;
 }
