@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>GitHub Actions基础 | 星染Blog</title><meta name="keywords" content="Github Actions"><meta name="author" content="星染"><meta name="copyright" content="星染"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="简介GitHub Actions 是 Microsoft 收购 GitHub 后推出的持续集成 (Continuous integration，简称 CI) 服务，它提供了配置非常不错的虚拟服务器环境，基于它可以进行构建、测试、打包、部署项目。简单来讲就是将软件开发中的一些流程交给云服务器自动化处理，比方说开发者把代码 push 到 GitHub 后它会自动测试、编译、发布。有了持续集成服务开发者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Actions基础">
+<meta property="og:url" content="http://jhxxr.github.io/2022/05/11/Github_Actions/index.html">
+<meta property="og:site_name" content="星染Blog">
+<meta property="og:description" content="简介GitHub Actions 是 Microsoft 收购 GitHub 后推出的持续集成 (Continuous integration，简称 CI) 服务，它提供了配置非常不错的虚拟服务器环境，基于它可以进行构建、测试、打包、部署项目。简单来讲就是将软件开发中的一些流程交给云服务器自动化处理，比方说开发者把代码 push 到 GitHub 后它会自动测试、编译、发布。有了持续集成服务开发者">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/05/11/CwZkdlEg7VQa3Rm.png">
+<meta property="article:published_time" content="2022-05-11T06:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T05:47:06.519Z">
+<meta property="article:author" content="星染">
+<meta property="article:tag" content="Github Actions">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/11/CwZkdlEg7VQa3Rm.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://jhxxr.github.io/2022/05/11/Github_Actions/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'GitHub Actions基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-11 13:47:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/tags.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="ghost-container"><div class="ghost"><div class="body"><div class="ghost-head"><div class="face"><div class="eyes-row"><div class="eye left"></div><div class="eye right"></div></div><div class="mouth-row"><div class="left rosy"></div><div class="smile"><div class="mouth-top"></div><div class="mouth-bottom"></div></div><div class="right rosy"></div></div></div></div><div class="ghost-body"><div class="arm left"></div><div class="arm right"></div><div class="ghost-skirt"><div class="down pleat"></div><div class="pleat up"></div><div class="down pleat"></div><div class="pleat up"></div><div class="down pleat"></div></div></div></div><div class="shadow"></div></div><div class="stars"><div class="orange pointy star star-1"><div class="star-element"></div></div><div class="orange pointy star star-2"><div class="star-element"></div></div><div class="pointy star star-3 yellow"><div class="star-element"></div></div><div class="pointy star star-4 yellow"><div class="star-element"></div></div><div class="blue round star star-5"><div class="star-element"></div></div><div class="blue round star star-6"><div class="star-element"></div></div></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&amp;spec=5" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/bb/"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-dongtai"></use></svg><span> 我的动态</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-171.5px;"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-archive"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-guanyuwomen"></use></svg><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星染Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/bb/"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-dongtai"></use></svg><span> 我的动态</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-171.5px;"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-archive"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-guanyuwomen"></use></svg><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">GitHub Actions基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-11T06:00:00.000Z" title="发表于 2022-05-11 14:00:00">2022-05-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-11T05:47:06.519Z" title="更新于 2022-05-11 13:47:06">2022-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Github/">Github</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="GitHub Actions基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><div class="note no-icon flat"><p>GitHub Actions 是 Microsoft 收购 GitHub 后推出的持续集成 (Continuous integration，简称 CI) 服务，它提供了配置非常不错的虚拟服务器环境，基于它可以进行构建、测试、打包、部署项目。简单来讲就是将软件开发中的一些流程交给云服务器自动化处理，比方说开发者把代码 push 到 GitHub 后它会自动测试、编译、发布。有了持续集成服务开发者就可以专心于写代码，这样可以大大提高开发效率。  GitHub Actions 为每个任务 (job) 都提供了一个虚拟机来执行，每台虚拟机都有相同的硬件资源：  </p>
+<ul>
+<li>2-core CPU </li>
+<li>7 GB RAM 内存 </li>
+<li>14 GB SSD 硬盘空间</li>
+</ul>
+<p>使用限制：  </p>
+<ul>
+<li>每个仓库只能同时支持20个 workflow 并行。 </li>
+<li>每小时可以调用1000次 GitHub API 。 </li>
+<li>每个 job 最多可以执行6个小时。 </li>
+<li>免费版的用户最大支持20个 job 并发执行，macOS 最大只支持5个。 </li>
+<li>私有仓库每月累计使用时间为2000分钟，超过后$ 0.008&#x2F;分钟，公共仓库则无限制。</li>
+</ul>
+<p>操作系统方面可选择 Windows server、Linux、macOS，并预装了大量软件包和工具。 虽然名称叫持续集成，但当所有任务终止和完成时，虚拟环境内的数据会随之清空，并不会持续。即每个新任务都是一个全新的虚拟环境。</p>
+</div>
+
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
+<li>workflow （工作流程）：持续集成一次运行的过程。</li>
+<li>job （任务）：一个 workflow 由一个或多个 job 构成，含义是一次持续集成的运行，可以完成多个任务。</li>
+<li>step（步骤）：每个 job 由多个 step 构成，一步步完成。</li>
+<li>action （动作）：每个 step 可以依次执行一个或多个命令（action）。<h1 id="workflow-文件"><a href="#workflow-文件" class="headerlink" title="workflow 文件"></a>workflow 文件</h1>GitHub Actions 的配置文件叫做 workflow 文件 ，存放在代码仓库的 <code>.github/workflows</code> 目录中 。<br>workflow 文件采用 <a target="_blank" rel="noopener" href="https://yaml.org/">YAML</a> 格式，文件名可以任意取，但是后缀名为<code>.yml</code> 或者 <code>.yaml</code> <a target="_blank" rel="noopener" href="https://yaml.org/faq.html">官方推荐使用yaml</a>。<br>一个库可以有多个 work­flow 文件，GitHub 只要发现<code>.github/workflows</code> 目录里面有yaml 文件，就会按照文件中所指定的触发条件在符合条件时自动运行该文件中的工作流程。</li>
+</ul>
+<h1 id="Github-workflow语法"><a href="#Github-workflow语法" class="headerlink" title="Github workflow语法"></a><a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/reference/workflow-syntax-for-github-actions">Github workflow语法</a></h1><h2 id="name"><a href="#name" class="headerlink" title="name"></a>name</h2><p>name 字段 是GitHub在仓库的操作页面上显示 workflow 的名称。如果省略name，默认为当前 workflow 的文件名。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Hello,</span> <span class="string">Github</span> <span class="string">actions</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="on"><a href="#on" class="headerlink" title="on"></a>on</h2><p>on字段指定触发 workflow 的条件，通常是某些事件。<a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows">详细事件列表参考</a></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#触发workflow</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#push事件触发 </span></span><br><span class="line"><span class="attr">on:</span> <span class="string">push</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#on字段也可以是事件的数组。</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>, <span class="string">pull_request</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#push 指定分支触发或tag</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;v*&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#定时触发</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="number">0</span> <span class="number">11</span> <span class="string">*</span> <span class="string">*</span> <span class="string">*</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#仓库被 star 时触发</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">watch:</span></span><br><span class="line">    <span class="attr">types:</span> [<span class="string">started</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#发布 release 触发</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">release:</span></span><br><span class="line">    <span class="attr">types:</span> [<span class="string">published</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#在 workflow 的页面下点击 Run workflow 按钮即可触发</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">workflow_dispatch::</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="workflow-dispatch"><a href="#workflow-dispatch" class="headerlink" title="workflow_dispatch"></a><a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#manual-events">workflow_dispatch</a></h1><h2 id="evn"><a href="#evn" class="headerlink" title="evn"></a>evn</h2><p>环境变量的 <code>map</code> 可用于 workflow 中所有 jobs 。也可以在指定的 jobs 中设置。</p>
+<h2 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h2><p><code>jobs</code> 字段是 workflow 文件的主体。 表示要执行的一项或多项任务。</p>
+<p>每一个 <code>jobs</code> 字段里面都必须有一个 <code>job_id</code> ， <code>job_id</code> 里面的 <code>name</code> 字段是任务的名称。<code>job_id</code> 不能有空格，只能使用数字、英文字母和 <code>- </code>或<code>_</code>符号，而 <code>name</code> 可以随意，若忽略 <code>name</code> 字段，则默认会设置为 job_id。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job_id1:</span></span><br><span class="line">  <span class="attr">job_id2:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">second</span> <span class="string">job</span></span><br></pre></td></tr></table></figure>
+<p>默认是并行运行。如果需要按顺序执行，则需要 使用 <code>&lt;job_id&gt;needs</code>关键词在其他 jobs 上定义依赖项。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#此示例中，job1 必须在 job2 开始之前成功完成，而 job3 要等待 job1 和 job2 完成。</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job1:</span></span><br><span class="line">  <span class="attr">job2:</span></span><br><span class="line">    <span class="attr">needs:</span> <span class="string">job1</span></span><br><span class="line">  <span class="attr">job3:</span></span><br><span class="line">    <span class="attr">needs:</span> [<span class="string">job1</span>, <span class="string">job2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#此示例中，job3 使用 always() 条件表达式，因此它始终在 job1 和 job2 完成后运行，不管它们是否成功。</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job1:</span></span><br><span class="line">  <span class="attr">job2:</span></span><br><span class="line">    <span class="attr">needs:</span> <span class="string">job1</span></span><br><span class="line">  <span class="attr">job3:</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">always()</span></span><br><span class="line">    <span class="attr">needs:</span> [<span class="string">job1</span>, <span class="string">job2</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="runs-on"><a href="#runs-on" class="headerlink" title="runs-on"></a>runs-on</h2><p><code>runs-on</code> 必填字段，指定运行所需要的虚拟机环境。 可以是 <a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/reference/specifications-for-github-hosted-runners">GitHub 托管的运行器</a> 或自托管的运行器。<br><a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits">可用的虚拟机以及限制</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">虚拟环境</th>
+<th align="center">YAML 工作流程标签</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Windows Server 2019</td>
+<td align="center"><code>windows-latest</code> 或 <code>windows-2019</code></td>
+</tr>
+<tr>
+<td align="center">Ubuntu 20.04</td>
+<td align="center"><code>ubuntu-latest</code> (see note) or <code>ubuntu-20.04</code></td>
+</tr>
+<tr>
+<td align="center">Ubuntu 18.04</td>
+<td align="center"><code>ubuntu-latest</code> (see note) or <code>ubuntu-18.04</code></td>
+</tr>
+<tr>
+<td align="center">Ubuntu 16.04</td>
+<td align="center"><code>ubuntu-16.04</code></td>
+</tr>
+<tr>
+<td align="center">macOS Big Sur 11.0</td>
+<td align="center"><code>macos-11.0</code></td>
+</tr>
+<tr>
+<td align="center">macOS Catalina 10.15</td>
+<td align="center"><code>macos-latest</code> 或 <code>macos-10.15</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">runs-on:</span> <span class="string">ubuntu-18.04</span></span><br></pre></td></tr></table></figure>
+<h2 id="steps"><a href="#steps" class="headerlink" title="steps"></a>steps</h2><p><code>steps</code>字段指定每个 Job 的运行步骤，可以包含一个或多个步骤。 步骤开头使用 <code>-</code> 符号。</p>
+<p>jobs 包含一系列任务，称为 <code>steps</code>。 步骤可以运行命令、运行设置任务，或者运行您的仓库、公共仓库中的操作或 Docker 注册表中发布的操作。 并非所有步骤都会运行操作，但所有操作都会作为步骤运行。 每个步骤在运行器环境中以其自己的进程运行，且可以访问工作区和文件系统。 因为步骤以自己的进程运行，所以步骤之间不会保留环境变量的更改。 GitHub 提供内置的步骤来设置和完成作业。</p>
+<p>每个步骤都可以指定以下字段:</p>
+<ul>
+<li><p><code>name</code>：步骤名称，可以忽略 。</p>
+</li>
+<li><p><code>uses</code>：该步骤引用的 <code>action</code> 或 <code>Docker</code> 镜像。</p>
+</li>
+<li><p><code>run</code>：使用操作系统 shell 运行命令行程序。 如果不提供 <code>name</code>，步骤名称将默认为 <code>run</code> 命令中指定的文本。命令默认使用非登录 shell 运行。 您可以选择不同的 shell，也可以自定义用于运行命令的 shell。 更多信息请参阅“<a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/reference/workflow-syntax-for-github-actions#example-running-a-script-using-bash">使用指定shell</a>”。</p>
+</li>
+<li><p><code>env</code>：该步骤所需的环境变量。</p>
+</li>
+<li><p><code>uses</code> 和 <code>run</code> 是必填字段，每个步骤只能选择一个。</p>
+</li>
+</ul>
+<h2 id="action"><a href="#action" class="headerlink" title="action"></a>action</h2><p><a target="_blank" rel="noopener" href="https://docs.github.com/cn/actions/creating-actions/about-actions">关于actions</a><br><code>action</code> 是 GitHub Ac­tions 中的重要组成部分， 比如抓取代码、运行测试、登录远程服务器，发布到第三方服务等 都属于actions，它是已经编写好的步骤脚本，存放在<a target="_blank" rel="noopener" href="https://github.com/actions">官方 action 仓库</a>或者 <a target="_blank" rel="noopener" href="https://github.com/marketplace?type=actions">GitHub Marketplace</a> 去获取。此外 <a target="_blank" rel="noopener" href="https://github.com/sdras/awesome-actions">Awesome Actions</a> 这个项目收集了很多非常不错的 <code>action</code>。</p>
+<p><code>action</code> 是代码仓库，所以也有版本的概念。 使用<code>userName/repoName</code>的语法引用 <code>actio</code>n 。如： <code>actions/xxx</code>就表示<code>github.com/actions/xxx</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">steps:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@74bc508</span> <span class="comment"># 指定一个 commit</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1.2</span>    <span class="comment"># 指定一个 tag</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@master</span>  <span class="comment"># 指定一个分支</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="一个复杂的hello-action"><a href="#一个复杂的hello-action" class="headerlink" title="一个复杂的hello action"></a>一个复杂的hello action</h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Hello,</span> <span class="string">Github</span> <span class="string">Actions</span></span><br><span class="line"></span><br><span class="line"><span class="attr">env:</span></span><br><span class="line">  <span class="attr">MY_NAME:</span> <span class="string">Hzlarm</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line"><span class="comment">#  repository_dispatch:</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line">    <span class="attr">inputs:</span></span><br><span class="line">      <span class="attr">name:</span></span><br><span class="line">        <span class="attr">description:</span> <span class="string">&#x27;Person to greet&#x27;</span></span><br><span class="line">        <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">default:</span> <span class="string">&#x27;Mona the Octocat&#x27;</span></span><br><span class="line">      <span class="attr">home:</span></span><br><span class="line">        <span class="attr">description:</span> <span class="string">&#x27;location&#x27;</span></span><br><span class="line">        <span class="attr">required:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">default:</span> <span class="string">&#x27;The Octoverse&#x27;</span></span><br><span class="line"><span class="comment">#  schedule:</span></span><br><span class="line"><span class="comment">#    - cron: 0 18 * * 5</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">job1:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">first</span> <span class="string">job</span></span><br><span class="line">    <span class="attr">needs:</span> <span class="string">job2</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-20.04</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">github.event.repository.owner.id</span> <span class="string">==</span> <span class="string">github.event.sender.id</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">ref:</span> <span class="string">main</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Single</span> <span class="string">CMD</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line">  <span class="attr">job2:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">second</span> <span class="string">job</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">macos-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Multiple</span> <span class="string">CMDs</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">HI:</span> <span class="string">Hello</span> <span class="string">World!</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        echo $HI</span></span><br><span class="line"><span class="string">        echo My name is $MY_NAME</span></span><br><span class="line"><span class="string">        echo &quot;Hello $&#123;&#123; github.event.inputs.name &#125;&#125;!&quot;</span></span><br><span class="line"><span class="string">        echo &quot;- in $&#123;&#123; github.event.inputs.home &#125;&#125;!&quot;</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>GitHub Actions基础</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://jhxxr.github.io/2022/05/11/Github_Actions/">http://jhxxr.github.io/2022/05/11/Github_Actions/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>星染</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2022-05-11</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2022-05-11</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Github-Actions/">Github Actions</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/05/11/CwZkdlEg7VQa3Rm.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/05/10/bb%E5%8F%91%E9%80%81/"><img class="next-cover" src="https://jhx.stdcdn.com/bjl.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">哔哔QQ发送</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&amp;spec=5" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星染</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" href="https://jhxxr.github.io/jhxnb"><i class="fab fa-github"></i><span>主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jhxxr" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2471717907@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=SMLPvQb7AzGY8s0b81s7eId6_p47Xz2W&amp;noverify=0" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#workflow-%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">workflow 文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-workflow%E8%AF%AD%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">Github workflow语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#name"><span class="toc-number">4.1.</span> <span class="toc-text">name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#on"><span class="toc-number">4.2.</span> <span class="toc-text">on</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#workflow-dispatch"><span class="toc-number">5.</span> <span class="toc-text">workflow_dispatch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#evn"><span class="toc-number">5.1.</span> <span class="toc-text">evn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jobs"><span class="toc-number">5.2.</span> <span class="toc-text">jobs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#runs-on"><span class="toc-number">5.3.</span> <span class="toc-text">runs-on</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#steps"><span class="toc-number">5.4.</span> <span class="toc-text">steps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#action"><span class="toc-number">5.5.</span> <span class="toc-text">action</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E7%9A%84hello-action"><span class="toc-number">6.</span> <span class="toc-text">一个复杂的hello action</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/11/Github_Actions/" title="GitHub Actions基础"><img src="https://s2.loli.net/2022/05/11/CwZkdlEg7VQa3Rm.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub Actions基础"/></a><div class="content"><a class="title" href="/2022/05/11/Github_Actions/" title="GitHub Actions基础">GitHub Actions基础</a><time datetime="2022-05-11T06:00:00.000Z" title="发表于 2022-05-11 14:00:00">2022-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/10/bb%E5%8F%91%E9%80%81/" title="哔哔QQ发送"><img src="https://jhx.stdcdn.com/bjl.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哔哔QQ发送"/></a><div class="content"><a class="title" href="/2022/05/10/bb%E5%8F%91%E9%80%81/" title="哔哔QQ发送">哔哔QQ发送</a><time datetime="2022-05-10T02:00:00.000Z" title="发表于 2022-05-10 10:00:00">2022-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/Hexo+Butterfly/" title="Hexo备份"><img src="https://s2.loli.net/2022/05/07/Vdk8jogTLt6x1Q2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo备份"/></a><div class="content"><a class="title" href="/2022/05/06/Hexo+Butterfly/" title="Hexo备份">Hexo备份</a><time datetime="2022-05-06T15:00:00.000Z" title="发表于 2022-05-06 23:00:00">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/03/python%E5%A4%84%E7%90%86xls/" title="python提取Excel中超链接并下载"><img src="https://s2.loli.net/2022/05/03/rL2DfTMyVbsv8zR.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python提取Excel中超链接并下载"/></a><div class="content"><a class="title" href="/2022/05/03/python%E5%A4%84%E7%90%86xls/" title="python提取Excel中超链接并下载">python提取Excel中超链接并下载</a><time datetime="2022-05-03T06:00:00.000Z" title="发表于 2022-05-03 14:00:00">2022-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库"><img src="https://s2.loli.net/2022/05/01/ZYTFxGAH5DKtMLz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记·JavaScript之jQuery库"/></a><div class="content"><a class="title" href="/2022/05/01/%E7%AC%94%E8%AE%B0%C2%B7JavaScript%E4%B9%8BjQuery%E5%BA%93/" title="笔记·JavaScript之jQuery库">笔记·JavaScript之jQuery库</a><time datetime="2022-05-01T14:00:00.000Z" title="发表于 2022-05-01 22:00:00">2022-05-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By 星染</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-theta-five.vercel.app/',
+      region: 'us-east-1',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-theta-five.vercel.app/',
+      region: 'us-east-1',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      document.getElementById('twikoo-count').innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo@1/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_3384101_e9ehnseorfg.js"></script><div class="aplayer no-destroy" data-id="7428401340" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://cdn1.tianli0.top/npm/jhxxr-cdn/js/yejiao/dibusj.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/04/29/C语言2022年4月29日作业/" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/04/29/psgfB4y6Qdea2T9.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-29</span><a class="blog-slider__title" href="2022/04/29/C语言2022年4月29日作业/" alt="">C_4月29日作业</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2022/04/29/C语言2022年4月29日作业/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/04/27/CZU健康打卡查询/" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/04/27/jt17cGsDPx6beSR.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-27</span><a class="blog-slider__title" href="2022/04/27/CZU健康打卡查询/" alt="">一键查询未打卡同学js版</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2022/04/27/CZU健康打卡查询/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/04/10/C语言_基础/" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/04/10/JXVbPfrQcuE54vt.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-10</span><a class="blog-slider__title" href="2022/04/10/C语言_基础/" alt="">C的学习日记_基础</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2022/04/10/C语言_基础/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/04/02/笔记·正则表达式示例/" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/04/02/KNL3V5kxivPswQE.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-02</span><a class="blog-slider__title" href="2022/04/02/笔记·正则表达式示例/" alt="">笔记·正则表达式示例</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2022/04/02/笔记·正则表达式示例/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/05/03/python处理xls/" alt=""><img width="48" height="48" src="https://s2.loli.net/2022/05/03/rL2DfTMyVbsv8zR.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-05-03</span><a class="blog-slider__title" href="2022/05/03/python处理xls/" alt="">python提取Excel中超链接并下载</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2022/05/03/python处理xls/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
