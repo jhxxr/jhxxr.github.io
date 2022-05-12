@@ -13,8 +13,9 @@ var backimg =[
   document.getElementById("web_bg").style.backgroundImage = backimg[bgindex];
   //我坚持一图流！
   document.getElementById("page-header").style.backgroundImage = backimg[bgindex];
-  //随机banner数组,图片可以换成图床链接，注意最后一条后面不要有逗号
+ 
   /*
+   //随机banner数组,图片可以换成图床链接，注意最后一条后面不要有逗号
   var bannerimg =[
     "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b1.jpg)",
     "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b2.jpg)",
