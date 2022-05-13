@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>本站加速域名！！！</title>
+      <link href="/2022/05/13/CDNsite/"/>
+      <url>/2022/05/13/CDNsite/</url>
+      
+        <content type="html"><![CDATA[<div class="note red icon simple"><i class="note-icon fas fa-bullhorn"></i><p>网站打开速度太慢？ 那就试试我的CDN域名吧！</p></div><div class="btns circle grid1">            <a class="button" href='https://blog.jhx.asia' title='https://blog.jhx.asia'><img src='http://q2.qlogo.cn/headimg_dl?dst_uin=2471717907&spec=5'>https://blog.jhx.asia</a>          </div><hr><h1 id="我的部署-简要流程"><a href="#我的部署-简要流程" class="headerlink" title="我的部署 简要流程"></a>我的部署 简要流程</h1><ul><li>首先在<a href="https://vercel.com/">vercel</a>，将博客部署在vercel，获得源站域名jhxxr-github-io.vercel.app</li><li><a href="https://www.upyun.com/">又拍云</a>CDN服务，绑定源站域名，并绑定加速域名。</li></ul><del>讲的真简要，</del>后面慢慢补充吧。。。]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GitHub Actions基础</title>
       <link href="/2022/05/11/Github_Actions/"/>
       <url>/2022/05/11/Github_Actions/</url>
@@ -126,9 +139,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -379,9 +392,9 @@
       
         <tags>
             
-            <tag> 正则表达式 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 正则表达式 </tag>
             
         </tags>
       
