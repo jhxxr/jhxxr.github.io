@@ -114,12 +114,12 @@
 
 /* 鼠标 */
 body {
-    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
+    cursor: url(https://cdn1.tianli0.top/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
         default;
 }
 a,
 img {
-    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
+    cursor: url(https://cdn1.tianli0.top/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
         default;
 }
 
@@ -184,7 +184,7 @@ span:first-child {
  */
 
 #veditor {
-	background-image: url(https://cdn.jsdelivr.net/gh/jhxxr/cdn/tu/1.webp);
+	background-image: url(https://cdn1.tianli0.top/gh/jhxxr/cdn/tu/1.webp);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -465,7 +465,7 @@ span:first-child {
 @font-face {
     font-family: 'xrzi';
     /* 字体名自定义即可 */
-    src: url('https://cdn.jsdelivr.net/gh/jhxxr/cdn/ziti/ZhuZiAWan.woff2');
+    src: url('https://cdn1.tianli0.top/gh/jhxxr/cdn/ziti/ZhuZiAWan.woff2');
     /* 字体文件路径 */
     font-display: swap;
 }
