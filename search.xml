@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Python_BeautifulSoup解析html</title>
+      <link href="/2022/05/17/Python_BeautifulSoup/"/>
+      <url>/2022/05/17/Python_BeautifulSoup/</url>
+      
+        <content type="html"><![CDATA[<p>首先需要安装BeautifulSoup<br>        pip install BeautifulSoup</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding:UTF-8</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">html = </span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个BeautifulSoup解析对象</span></span><br><span class="line">soup = BeautifulSoup(html,<span class="string">&quot;html.parser&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(soup)</span><br><span class="line"><span class="comment">#获取所有的链接</span></span><br><span class="line">links = soup.find_all(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;所有的链接&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">    <span class="built_in">print</span> (link.name,link[<span class="string">&#x27;href&#x27;</span>],link.get_text())</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取特定的URL地址</span></span><br><span class="line">link123 = soup.find(<span class="string">&#x27;a&#x27;</span>,<span class="built_in">id</span>=<span class="string">&quot;xxx&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(link123)</span><br><span class="line"><span class="built_in">print</span> (link123[<span class="string">&#x27;value&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#正则表达式匹配</span></span><br><span class="line">link_node = soup.find(<span class="string">&#x27;a&#x27;</span>,href=re.<span class="built_in">compile</span>(<span class="string">r&quot;ti&quot;</span>))</span><br><span class="line"><span class="built_in">print</span> (link_node.name,link_node[<span class="string">&#x27;href&#x27;</span>],link_node[<span class="string">&#x27;class&#x27;</span>],link_node.get_text())</span><br><span class="line"> </span><br><span class="line"><span class="comment">#获取P段落的文字</span></span><br><span class="line">p_node = soup.find(<span class="string">&#x27;p&#x27;</span>,class_=<span class="string">&#x27;story&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> (p_node.name,p_node[<span class="string">&#x27;class&#x27;</span>],p_node.get_text())</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取特定的URL地址</span></span><br><span class="line">link_node = soup.find(<span class="string">&#x27;a&#x27;</span>,href=<span class="string">&quot;http://example.com/elsie&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> (link_node.name,link_node[<span class="string">&#x27;href&#x27;</span>],link_node[<span class="string">&#x27;class&#x27;</span>],link_node.get_text())</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C的学习日记·指针与变量</title>
       <link href="/2022/05/17/%E7%AC%94%E8%AE%B0%C2%B7%E5%8F%98%E9%87%8F/"/>
       <url>/2022/05/17/%E7%AC%94%E8%AE%B0%C2%B7%E5%8F%98%E9%87%8F/</url>
