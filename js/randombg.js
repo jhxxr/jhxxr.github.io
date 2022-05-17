@@ -1,11 +1,13 @@
 //随机背景图片数组,图片可以换成图床链接，注意最后一条后面不要有逗号
 var backimg =[
-    "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b1.jpg)",
-    "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b2.jpg)",
-    "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b3.jpg)",
-    "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b4.jpg)",
-    "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b5.jpg)",
-    "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b6.jpg)"
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/bj7.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/bj8.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b1.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b2.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b3.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b4.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn/tu/b5.jpg)",
+      "url(https://npm.elemecdn.com/jhxxr-cdn@latest/tu/b6.jpg)"
   ];
   //获取背景图片总数，生成随机数
   var bgindex =Math.floor(Math.random() * backimg.length);
