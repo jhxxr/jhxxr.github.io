@@ -1,26 +1,25 @@
 /*页脚与背景统一*/
 #footer {
-    background: rgba(255, 255, 255, 0);
-    color: #000;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    backdrop-filter: saturate(100%) blur(5px)
+  background: rgba(255, 255, 255, 0);
+  color: #000;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  backdrop-filter: saturate(100%) blur(5px);
 }
 
 #footer::before {
-    background: rgba(0, 0, 0, 0)
+  background: rgba(0, 0, 0, 0);
 }
 
 #footer #footer-wrap {
-    color: #fff
+  color: #fff;
 }
 
 #footer #footer-wrap a {
-    color: #d2ebfd
+  color: #d2ebfd;
 }
 /*背景图背景*/
 #web_bg {
-
   background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
     -moz-linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
   background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
@@ -30,9 +29,6 @@
   background-image: url("https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj12.jpg"),
     linear-gradient(45deg, #6dd0f2 15%, #f59abe 85%);
 }
-
-
-
 
 /*蓝紫渐变
 #web_bg {
@@ -47,8 +43,6 @@
 	
 }
 */
-
-
 
 /* 背景渐变色 
 #web_bg {
@@ -110,17 +104,15 @@
 }
 */
 
-
-
 /* 鼠标 */
 body {
-    cursor: url(https://cdn1.tianli0.top/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
-        default;
+  cursor: url(https://cdn1.tianli0.top/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
+    default;
 }
 a,
 img {
-    cursor: url(https://cdn1.tianli0.top/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
-        default;
+  cursor: url(https://cdn1.tianli0.top/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
+    default;
 }
 
 /* 滚动条 */
@@ -135,7 +127,7 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #87CEFA;
+  background-color: #87cefa;
   background-image: -webkit-linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.4) 25%,
@@ -160,21 +152,20 @@ img {
 
 /* 分类卡片折叠*/
 #aside_content
-.card-archives
-ul.card-archive-list
-> .card-archive-list-item
-a
-span:first-child,
+  .card-archives
+  ul.card-archive-list
+  > .card-archive-list-item
+  a
+  span:first-child,
 #aside_content
-.card-categories
-ul.card-category-list
-> .card-category-list-item
-a
-span:first-child {
-    width: auto;
-    min-width: 50%;
+  .card-categories
+  ul.card-category-list
+  > .card-category-list-item
+  a
+  span:first-child {
+  width: auto;
+  min-width: 50%;
 }
-
 
 /*!
  * Fairy Dust Cursor.js
@@ -184,42 +175,39 @@ span:first-child {
  */
 
 #veditor {
-	background-image: url(https://cdn1.tianli0.top/gh/jhxxr/cdn/tu/1.webp);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: right;
-	background-color: rgba(255, 255, 255, 0);
-	resize: vertical
+  background-image: url(https://npm.elemecdn.com/jhxxr-cdn@latest/tu/1.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: rgba(255, 255, 255, 0);
+  resize: vertical;
 }
-#veditor:focus{
-	background-position-y: 200px;
-	transition: all 0.2s ease-in-out 0s;
+#veditor:focus {
+  background-position-y: 200px;
+  transition: all 0.2s ease-in-out 0s;
 }
 #vcomments .vcards .vcard {
-	padding: 15px 20px 0 20px;
-	border-radius: 10px;
-	margin-bottom: 15px;
-	box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
-	transition: all .3s
+  padding: 15px 20px 0 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
 }
 
 #vcomments .vcards .vcard:hover {
-	box-shadow: 0 0 8px 3px rgba(0, 0, 0, .12)
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.12);
 }
 
 #vcomments .vcards .vcard .vh .vcard {
-	border: none;
-	box-shadow: none;
+  border: none;
+  box-shadow: none;
 }
-
-
-
 
 /*手机端样式适配*/
 @media screen and (max-width: 768px) {
   div#post-comment.fixedcomment {
-      width: 90%;
-      right: 0;
+    width: 90%;
+    right: 0;
   }
   div#quit-board.fixedcomment {
     width: 10%;
@@ -227,54 +215,54 @@ span:first-child {
 }
 /*动画效果*/
 @keyframes fixedright {
-  from {right:-50%;}
-  to {right:0;}
+  from {
+    right: -50%;
+  }
+  to {
+    right: 0;
+  }
 }
 @keyframes fixedleft {
-  from {left:-50%;}
-  to {left:0;}
+  from {
+    left: -50%;
+  }
+  to {
+    left: 0;
+  }
 }
 /* 夜间模式匹配 */
-[data-theme="dark"]
-  div#post-comment.fixedcomment {
-      background: rgba(35, 35, 35, 0.95);
-      box-shadow:3px 2px 12px #90a1a4;
-  }
-[data-theme="dark"]
-  div#quit-board.fixedcomment {
-    background: rgba(147, 146, 128, 0.3);
-  }
+[data-theme="dark"] div#post-comment.fixedcomment {
+  background: rgba(35, 35, 35, 0.95);
+  box-shadow: 3px 2px 12px #90a1a4;
+}
+[data-theme="dark"] div#quit-board.fixedcomment {
+  background: rgba(147, 146, 128, 0.3);
+}
 
 /*版权说明，黑暗适配*/
-[data-theme="dark"]
-  #post .post-copyright {
-    background-color: rgb(7 8 10);
-    text-shadow: #bfbeb8 1px 0 4px;
-  }
-[data-theme="dark"]
-  #post .post-copyright {
-    border: 1px solid rgb(19 18 18 / 35%);
-  }
-[data-theme="dark"]
-  .post-copyright-info {
-    color: #e0e0e4;
-  }
-#post .post-copyright__title{
-    font-size:22px;
+[data-theme="dark"] #post .post-copyright {
+  background-color: rgb(7 8 10);
+  text-shadow: #bfbeb8 1px 0 4px;
 }
-#post .post-copyright__notice{
-    font-size:15px;
+[data-theme="dark"] #post .post-copyright {
+  border: 1px solid rgb(19 18 18 / 35%);
+}
+[data-theme="dark"] .post-copyright-info {
+  color: #e0e0e4;
+}
+#post .post-copyright__title {
+  font-size: 22px;
+}
+#post .post-copyright__notice {
+  font-size: 15px;
 }
 
 /* SAOUI字体精简包，仅73KB */
-@font-face{
-  font-family: 'SAOUI';
-  src: url('https://npm.elemecdn.com/akilar-candyassets/fonts/SAOUI.ttf');
+@font-face {
+  font-family: "SAOUI";
+  src: url("https://npm.elemecdn.com/akilar-candyassets/fonts/SAOUI.ttf");
   font-display: swap;
 }
-
-
-
 
 /*评论区气泡*/
 /* 自定义twikoo评论输入框高度 */
@@ -463,16 +451,14 @@ span:first-child {
 }
 /*字体*/
 @font-face {
-    font-family: 'xrzi';
-    /* 字体名自定义即可 */
-    src: url('https://cdn1.tianli0.top/gh/jhxxr/cdn/ziti/ZhuZiAWan.woff2');
-    /* 字体文件路径 */
-    font-display: swap;
+  font-family: "xrzi";
+  /* 字体名自定义即可 */
+  src: url("https://npm.elemecdn.com/jhxxr-cdn@latest/ziti/ZhuZiAWan.woff2");
+  /* 字体文件路径 */
+  font-display: swap;
 }
 
 body,
 .gitcalendar {
-    font-family: xrzi !important;
+  font-family: xrzi !important;
 }
-
-
