@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>API和SDK</title>
+      <link href="/2022/05/21/api&amp;sdk/"/>
+      <url>/2022/05/21/api&amp;sdk/</url>
+      
+        <content type="html"><![CDATA[<p>什么是SDK？SDK与API区别又是什么？</p><p>网上的文章解释实在让人难懂，那我就用写代码的方式解释一下。</p><p>这里我用到python的Flask库对外提供api</p><p>首先写一个后端服务，比如我提供一个“hello xxx” 的服务，运行起来</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>():</span><br><span class="line"></span><br><span class="line">    name = request.args.get(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;name: <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> name :</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, &quot;</span> + name + <span class="string">&quot;!&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   app.run()</span><br></pre></td></tr></table></figure><p>会有一个地址 127.0.0.1:5000 ,在我们本地5000端口开启一个服务。</p><p>然后我们在浏览器输入我们的接口 127.0.0.1:5000&#x2F;api 并同时设定传入参数 name &#x3D; j<br>浏览器帮助我们发送了http请求</p><p>如图：<br><img src="https://s2.loli.net/2022/05/21/trXc7SauJxUEyNO.png" alt="image.png"></p><p>我们可以看到在浏览器中返回给我们对应的值</p><hr><p>但如果我是一个用户，我需要用这个api，那么我就需要写请求，来使用这个服务</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://127.0.0.1:5000/api&quot;</span></span><br><span class="line">respone=requests.get(url=url,params=&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;j&quot;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(respone.txt)</span><br></pre></td></tr></table></figure><hr><p>但如果是一个复杂的api，开发者就需要重复写这些繁杂的代码</p><p>作为一个云服务商，就可以用SDK封装这些代码</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloSDK</span>:</span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_hello</span>(<span class="params">cls,name</span>):</span><br><span class="line">        url = <span class="string">&quot;http://localhost:5000/api&quot;</span></span><br><span class="line">        response = requests.get(url=url,params=&#123;<span class="string">&quot;name&quot;</span>:name&#125;)</span><br><span class="line">        <span class="keyword">return</span> response.text</span><br></pre></td></tr></table></figure><p>我们把使用API服务的代码封装起来。</p><hr><p>再把身份换到开发者，我现在要使用这个服务，那么我就可以直接下载服务商的SDK，直接调用，如下图：</p><p><img src="https://s2.loli.net/2022/05/21/u9PjLvgFbHXayc8.png" alt="image.png"></p><p>这样我只需要一行代码即可完成调用。</p><hr><p>如今各个云服务的厂商都会提供SDK<br>例如下图的腾讯云<br><img src="https://s2.loli.net/2022/05/21/xUEmLipOPfrCgy3.png" alt="image.png"></p><p>调用这些云厂商的服务，那么一定会涉及到对你的密钥的加密，那么使用SDK即可快速使用这些服务，不需要去查这些复杂的过程。</p><hr><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>API是一种定义，SDK是方便开发者使用</p><p>你调用了一个函数，这个函数不是你写的，那么这个函数就是api。<br>多个这种函数的提供方被称为lib，他们帮助你快速实现底层逻辑，而不需要你使用std去逐个实现。比如调用opengl画各种图像。<br>然而也有大型的业务功能一键调用，它内部实现了各种逻辑，只是让你的程序能够快速实现复杂的业务功能。比如后台的语音合成功能。这种对业务提供api的玩意叫sdk。<br>lib与sdk的区别就是一个是提供底层实现，一个是提供业务实现。<br>当你决定一个项目需要怎样设计才能保证性能，安全，扩展。各个环节用什么技术，什么lib，什么sdk的时候，这个玩意叫架构。不同于api,lib,sdk可以是黑盒的，架构必须是透明的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> API </tag>
+            
+            <tag> SDK </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C_5月20日作业</title>
       <link href="/2022/05/20/C%E8%AF%AD%E8%A8%802022%E5%B9%B45%E6%9C%8820%E6%97%A5%E4%BD%9C%E4%B8%9A/"/>
       <url>/2022/05/20/C%E8%AF%AD%E8%A8%802022%E5%B9%B45%E6%9C%8820%E6%97%A5%E4%BD%9C%E4%B8%9A/</url>
