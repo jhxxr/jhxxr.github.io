@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git浅使用</title>
+      <link href="/2022/06/12/git/"/>
+      <url>/2022/06/12/git/</url>
+      
+        <content type="html"><![CDATA[<h1 id="git介绍"><a href="#git介绍" class="headerlink" title="git介绍"></a>git介绍</h1><p>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p><p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p><p>Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p><h1 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h1><details cyan><summary> 查看Linux和Mac安装教程 </summary>              <div class='content'>              <h2 id="Linux-平台上安装"><a href="#Linux-平台上安装" class="headerlink" title="Linux 平台上安装"></a>Linux 平台上安装</h2><p>Git 的工作需要调用 curl，zlib，openssl，expat，libiconv 等库的代码，所以需要先安装这些依赖工具。</p><p>在有 yum 的系统上（比如 Fedora）或者有 apt-get 的系统上（比如 Debian 体系），可以用下面的命令安装：</p><p>各 Linux 系统可以使用其安装包管理工具（apt-get、yum 等）进行安装：</p><h3 id="Debian-x2F-Ubuntu"><a href="#Debian-x2F-Ubuntu" class="headerlink" title="Debian&#x2F;Ubuntu"></a>Debian&#x2F;Ubuntu</h3><p>Debian&#x2F;Ubuntu Git 安装命令为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \</span><br><span class="line">  libz-dev libssl-dev</span><br><span class="line"></span><br><span class="line">$ apt-get install git</span><br><span class="line"></span><br><span class="line">$ git --version</span><br><span class="line">git version 1.8.1.2</span><br></pre></td></tr></table></figure><h2 id="Centos-x2F-RedHat"><a href="#Centos-x2F-RedHat" class="headerlink" title="Centos&#x2F;RedHat"></a>Centos&#x2F;RedHat</h2><p>如果你使用的系统是 Centos&#x2F;RedHat 安装命令为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ yum install curl-devel expat-devel gettext-devel \</span><br><span class="line">  openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">$ yum -y install git-core</span><br><span class="line"></span><br><span class="line">$ git --version</span><br><span class="line">git version 1.7.1</span><br></pre></td></tr></table></figure><p>源码安装</p><p>我们也可以在官网下载源码包来安装，最新源码包下载地址：<a href="https://git-scm.com/download">https://git-scm.com/download</a></p><p>安装指定系统的依赖包：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">########## Centos/RedHat ##########</span><br><span class="line">$ yum install curl-devel expat-devel gettext-devel \</span><br><span class="line">  openssl-devel zlib-devel</span><br><span class="line"></span><br><span class="line">########## Debian/Ubuntu ##########</span><br><span class="line">$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \</span><br><span class="line">  libz-dev libssl-dev</span><br></pre></td></tr></table></figure><p>解压安装下载的源码包：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxf git-1.7.2.2.tar.gz</span><br><span class="line">$ cd git-1.7.2.2</span><br><span class="line">$ make prefix=/usr/local all</span><br><span class="line">$ sudo make prefix=/usr/local install</span><br></pre></td></tr></table></figure><h2 id="Mac-平台上安装"><a href="#Mac-平台上安装" class="headerlink" title="Mac 平台上安装"></a>Mac 平台上安装</h2><p>在 Mac 平台上安装 Git 最容易的当属使用图形化的 Git 安装工具，下载地址为：</p><p><a href="http://sourceforge.net/projects/git-osx-installer/">http://sourceforge.net/projects/git-osx-installer/</a> </p>              </div>            </details><p>Windows 平台上安装</p><p>在 Windows 平台上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行：</p><p>安装包下载地址：<a href="https://gitforwindows.org/">https://gitforwindows.org/</a></p><p>官网慢，可以用国内的镜像：<a href="https://npm.taobao.org/mirrors/git-for-windows/%E3%80%82">https://npm.taobao.org/mirrors/git-for-windows/。</a></p><p>完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 Git 项目管理工具。</p><p>在开始菜单里找到”Git”-&gt;”Git Bash”，会弹出 Git 命令窗口，你可以在该窗口进行 Git 操作。</p><h1 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h1><ul><li><p>查询版本</p><pre><code>  git version</code></pre></li><li><p>配置个人的用户名称和电子邮件地址：</p><pre><code>  git config --global user.name &quot;&quot;  git config --global user.email &quot;&quot;</code></pre></li><li><p>查看配置信息   |要检查已有的配置信息，可以使用 git config –list 命令：</p><pre><code>  git config --list</code></pre></li></ul><h1 id="Git-工作流程"><a href="#Git-工作流程" class="headerlink" title="Git 工作流程"></a>Git 工作流程</h1><ul><li>克隆 Git 资源作为工作目录。</li><li>在克隆的资源上添加或修改文件。</li><li>如果其他人修改了，你可以更新资源。</li><li>在提交前查看修改。</li><li>提交修改。</li><li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li></ul><h1 id="Git-工作区、暂存区和版本库"><a href="#Git-工作区、暂存区和版本库" class="headerlink" title="Git 工作区、暂存区和版本库"></a>Git 工作区、暂存区和版本库</h1><p>基本概念</p><p>我们先来理解下 Git 工作区、暂存区和版本库概念：</p><ul><li>工作区：就是你在电脑里能看到的目录。</li><li>暂存区：英文叫 stage 或 index。一般存放在 .git 目录下的 index 文件（.git&#x2F;index）中，所以我们把暂存区有时也叫作索引（index）。</li><li>版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。</li></ul><p>下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系：<br><img src="https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt="git"></p><ul><li><p>图中左侧为工作区，右侧为版本库。在版本库中标记为 “index” 的区域是暂存区（stage&#x2F;index），标记为 “master” 的是 master 分支所代表的目录树。</p></li><li><p>图中我们可以看出此时 “HEAD” 实际是指向 master 分支的一个”游标”。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。</p></li><li><p>图中的 objects 标识的区域为 Git 的对象库，实际位于 “<code>.git/objects</code>“ 目录下，里面包含了创建的各种对象及内容。</p></li><li><p>当对工作区修改（或新增）的文件执行 git add 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。</p></li><li><p>当执行提交操作（<code>git commit</code>）时，暂存区的目录树写到版本库（对象库）中，<code>master</code> 分支会做相应的更新。即 <code>master</code> 指向的目录树就是提交时暂存区的目录树。</p></li><li><p>当执行 <code>git reset HEAD</code> 命令时，暂存区的目录树会被重写，被 <code>master</code> 分支指向的目录树所替换，但是工作区不受影响。</p></li><li><p>当执行 <code>git rm --cached &lt;file&gt;</code> 命令时，会直接从暂存区删除文件，工作区则不做出改变。</p></li><li><p>当执行 <code>git checkout .</code> 或者 <code>git checkout -- &lt;file&gt;</code> 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区中的改动。</p></li><li><p>当执行 <code>git checkout HEAD</code> . 或者 <code>git checkout HEAD &lt;file&gt;</code> 命令时，会用 <code>HEAD</code> 指向的 <code>master</code> 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。</p></li></ul><h1 id="Git-创建仓库"><a href="#Git-创建仓库" class="headerlink" title="Git 创建仓库"></a>Git 创建仓库</h1><h2 id="创建库"><a href="#创建库" class="headerlink" title="创建库"></a>创建库</h2><p>使用当前目录作为 Git 仓库，我们只需使它初始化。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure><p> 如果当前目录下有几个文件想要纳入版本控制，需要先用 git add 命令告诉 Git 开始对这些文件进行跟踪，然后提交：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add *.c</span><br><span class="line">$ git add README</span><br><span class="line">$ git commit -m &#x27;初始化项目版本&#x27;</span><br></pre></td></tr></table></figure><p>以上命令将目录下以 .c 结尾及 README 文件提交到仓库中。</p><h2 id="克隆库"><a href="#克隆库" class="headerlink" title="克隆库"></a>克隆库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone</span><br></pre></td></tr></table></figure><p>我们使用 git clone 从现有 Git 仓库中拷贝项目。</p><p>例如我克隆我GitHub中开源的一个库：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/jhxxr/background.git</span><br></pre></td></tr></table></figure><h1 id="Git-分支管理"><a href="#Git-分支管理" class="headerlink" title="Git 分支管理"></a>Git 分支管理</h1><p>一条主分支可以分出多个分支，适用于团队开发同一个项目。</p><h2 id="创建分支命令："><a href="#创建分支命令：" class="headerlink" title="创建分支命令："></a>创建分支命令：</h2><pre><code>    git branch (branchname)</code></pre><h2 id="切换分支命令"><a href="#切换分支命令" class="headerlink" title="切换分支命令:"></a>切换分支命令:</h2><pre><code>    git checkout (branchname)</code></pre><p>当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p><h2 id="合并分支命令"><a href="#合并分支命令" class="headerlink" title="合并分支命令:"></a>合并分支命令:</h2><pre><code>    git merge </code></pre><h2 id="列出分支"><a href="#列出分支" class="headerlink" title="列出分支"></a>列出分支</h2><p>列出分支基本命令：</p><pre><code>    git branch</code></pre><h1 id="Git-远程仓库-Github"><a href="#Git-远程仓库-Github" class="headerlink" title="Git 远程仓库(Github)"></a>Git 远程仓库(Github)</h1><p>简单写就是使用注册Github的邮箱<br> 在本地创建ssh key；</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure><p>绑定到GitHub上，这样你就可以提交到你的GitHub仓库了</p><p>详细见<a href="https://www.runoob.com/git/git-remote-repo.html">菜鸟</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>About Vanta.js</title>
       <link href="/2022/06/07/myhtmlbackground/"/>
       <url>/2022/06/07/myhtmlbackground/</url>
@@ -48,6 +73,33 @@
             <tag> API </tag>
             
             <tag> SDK </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React入门</title>
+      <link href="/2022/05/21/react1/"/>
+      <url>/2022/05/21/react1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="React介绍"><a href="#React介绍" class="headerlink" title="React介绍"></a>React介绍</h1><p>React 是一个用于构建用户界面的 JAVASCRIPT 库。</p><p>React 主要用于构建 UI，很多人认为 React 是 MVC 中的 V（视图）。</p><p>React 起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。</p><p>React 拥有较高的性能，代码逻辑非常简单，越来越多的人已开始关注和使用它。</p><h1 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h1><h2 id="通过-npm-使用-React"><a href="#通过-npm-使用-React" class="headerlink" title="通过 npm 使用 React"></a>通过 npm 使用 React</h2><p><code>注：</code>需要提前安装Node.js</p><p>国内使用 npm 速度很慢，你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npmmirror.com</span><br><span class="line">$ npm config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure><h2 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h2><p>create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。</p><p>create-react-app 自动创建的项目是基于 Webpack + ES6 。</p><p>执行以下命令创建项目：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure><p>第二步出现问题</p><pre><code>Unexpected error. Please report it as a bug: Error: spawn UNKNOWN</code></pre><p>原因是电脑中有杀毒软件<br>解决办法：删除</p><div class='checkbox'><input type="checkbox" />            <p>正在测试vanta.js，暑假更</p>            </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> js </tag>
             
         </tags>
       
