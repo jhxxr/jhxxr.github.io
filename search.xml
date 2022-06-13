@@ -54,6 +54,33 @@
     
     
     <entry>
+      <title>React入门</title>
+      <link href="/2022/06/04/react1/"/>
+      <url>/2022/06/04/react1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="React介绍"><a href="#React介绍" class="headerlink" title="React介绍"></a>React介绍</h1><p>React 是一个用于构建用户界面的 JAVASCRIPT 库。</p><p>React 主要用于构建 UI，很多人认为 React 是 MVC 中的 V（视图）。</p><p>React 起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。</p><p>React 拥有较高的性能，代码逻辑非常简单，越来越多的人已开始关注和使用它。</p><h1 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h1><h2 id="通过-npm-使用-React"><a href="#通过-npm-使用-React" class="headerlink" title="通过 npm 使用 React"></a>通过 npm 使用 React</h2><p><code>注：</code>需要提前安装Node.js</p><p>国内使用 npm 速度很慢，你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npmmirror.com</span><br><span class="line">$ npm config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure><h2 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h2><p>create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。</p><p>create-react-app 自动创建的项目是基于 Webpack + ES6 。</p><p>执行以下命令创建项目：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure><p>第二步出现问题</p><pre><code>Unexpected error. Please report it as a bug: Error: spawn UNKNOWN</code></pre><p>原因是电脑中有杀毒软件<br>解决办法：删除</p><div class='checkbox'><input type="checkbox" />            <p>正在测试vanta.js，暑假更</p>            </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>API和SDK</title>
       <link href="/2022/05/21/api&amp;sdk/"/>
       <url>/2022/05/21/api&amp;sdk/</url>
@@ -73,33 +100,6 @@
             <tag> API </tag>
             
             <tag> SDK </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>React入门</title>
-      <link href="/2022/05/21/react1/"/>
-      <url>/2022/05/21/react1/</url>
-      
-        <content type="html"><![CDATA[<h1 id="React介绍"><a href="#React介绍" class="headerlink" title="React介绍"></a>React介绍</h1><p>React 是一个用于构建用户界面的 JAVASCRIPT 库。</p><p>React 主要用于构建 UI，很多人认为 React 是 MVC 中的 V（视图）。</p><p>React 起源于 Facebook 的内部项目，用来架设 Instagram 的网站，并于 2013 年 5 月开源。</p><p>React 拥有较高的性能，代码逻辑非常简单，越来越多的人已开始关注和使用它。</p><h1 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h1><h2 id="通过-npm-使用-React"><a href="#通过-npm-使用-React" class="headerlink" title="通过 npm 使用 React"></a>通过 npm 使用 React</h2><p><code>注：</code>需要提前安装Node.js</p><p>国内使用 npm 速度很慢，你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npmmirror.com</span><br><span class="line">$ npm config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure><h2 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h2><p>create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。</p><p>create-react-app 自动创建的项目是基于 Webpack + ES6 。</p><p>执行以下命令创建项目：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure><p>第二步出现问题</p><pre><code>Unexpected error. Please report it as a bug: Error: spawn UNKNOWN</code></pre><p>原因是电脑中有杀毒软件<br>解决办法：删除</p><div class='checkbox'><input type="checkbox" />            <p>正在测试vanta.js，暑假更</p>            </div>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> React </tag>
-            
-            <tag> js </tag>
             
         </tags>
       
