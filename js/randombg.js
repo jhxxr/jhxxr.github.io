@@ -1,5 +1,10 @@
 //随机背景图片数组,图片可以换成图床链接，注意最后一条后面不要有逗号
 var backimg = [
+  "url(https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj26.jpg)",
+  "url(https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj25.jpg)",
+  "url(https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj24.jpg)",
+  "url(https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj23.jpg)",
+  "url(https://cdn1.tianli0.top/npm/jhxxr-cdn/tu/bj22.jpg)",
   "url(https://npm.elemecdn.com/jhxxr-cdn/tu/bj7.jpg)",
   "url(https://npm.elemecdn.com/jhxxr-cdn/tu/bj8.jpg)",
   "url(https://npm.elemecdn.com/jhxxr-cdn/tu/bj5.jpg)",
