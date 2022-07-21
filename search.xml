@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>CLIP</title>
+      <link href="/2022/07/21/CLIP/"/>
+      <url>/2022/07/21/CLIP/</url>
+      
+        <content type="html"><![CDATA[<h1 id="需要整理"><a href="#需要整理" class="headerlink" title="需要整理"></a>需要整理</h1><div class='checkbox green'><input type="checkbox" />            <p>方法</p>            </div><div class='checkbox yellow'><input type="checkbox" />            <p>数据集</p>            </div><div class='checkbox cyan'><input type="checkbox" />            <p>目标</p>            </div><div class='checkbox blue'><input type="checkbox" />            <p>与其他模型对比</p>            </div><h2 id="可参考链接"><a href="#可参考链接" class="headerlink" title="可参考链接"></a>可参考链接</h2><ul><li><a href="%22https://openai.com/blog/clip/%22">CLIP官网</a></li><li><a href="%22https://blog.csdn.net/weixin_52185313/article/details/125224417%22">CSDN上CLIP论文详解</a></li><li><a href="%22https://blog.csdn.net/qq_39388410/article/details/122863121%22">CLIP在视频领域的应用（CLIPBERT，CLIP4Clip，CLIP2Video，CLIPTV）</a></li><li><a href="%22https://github.com/openai/CLIP%22">GitHub CLIP库</a></li><li><a href="%22https://www.kaggle.com/code/moeinshariatnia/openai-clip-simple-implementation%22">OpenAI CLIP 简单实现</a><br>解读视频在文章结尾。</li></ul><h2 id="CLIP论文"><a href="#CLIP论文" class="headerlink" title="CLIP论文"></a>CLIP论文</h2><p>引用自:<a href="%22https://www.semanticscholar.org/paper/Learning-Transferable-Visual-Models-From-Natural-Radford-Kim/6f870f7f02a8c59c3e23f407f3ef00dd1dcf8fc4%22">Learning Transferable Visual Models From Natural Language Supervision</a></p><a class="button" href='http://pan.jhx.asia/down.php/1fc956711b1d99f17c09102e6f73ff2e.pdf' title='查看CLIP论文'><i class='fas fa-book-open'></i>查看CLIP论文</a><details ><summary> 展开查看论文 </summary>              <div class='content'>              <object data="/img/clip.pdf" type="application/pdf" width="100%" height="1000"> <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://pan.jhx.asia/down.php/1fc956711b1d99f17c09102e6f73ff2e.pdf">Download PDF</a></p></object>              </div>            </details><h2 id="深度学习论文精读-其他模型的解读"><a href="#深度学习论文精读-其他模型的解读" class="headerlink" title="深度学习论文精读(其他模型的解读)"></a>深度学习论文精读(其他模型的解读)</h2><p> <a href="https://github.com/mli/paper-reading/">https://github.com/mli/paper-reading/</a></p><h1 id="CLIP"><a href="#CLIP" class="headerlink" title="CLIP"></a>CLIP</h1><p>Although deep learning has revolutionized computer vision, current approaches have several major problems: typical vision datasets are labor intensive and costly to create while teaching only a narrow set of visual concepts; standard vision models are good at one task and one task only, and require significant effort to adapt to a new task; and models that perform well on benchmarks have disappointingly poor performance on stress tests,1234 casting doubt on the entire deep learning approach to computer vision.</p><p>尽管深度学习已经彻底改变了计算机视觉，但目前的方法存在几个主要问题：典型的视觉数据集是劳动密集型的，创建成本高，同时只教授一组狭窄的视觉概念；标准视觉模型擅长一项任务且仅一项任务，需要付出巨大努力才能适应新任务；并且在基准测试中表现良好的模型在压力测试中的表现令人失望，1 2 3 4对整个计算机视觉深度学习方法产生了怀疑。</p><ul><li>1.Dodge, S., &amp; Karam, L. (2017, July). “<a href="%22https://arxiv.org/abs/1705.02498%22">A study and comparison of human and deep learning recognition performance under visual distortions.</a>” In ICCCN 2017. ↩︎</li><li>2.Geirhos, R., Rubisch, P., Michaelis, C., Bethge, M., Wichmann, F. A., &amp; Brendel, W. (2018). “<a href="%22https://openreview.net/pdf?id=Bygh9j09KX%22">ImageNet-trained CNNs are biased towards texture; increasing shape bias improves accuracy and robustness.</a>” In ICLR 2019. ↩︎</li><li>3.Alcorn, M. A., Li, Q., Gong, Z., Wang, C., Mai, L., Ku, W. S., &amp; Nguyen, A. (2019). “<a href="%22https://openaccess.thecvf.com/content_CVPR_2019/papers/Alcorn_Strike_With_a_Pose_Neural_Networks_Are_Easily_Fooled_by_CVPR_2019_paper.pdf%22">Strike (with) a pose: Neural networks are easily fooled by strange poses of familiar objects.</a>” In CVPR 2019.</li><li>4.Barbu, A., Mayo, D., Alverio, J., Luo, W., Wang, C., Gutfreund, D., … &amp; Katz, B. (2019). “<a href="%22https://papers.nips.cc/paper/2019/file/97af07a14cacba681feacf3012730892-Paper.pdf%22">Objectnet: A large-scale bias-controlled dataset for pushing the limits of object recognition models.</a>” In NeurIPS 2019. ↩︎</li></ul><h1 id="Deep-learning-的缺点"><a href="#Deep-learning-的缺点" class="headerlink" title="Deep learning 的缺点"></a>Deep learning 的缺点</h1><p>Deep learning 在影像辨识方面获得了巨大的成功，但是过往的deep learning 有两个缺点：</p><p>标记资料是个劳力密集而且很昂贵的事情，而且标完了也只有在这个很窄的领域里面可以用<br>一个神经网路可能在训练的benchmark 的很好，可是面对真实世界的资料表现却不是这么好（可能是因为真实的资料跟benchmark 的资料的distribution 有些微的差异，而过度针对benchmark 调整模型，导致模型不够通用化）<br>网路上其实有超大量的图片，跟描述这些图片的文字，而且领域非常广，几乎什么都有。OpenAI 搜集了这些资料来训练CLIP，最后得到一个文字跟图片关联的模型，这个模型非常强健，有很高的通用化程度，因为没有针对特定领域特化，所以反而更通用，对于很多领域的zero-shot test 都有不错的表现。<br><img src="https://s2.loli.net/2022/07/21/zTNx2kKaVgMyHOX.png" alt="image.png"><br>在这个比较表中可以看到，CLIP 在ImageNet 的表现跟ResNet-101 一样，但是ResNet-101 在针对ImageNet 训练好以后，直接拿去辨识其他的ImageNet 有一样classes 但是图片不同的dataset，准确率就下降的很明显，但是CLIP 表现依然不俗。</p><h1 id="如何训练的"><a href="#如何训练的" class="headerlink" title="如何训练的"></a>如何训练的</h1><p>CLIP 的核心概念是「把text 跟image 映射到同一个空间」。这边的「空间」可以把他想成就是一种抽象概念。每一个我们的想法，都会是这个空间当中的某一点，就代表一个抽象概念。当我们讲出「狗」的时候，我们心中想的是一只狗，当然我们看到一张狗的图片的时候，我们心中想的也是「狗」。那个狗，就是CLIP 尝试把text 跟image 都映射过去的那个点。</p><p>而CLIP 训练的方法，就是有两个encoder：</p><p>一个text encoder 用来把一段文字映射到空间当中的某一点<br>一个image encoder 用来把一张图片映射到空间当中的某一点<br>一次拿一batch 有n 组相对应的文字跟图片，n 段文字，丢给text encoder 转出T1,T2,T3,…,Tn ；n 张图片，丢给image encoder 转出I1,I2,I3,…,In。然后我们把loss 定义为：对于相对应的(T1,I1)(T1,I1) 他们要越像越好，内积起来越大越好，也就是图片中淡蓝色的部分。对于图片当中其他非对应的，我们则希望他们越不像越好，一样用内积，希望他是0。透过这样设计loss，成对的图片跟文章就会被映射到空间中的（尽量）同一个点。而不配对的图片跟文章就会被映射到不同的点。<br><img src="https://s2.loli.net/2022/07/21/T8vU5KrxcDCmBge.png" alt="image.png"></p><h1 id="如何辨识"><a href="#如何辨识" class="headerlink" title="如何辨识"></a>如何辨识</h1><p>在训练完毕以后，这个空间就同时表达了文字与图片的抽象意义。今天给定</p><ol><li>一组文字</li><li>一张图片<br>我们只要把文字通通透过text encoder 映射到空间中，也把一张图映射到空间中，然后看看这张图距离哪个文字最接近，那就是那一类。至于哪个最近，能透过内积计算得到结果。<br><img src="https://s2.loli.net/2022/07/21/tgL6XG7Vq5JQ8Ky.png" alt="image.png"></li></ol><h1 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h1><p>CLIP 改善（不是解决）三个过往方法的缺点：</p><ol><li>昂贵的标记成本— 现在你只需要提供一段文字就可以，不用提供任何图片</li><li>过度任务相依— 以前针对一个任务训练的模型，只能用在这个任务上，很难用在其他任务上</li><li>benchmark 很好，落地很差— 很多模型都会过度benchmark 导向，而benchmark 跟现实资料的distribution 其实有差</li></ol><h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><p>CLIP 虽然强大，还是有弱点的。</p><p>对于一些抽象任务或是系统性任务它就失败了，比方说计算图片里面有几个物体，或是问它图片里面最接近的两台车有多近，它的答案基本上只比乱猜好一点。还有一些针对特定领域的fine-grained classification 问题的表现也不好，比方说问它这台车的车型，它就做不好。</p><p>还有，如果是pre-training 的dataset 里面缺乏的领域，那就真的做得不大好，比方说他虽然能做OCR，但是pretrain dataset 没有MNIST，给他MNIST 的手写文字辨识，他只能做到88%，一般特定model 就可以做到99.75%。</p><h1 id="论文解读"><a href="#论文解读" class="headerlink" title="论文解读"></a>论文解读</h1><div class="note default simple"><p>电脑打开可播放</p></div><div style="position: relative; padding: 30% 45%;"><iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="//player.bilibili.com/player.html?aid=851425715&bvid=BV1SL4y1s7LQ&cid=505919491&page=1&as_wide=1&high_quality=1&danmaku=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pip包管理</title>
       <link href="/2022/07/03/pip/"/>
       <url>/2022/07/03/pip/</url>
@@ -45,9 +72,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -176,9 +203,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 练习 </tag>
             
@@ -205,9 +232,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -232,9 +259,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -405,9 +432,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 练习 </tag>
             
@@ -517,9 +544,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -546,9 +573,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -575,9 +602,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -604,9 +631,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
@@ -712,9 +739,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
