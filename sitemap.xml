@@ -358,6 +358,20 @@
   </url>
   
   <url>
+    <loc>https://www.jhxjhx.top/tags/API/</loc>
+    <lastmod>2024-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jhxjhx.top/tags/SDK/</loc>
+    <lastmod>2024-03-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jhxjhx.top/tags/%E7%BD%91%E7%9B%98/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -373,20 +387,6 @@
   
   <url>
     <loc>https://www.jhxjhx.top/tags/alist/</loc>
-    <lastmod>2024-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jhxjhx.top/tags/API/</loc>
-    <lastmod>2024-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jhxjhx.top/tags/SDK/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -428,14 +428,14 @@
   </url>
   
   <url>
-    <loc>https://www.jhxjhx.top/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://www.jhxjhx.top/tags/python/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.jhxjhx.top/tags/python/</loc>
+    <loc>https://www.jhxjhx.top/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -477,14 +477,14 @@
   </url>
   
   <url>
-    <loc>https://www.jhxjhx.top/tags/%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://www.jhxjhx.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.jhxjhx.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://www.jhxjhx.top/tags/%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -563,14 +563,14 @@
   </url>
   
   <url>
-    <loc>https://www.jhxjhx.top/categories/%E6%97%A5%E8%AE%B0/</loc>
+    <loc>https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/python/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/python/</loc>
+    <loc>https://www.jhxjhx.top/categories/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2024-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
