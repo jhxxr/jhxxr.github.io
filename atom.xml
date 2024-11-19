@@ -139,8 +139,8 @@
   
   <entry>
     <title>使用 Express 搭建 WebDAV 反向代理服务</title>
-    <link href="https://www.jhxjhx.top/posts/bb1aeef7.html"/>
-    <id>https://www.jhxjhx.top/posts/bb1aeef7.html</id>
+    <link href="https://www.jhxjhx.top/posts/4b83da7c.html"/>
+    <id>https://www.jhxjhx.top/posts/4b83da7c.html</id>
     <published>2024-02-04T09:20:00.000Z</published>
     <updated>2024-01-28T09:21:00.000Z</updated>
     
@@ -160,11 +160,7 @@
     <category term="热门" scheme="https://www.jhxjhx.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%83%AD%E9%97%A8/"/>
     
     
-    <category term="精选" scheme="https://www.jhxjhx.top/tags/%E7%B2%BE%E9%80%89/"/>
-    
-    <category term="openwrt" scheme="https://www.jhxjhx.top/tags/openwrt/"/>
-    
-    <category term="哪吒探针" scheme="https://www.jhxjhx.top/tags/%E5%93%AA%E5%90%92%E6%8E%A2%E9%92%88/"/>
+    <category term="Node.js" scheme="https://www.jhxjhx.top/tags/Node-js/"/>
     
   </entry>
   
