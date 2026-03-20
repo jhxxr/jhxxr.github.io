@@ -6,7 +6,7 @@
   <link href="https://www.jhxjhx.top/atom.xml" rel="self"/>
   
   <link href="https://www.jhxjhx.top/"/>
-  <updated>2024-04-04T14:49:31.555Z</updated>
+  <updated>2024-01-28T09:21:00.000Z</updated>
   <id>https://www.jhxjhx.top/</id>
   
   <author>
@@ -17,23 +17,84 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>嵌入模型在仓库数据向量化中的应用</title>
+    <link href="https://www.jhxjhx.top/posts/bb7ff4a.html"/>
+    <id>https://www.jhxjhx.top/posts/bb7ff4a.html</id>
+    <published>2025-02-10T08:20:00.000Z</published>
+    <updated>2024-01-28T09:21:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;应用嵌入模型进行仓库数据向量化：基于 BAAI/bge-large-zh-v1.5</summary>
+        
+      
+    
+    
+    
+    <category term="编程" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="热门" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/%E7%83%AD%E9%97%A8/"/>
+    
+    
+    <category term="精选" scheme="https://www.jhxjhx.top/tags/%E7%B2%BE%E9%80%89/"/>
+    
+    <category term="AI" scheme="https://www.jhxjhx.top/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Express 搭建 WebDAV 反向代理服务</title>
+    <link href="https://www.jhxjhx.top/posts/4b83da7c.html"/>
+    <id>https://www.jhxjhx.top/posts/4b83da7c.html</id>
+    <published>2024-11-19T13:20:00.000Z</published>
+    <updated>2025-12-14T11:54:23.893Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;前言&lt;/h4&gt;
+&lt;p&gt;最近搭建了一个兰空图床，我想挂载一个储存做为我的长期存储图片的图床，想起了之前白嫖的InfiniCLOUD，我的免费额度已经到四十多G了。所以顺便写了一个反代webdav的代码，在1panel一键部署。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="服务器" scheme="https://www.jhxjhx.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="热门" scheme="https://www.jhxjhx.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%83%AD%E9%97%A8/"/>
+    
+    
+    <category term="Node.js" scheme="https://www.jhxjhx.top/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据结构排序算法笔记</title>
     <link href="https://www.jhxjhx.top/posts/5deeafd.html"/>
     <id>https://www.jhxjhx.top/posts/5deeafd.html</id>
     <published>2024-04-04T14:20:00.000Z</published>
-    <updated>2024-04-04T14:49:31.555Z</updated>
+    <updated>2025-12-14T11:54:23.893Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;公式显示渲染有问题，下次更新&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;排序&quot;&gt;&lt;a href=&quot;#排序&quot; class=&quot;headerlink&quot; title=&quot;排序&quot;&gt;&lt;/a&gt;排序&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;排序&lt;/h1&gt;
 
-&lt;html</summary>
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Sorting Algorithm Complexities&lt;/title&gt;
+    &lt;style&gt;
+        table</summary>
         
       
     
@@ -58,9 +119,12 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h1&gt;&lt;p&gt;PVE虚拟机&lt;/p&gt;
+    <summary type="html">&lt;h1&gt;准备&lt;/h1&gt;
+&lt;p&gt;PVE虚拟机&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.debian.org/&quot;&gt;debian安装包&lt;/a&gt;&lt;/p&gt;
-&lt;h1</summary>
+&lt;h1&gt;安装&lt;/h1&gt;
+&lt;p&gt;填写名字&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -89,7 +153,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;因为有内网穿透的需要，所以今天拿了一台阿里云的机器准备搭建一个Frp，网上找了很多教程，都是旧版ini配置的教程。然而官方文档写的很简洁，服务器端只有一个ip端口绑定。&lt;/p&gt;
+&lt;p&gt;并且如果使用旧版教程，将会提示该方案将被弃用。&lt;/p&gt;
+&lt;p&gt;&lt;i</summary>
         
       
     
@@ -118,7 +185,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;首先附上成功截图&quot;&gt;&lt;a href=&quot;#首先附上成功截图&quot; class=&quot;headerlink&quot; title=&quot;首先附上成功截图&quot;&gt;&lt;/a&gt;首先附上成功截图&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h1&gt;首先附上成功截图&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;https://imginfini.jhxjhx.top/lankong/vip/1/24/11/ee9bffb5a2bb5fd4938d1639d99d0ad1/673606cdbc6f7.png&quot;</summary>
         
       
     
@@ -177,7 +245,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;strong&gt;概述：&lt;/strong&gt;&lt;br&gt;使用 Cloudflare 和 Backblaze B2 搭建图床是一种高效、成本低的方法。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;概述：&lt;/strong&gt;
+使用 Cloudflare 和 Backblaze B2 搭建图床是一种高效、成本低的方法。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;准备工作：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;创建 B2 私有</summary>
@@ -209,7 +278,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;服务器迁移&quot;&gt;&lt;a href=&quot;#服务器迁移&quot; class=&quot;headerlink&quot; title=&quot;服务器迁移&quot;&gt;&lt;/a&gt;服务器迁移&lt;/h1&gt;&lt;p&gt;保存：</summary>
+    <summary type="html">&lt;h1&gt;服务器迁移&lt;/h1&gt;
+&lt;p&gt;保存：</summary>
         
       
     
@@ -266,7 +336,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Python大作业&quot;&gt;&lt;a href=&quot;#Python大作业&quot; class=&quot;headerlink&quot; title=&quot;Python大作业&quot;&gt;&lt;/a&gt;Python大作业&lt;/h1&gt;&lt;h2 id=&quot;作业1&quot;&gt;&lt;a href=&quot;#作业1&quot;</summary>
+    <summary type="html">&lt;h1&gt;Python大作业&lt;/h1&gt;
+&lt;h2 id=&quot;作业1&quot;&gt;作业1&lt;/h2&gt;
+&lt;p&gt;开发猜数字小游戏。计算机随机生成100以内的数字，让玩家去猜，如果猜的数字 过大成过小都会给出提示，直到猜中该数，显示“恭喜！你猜对了”，同时要统计玩家猜的次数&lt;/p&gt;
+&lt;figure</summary>
         
       
     
@@ -284,7 +357,7 @@
     <link href="https://www.jhxjhx.top/posts/7bbe2393.html"/>
     <id>https://www.jhxjhx.top/posts/7bbe2393.html</id>
     <published>2023-09-20T15:00:00.000Z</published>
-    <updated>2024-01-29T05:46:18.725Z</updated>
+    <updated>2025-12-15T08:45:13.261Z</updated>
     
     
       
@@ -320,7 +393,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前期准备&quot;&gt;&lt;a href=&quot;#前期准备&quot; class=&quot;headerlink&quot; title=&quot;前期准备&quot;&gt;&lt;/a&gt;前期准备&lt;/h1&gt;&lt;p&gt;赛前准备了21年国赛的送药小车训练，项目使用GitHub作为项目管理，两边同时写推送合并。&lt;br&gt;现已开源，&lt;a</summary>
+    <summary type="html">&lt;h1&gt;前期准备&lt;/h1&gt;
+&lt;p&gt;赛前准备了21年国赛的送药小车训练，项目使用GitHub作为项目管理，两边同时写推送合并。&lt;br&gt;
+现已开源，&lt;a</summary>
         
       
     
@@ -347,7 +422,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;最近在准备电赛，做到了k210识别数字，网上很多教程都是在maixhub上在线训练的，这几天发现一个问题，如果同时训练会出现排队的问题，等待时间很长，所以我就准备一手本地训练，但是windows本地环境配置不是很方便，所以我选择了Linux。
+在成功</summary>
         
       
     
@@ -376,7 +453,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;注意&quot;&gt;&lt;a href=&quot;#注意&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h1&gt;&lt;p&gt;可以因为网络问题，文章部分图片无法查看，这里提供了&lt;a</summary>
+    <summary type="html">&lt;h1&gt;注意&lt;/h1&gt;
+&lt;p&gt;可以因为网络问题，文章部分图片无法查看，这里提供了&lt;a</summary>
         
       
     
@@ -403,7 +481,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;在这个实验项目中，我使用STM32CubeMX配置了基础硬件，实现了PWM呼吸灯效果、DMA接收串口数据、ADC双通道测电压等功能。经过一番调试，最终成功实现了所有功能，同时也解决了一些遇到的问题。下面将详细介绍整个实验的过程和注意事项。&lt;/p&gt;
+&lt;</summary>
         
       
     
@@ -423,7 +503,7 @@
     <link href="https://www.jhxjhx.top/posts/f014f496.html"/>
     <id>https://www.jhxjhx.top/posts/f014f496.html</id>
     <published>2023-02-25T16:53:00.000Z</published>
-    <updated>2024-01-29T05:46:18.734Z</updated>
+    <updated>2025-12-15T08:45:40.832Z</updated>
     
     
       
@@ -431,7 +511,8 @@
         
         
     <summary type="html">&lt;p&gt;本文使用alist和aria2实现离线下载并上传网盘。&lt;/p&gt;
-&lt;h1 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot;</summary>
+&lt;h1&gt;起因&lt;/h1&gt;
+&lt;p&gt;发现最近发布的一些游戏已经可以BT下载（懂得都懂），可是本地下载太慢了。正好最近在玩服务器，也看到网上有很多这种bt下载教程，一直很想试一下，趁这个机会我就尝试一下，正好考试也考完</summary>
         
       
     
@@ -460,7 +541,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;小总结&quot;&gt;&lt;a href=&quot;#小总结&quot; class=&quot;headerlink&quot; title=&quot;小总结&quot;&gt;&lt;/a&gt;小总结&lt;/h1&gt;&lt;p&gt;这个寒假我做了很多有意义的事情，首先更新了我的博客域名。原因是因为我原来的域名快要到期了，需要更新，以保证我的博客能够继续使用。 </summary>
+    <summary type="html">&lt;h1&gt;小总结&lt;/h1&gt;
+&lt;p&gt;这个寒假我做了很多有意义的事情，首先更新了我的博客域名。原因是因为我原来的域名快要到期了，需要更新，以保证我的博客能够继续使用。&lt;/p&gt;
+&lt;p&gt;随后，通过一位&lt;a</summary>
         
       
     
@@ -478,14 +561,17 @@
     <link href="https://www.jhxjhx.top/posts/287d8ef4.html"/>
     <id>https://www.jhxjhx.top/posts/287d8ef4.html</id>
     <published>2022-11-06T06:53:00.000Z</published>
-    <updated>2024-01-29T05:46:18.735Z</updated>
+    <updated>2025-12-15T08:45:42.815Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;为什么丢失&quot;&gt;&lt;a href=&quot;#为什么丢失&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;为什么丢失&lt;/h1&gt;
+&lt;p&gt;前几天用了某分区助手（脑子一抽就用了），把电脑的系统盘整坏，电脑开不了机。&lt;br&gt;
+经过我一下午的重装系统，清理磁盘，电脑修好了，博客源文件丢失了。。。&lt;br&gt;
+我以为丢的不多，然后一翻阿里网盘的备份，只有6月的备份了，以后有空就补一下吧。&lt;/</summary>
         
       
     
@@ -510,7 +596,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;碎碎念&quot;&gt;&lt;a href=&quot;#碎碎念&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;碎碎念&lt;/h1&gt;
+&lt;p&gt;碎碎念天冷了，衣服太多了，每次想找洗衣机都找不到空的，偶然看到APP上可以查到空的洗衣机，但是查起来太繁琐，混合在一起也分不清，所以就试着写了这个查洗衣机的接口。前几天接口不能跨域请求，所以下面的在线查询不行，今天终于给我改好啦。&lt;/p&gt;
+&lt;h1</summary>
         
       
     
@@ -520,61 +608,6 @@
     
     
     <category term="生活" scheme="https://www.jhxjhx.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信公众号推送</title>
-    <link href="https://www.jhxjhx.top/posts/d7e6d48.html"/>
-    <id>https://www.jhxjhx.top/posts/d7e6d48.html</id>
-    <published>2022-08-25T10:00:00.000Z</published>
-    <updated>2024-01-29T05:46:18.752Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="编程" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-    <category term="python" scheme="https://www.jhxjhx.top/tags/python/"/>
-    
-    <category term="微信公众号" scheme="https://www.jhxjhx.top/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C课程设计</title>
-    <link href="https://www.jhxjhx.top/posts/e0f79756.html"/>
-    <id>https://www.jhxjhx.top/posts/e0f79756.html</id>
-    <published>2022-06-21T12:00:00.000Z</published>
-    <updated>2024-01-29T05:46:18.736Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Github仓库正在更新&quot;&gt;&lt;a href=&quot;#Github仓库正在更新&quot; class=&quot;headerlink&quot; title=&quot;Github仓库正在更新&quot;&gt;&lt;/a&gt;Github仓库正在更新&lt;/h1&gt;&lt;h1 id=&quot;根据老师代码的修改版&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="编程" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-    <category term="C语言" scheme="https://www.jhxjhx.top/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="学习笔记" scheme="https://www.jhxjhx.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

@@ -1,0 +1,10 @@
+# robots.txt for https://www.jhxjhx.top/
+
+User-agent: *
+Allow: /
+Disallow: /img/
+Disallow: /css/
+Disallow: /js/
+
+Sitemap: https://www.jhxjhx.top/sitemap.xml
+Sitemap: https://www.jhxjhx.top/sitemap.txt
