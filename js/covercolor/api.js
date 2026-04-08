@@ -1,1 +1,92 @@
-const coverColor=()=>{const e=document.getElementById("post-cover")?.src;e&&handleApiColor(e)};function handleApiColor(e){const o=JSON.parse(localStorage.getItem("Solitude"))||{};if(console.log(o),o.postcolor&&o.postcolor[e]){const t=o.postcolor[e].value,[n,c,l]=t.match(/\w\w/g).map((e=>parseInt(e,16)));setThemeColors(t,n,c,l)}else img2color(e)}function img2color(e){const o=coverColorConfig.api+encodeURIComponent(e);fetch(o).then((e=>e.json())).then((o=>{const t=o.RGB,[n,c,l]=t.match(/\w\w/g).map((e=>parseInt(e,16)));setThemeColors(t,n,c,l);const r=Date.now()+coverColorConfig.time,s=saveToLocal.get("Solitude")||{};s.postcolor=s.postcolor||{},s.postcolor[e]={value:t,expiration:r},localStorage.setItem("Solitude",JSON.stringify(s))})).catch((e=>{console.error("请检查API是否正常！\n"+e),setThemeColors()}))}function setThemeColors(e,o=null,t=null,n=null){if(e){if(document.documentElement.style.setProperty("--sco-main",e),document.documentElement.style.setProperty("--sco-main-op",e+"23"),document.documentElement.style.setProperty("--sco-main-op-deep",e+"dd"),document.documentElement.style.setProperty("--sco-main-none",e+"00"),o&&t&&n)if(Math.round((299*parseInt(o)+587*parseInt(t)+114*parseInt(n))/1e3)<125){var c=document.getElementsByClassName("card-content");for(let e=0;e<c.length;e++)c[e].style.setProperty("--sco-card-bg","var(--sco-white)");var l=document.getElementsByClassName("author-info__sayhi");for(let e=0;e<l.length;e++)l[e].style.setProperty("background","var(--sco-white-op)"),l[e].style.setProperty("color","var(--sco-white)")}document.getElementById("coverdiv").classList.add("loaded"),initThemeColor()}else document.documentElement.style.setProperty("--sco-main","var(--sco-theme)"),document.documentElement.style.setProperty("--sco-main-op","var(--sco-theme-op)"),document.documentElement.style.setProperty("--sco-main-op-deep","var(--sco-theme-op-deep)"),document.documentElement.style.setProperty("--sco-main-none","var(--sco-theme-none)"),initThemeColor()}function initThemeColor(){let e;e=(window.scrollY||document.documentElement.scrollTop)>0?getComputedStyle(document.documentElement).getPropertyValue("--sco-card-bg"):PAGE_CONFIG.is_post?getComputedStyle(document.documentElement).getPropertyValue("--sco-main"):getComputedStyle(document.documentElement).getPropertyValue("--sco-background"),changeThemeColor(e)}function changeThemeColor(e){const o=document.querySelector('meta[name="theme-color"]');o&&o.setAttribute("content",e)}
+const coverColor = () => {
+    const path = document.getElementById("post-cover")?.src;
+    if (path) {
+        handleApiColor(path);
+    }
+}
+
+function handleApiColor(path) {
+    const cacheGroup = JSON.parse(localStorage.getItem('Solitude')) || {};
+    console.log(cacheGroup)
+    if (cacheGroup.postcolor && cacheGroup.postcolor[path]) {
+        const color = cacheGroup.postcolor[path].value;
+        const [r, g, b] = color.match(/\w\w/g).map(x => parseInt(x, 16));
+        setThemeColors(color, r, g, b);
+    } else {
+        img2color(path);
+    }
+}
+
+function img2color(src) {
+    const apiUrl = coverColorConfig.api + encodeURIComponent(src);
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const color = data.RGB;
+            const [r, g, b] = color.match(/\w\w/g).map(x => parseInt(x, 16));
+            setThemeColors(color, r, g, b);
+            const expirationTime = Date.now() + coverColorConfig.time;
+            const cacheGroup = saveToLocal.get('Solitude') || {};
+            cacheGroup.postcolor = cacheGroup.postcolor || {};
+            cacheGroup.postcolor[src] = {value: color, expiration: expirationTime};
+            localStorage.setItem('Solitude', JSON.stringify(cacheGroup));
+        })
+        .catch(error => {
+            console.error('请检查API是否正常！\n' + error);
+            setThemeColors();
+        });
+}
+
+function setThemeColors(value, r = null, g = null, b = null) {
+    if (value) {
+        document.documentElement.style.setProperty('--sco-main', value);
+        document.documentElement.style.setProperty('--sco-main-op', value + '23');
+        document.documentElement.style.setProperty('--sco-main-op-deep', value + 'dd');
+        document.documentElement.style.setProperty('--sco-main-none', value + '00');
+
+        if (r && g && b) {
+            var brightness = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) / 1000);
+            if (brightness < 125) {
+                var cardContents = document.getElementsByClassName('card-content');
+                for (let i = 0; i < cardContents.length; i++) {
+                    cardContents[i].style.setProperty('--sco-card-bg', 'var(--sco-white)');
+                }
+
+                var authorInfo = document.getElementsByClassName('author-info__sayhi');
+                for (let i = 0; i < authorInfo.length; i++) {
+                    authorInfo[i].style.setProperty('background', 'var(--sco-white-op)');
+                    authorInfo[i].style.setProperty('color', 'var(--sco-white)');
+                }
+            }
+        }
+
+        document.getElementById("coverdiv").classList.add("loaded");
+        initThemeColor();
+    } else {
+        document.documentElement.style.setProperty('--sco-main', 'var(--sco-theme)');
+        document.documentElement.style.setProperty('--sco-main-op', 'var(--sco-theme-op)');
+        document.documentElement.style.setProperty('--sco-main-op-deep', 'var(--sco-theme-op-deep)');
+        document.documentElement.style.setProperty('--sco-main-none', 'var(--sco-theme-none)');
+        initThemeColor();
+    }
+}
+
+function initThemeColor() {
+    const currentTop = window.scrollY || document.documentElement.scrollTop;
+    let themeColor;
+    if (currentTop > 0) {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sco-card-bg');
+    } else if (PAGE_CONFIG.is_post) {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sco-main');
+    } else {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sco-background');
+    }
+    changeThemeColor(themeColor);
+}
+
+function changeThemeColor(color) {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+        meta.setAttribute('content', color);
+    }
+}

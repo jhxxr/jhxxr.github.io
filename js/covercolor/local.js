@@ -1,1 +1,206 @@
-function coverColor(){const e=document.getElementById("post-cover")?.src;if(e){const t=JSON.parse(localStorage.getItem("Solitude"))||{};if(t.postcolor&&t.postcolor[e]){const o=t.postcolor[e].value,[n,r,c]=o.match(/\w\w/g).map((e=>parseInt(e,16)));setThemeColors(o,n,r,c),console.log("📦 使用缓存颜色:",o)}else localColor(e)}}function localColor(e){const t=new Image,o=new URL(e),n=new URL(window.location.href);o.origin===n.origin||(t.crossOrigin="Anonymous"),t.onload=function(){try{const t=document.createElement("canvas");t.width=this.width,t.height=this.height;const o=t.getContext("2d");o.drawImage(this,0,0);const n=o.getImageData(0,0,this.width,this.height).data,{r:r,g:c,b:l}=calculateRGB(n);let s=rgbToHex(r,c,l);"light"===getContrastYIQ(s)&&(s=LightenDarkenColor(s,-50));const a=JSON.parse(localStorage.getItem("Solitude"))||{};a.postcolor=a.postcolor||{},a.postcolor[e]={value:s},localStorage.setItem("Solitude",JSON.stringify(a)),setThemeColors(s,r,c,l),console.log("✅ 封面取色成功:",s)}catch(t){console.error("❌ 封面取色失败 (CORS限制):",t.message),console.log("💡 解决方案："),console.log("1. 在图床服务器设置 Access-Control-Allow-Origin 响应头"),console.log('2. 或者使用 mode: "api" 模式'),tryFallbackColorExtraction(e)}},t.onerror=function(){console.error("❌ 封面图片加载失败"),setThemeColors()},t.src=e}function tryFallbackColorExtraction(e){console.log("🔄 尝试备用取色方案...");const t=document.createElement("div");t.style.cssText=`\n        position: fixed;\n        top: -9999px;\n        left: -9999px;\n        width: 1px;\n        height: 1px;\n        background-image: url('${e}');\n    `,document.body.appendChild(t),setTimeout((()=>{document.body.removeChild(t),console.log("⚠️ 使用默认主题色"),setThemeColors()}),100)}function calculateRGB(e){let t=0,o=0,n=0,r=0;for(let c=0;c<e.length;c+=40)t+=e[c],o+=e[c+1],n+=e[c+2],r++;return{r:Math.round(t/r),g:Math.round(o/r),b:Math.round(n/r)}}function rgbToHex(e,t,o){return"#"+[e,t,o].map((e=>e.toString(16).padStart(2,"0"))).join("")}function LightenDarkenColor(e,t){let o=!1;"#"===e[0]&&(e=e.slice(1),o=!0);const n=parseInt(e,16),r=Math.min(255,Math.max(0,(n>>16)+t)),c=Math.min(255,Math.max(0,(n>>8&255)+t));return`${o?"#":""}${(Math.min(255,Math.max(0,(255&n)+t))|c<<8|r<<16).toString(16).padStart(6,"0")}`}function getContrastYIQ(e){var t=colorRgb(e).match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/),o=299*t[1]+587*t[2]+114*t[3];return(o/=255e3)>=.5?"light":"dark"}function colorRgb(e){if(!e||"string"!=typeof e)return e;const t=e.toLowerCase();let o="";if(t&&(/^#([0-9a-fA-f]{3})$/.test(t)||/^#([0-9a-fA-f]{6})$/.test(t))){o=4===t.length?t.replace(/^#(.)/g,"#$1$1"):t;const e=o.slice(1).match(/.{2}/g).map((e=>parseInt(e,16)));return`rgb(${e[0]}, ${e[1]}, ${e[2]})`}return t}function setThemeColors(e,t=null,o=null,n=null){if(e){if(document.documentElement.style.setProperty("--sco-main",e),document.documentElement.style.setProperty("--sco-main-op",e+"23"),document.documentElement.style.setProperty("--sco-main-op-deep",e+"dd"),document.documentElement.style.setProperty("--sco-main-none",e+"00"),t&&o&&n)if(Math.round((299*parseInt(t)+587*parseInt(o)+114*parseInt(n))/1e3)<125){var r=document.getElementsByClassName("card-content");for(let e=0;e<r.length;e++)r[e].style.setProperty("--sco-card-bg","var(--sco-white)");var c=document.getElementsByClassName("author-info__sayhi");for(let e=0;e<c.length;e++)c[e].style.setProperty("background","var(--sco-white-op)"),c[e].style.setProperty("color","var(--sco-white)")}document.getElementById("coverdiv")?.classList.add("loaded"),initThemeColor()}else document.documentElement.style.setProperty("--sco-main","var(--sco-theme)"),document.documentElement.style.setProperty("--sco-main-op","var(--sco-theme-op)"),document.documentElement.style.setProperty("--sco-main-op-deep","var(--sco-theme-op-deep)"),document.documentElement.style.setProperty("--sco-main-none","var(--sco-theme-none)"),initThemeColor()}function initThemeColor(){let e;e=(window.scrollY||document.documentElement.scrollTop)>0?getComputedStyle(document.documentElement).getPropertyValue("--sco-card-bg"):PAGE_CONFIG.is_post?getComputedStyle(document.documentElement).getPropertyValue("--sco-main"):getComputedStyle(document.documentElement).getPropertyValue("--sco-background"),changeThemeColor(e)}function changeThemeColor(e){const t=document.querySelector('meta[name="theme-color"]');t&&t.setAttribute("content",e)}
+function coverColor() {
+    const path = document.getElementById("post-cover")?.src;
+    if (path) {
+        const cacheGroup = JSON.parse(localStorage.getItem('Solitude')) || {};
+        if (cacheGroup.postcolor && cacheGroup.postcolor[path]) {
+            const color = cacheGroup.postcolor[path].value;
+            const [r, g, b] = color.match(/\w\w/g).map(x => parseInt(x, 16));
+            setThemeColors(color, r, g, b);
+            console.log('📦 使用缓存颜色:', color);
+        } else {
+            localColor(path);
+        }
+    }
+}
+
+function localColor(path) {
+    const img = new Image();
+    // 先尝试不使用跨域，看看图片是否在同域
+    const imgUrl = new URL(path);
+    const currentUrl = new URL(window.location.href);
+    const isSameDomain = imgUrl.origin === currentUrl.origin;
+
+    if (!isSameDomain) {
+        img.crossOrigin = "Anonymous";
+    }
+
+    img.onload = function () {
+        try {
+            const canvas = document.createElement("canvas");
+            canvas.width = this.width;
+            canvas.height = this.height;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(this, 0, 0);
+            const data = ctx.getImageData(0, 0, this.width, this.height).data;
+            const {r, g, b} = calculateRGB(data);
+            let value = rgbToHex(r, g, b);
+            if (getContrastYIQ(value) === "light") {
+                value = LightenDarkenColor(value, -50);
+            }
+            const cacheGroup = JSON.parse(localStorage.getItem('Solitude')) || {};
+            cacheGroup.postcolor = cacheGroup.postcolor || {};
+            cacheGroup.postcolor[path] = {value: value};
+            localStorage.setItem('Solitude', JSON.stringify(cacheGroup));
+            setThemeColors(value, r, g, b);
+            console.log('✅ 封面取色成功:', value);
+        } catch (e) {
+            console.error('❌ 封面取色失败 (CORS限制):', e.message);
+            console.log('💡 解决方案：');
+            console.log('1. 在图床服务器设置 Access-Control-Allow-Origin 响应头');
+            console.log('2. 或者使用 mode: "api" 模式');
+            // CORS 失败时，尝试使用颜色提取算法的备用方案
+            tryFallbackColorExtraction(path);
+        }
+    };
+    img.onerror = function() {
+        console.error('❌ 封面图片加载失败');
+        setThemeColors();
+    };
+    img.src = path;
+}
+
+// 备用方案：通过 CSS 背景图提取主色调的近似方案
+function tryFallbackColorExtraction(imagePath) {
+    console.log('🔄 尝试备用取色方案...');
+    // 创建临时元素来分析图片
+    const tempDiv = document.createElement('div');
+    tempDiv.style.cssText = `
+        position: fixed;
+        top: -9999px;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        background-image: url('${imagePath}');
+    `;
+    document.body.appendChild(tempDiv);
+
+    // 使用默认主题色作为后备
+    setTimeout(() => {
+        document.body.removeChild(tempDiv);
+        console.log('⚠️ 使用默认主题色');
+        setThemeColors();
+    }, 100);
+}
+
+function calculateRGB(data) {
+    let r = 0, g = 0, b = 0, count = 0;
+    for (let i = 0; i < data.length; i += 40) {
+        r += data[i];
+        g += data[i + 1];
+        b += data[i + 2];
+        count++;
+    }
+    return {r: Math.round(r / count), g: Math.round(g / count), b: Math.round(b / count)};
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+}
+
+function LightenDarkenColor(col, amt) {
+    let usePound = false;
+
+    if (col[0] === "#") {
+        col = col.slice(1);
+        usePound = true;
+    }
+
+    const num = parseInt(col, 16);
+    const r = Math.min(255, Math.max(0, (num >> 16) + amt));
+    const b = Math.min(255, Math.max(0, ((num >> 8) & 0xff) + amt));
+    const g = Math.min(255, Math.max(0, (num & 0xff) + amt));
+
+    return `${usePound ? "#" : ""}${(g | (b << 8) | (r << 16)).toString(16).padStart(6, "0")}`;
+}
+
+function getContrastYIQ(hexcolor) {
+    var colorrgb = colorRgb(hexcolor);
+    var colors = colorrgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    var red = colors[1];
+    var green = colors[2];
+    var blue = colors[3];
+    var brightness = (red * 299) + (green * 587) + (blue * 114);
+    brightness = brightness / 255000;
+    return brightness >= 0.5 ? "light" : "dark";
+}
+
+function colorRgb(str) {
+    const HEX_SHORT_REGEX = /^#([0-9a-fA-f]{3})$/;
+    const HEX_LONG_REGEX = /^#([0-9a-fA-f]{6})$/;
+    const HEX_SHORT_LENGTH = 4;
+
+    if (!str || typeof str !== 'string') {
+        return str;
+    }
+
+    const sColor = str.toLowerCase();
+    let hexValue = "";
+
+    if (sColor && (HEX_SHORT_REGEX.test(sColor) || HEX_LONG_REGEX.test(sColor))) {
+        hexValue = sColor.length === HEX_SHORT_LENGTH ?
+            sColor.replace(/^#(.)/g, "#$1$1") :
+            sColor;
+
+        const rgbValue = hexValue.slice(1)
+            .match(/.{2}/g)
+            .map(val => parseInt(val, 16));
+
+        return `rgb(${rgbValue[0]}, ${rgbValue[1]}, ${rgbValue[2]})`;
+    } else {
+        return sColor;
+    }
+}
+
+function setThemeColors(value, r = null, g = null, b = null) {
+    if (value) {
+        document.documentElement.style.setProperty('--sco-main', value);
+        document.documentElement.style.setProperty('--sco-main-op', value + '23');
+        document.documentElement.style.setProperty('--sco-main-op-deep', value + 'dd');
+        document.documentElement.style.setProperty('--sco-main-none', value + '00');
+
+        if (r && g && b) {
+            var brightness = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) / 1000);
+            if (brightness < 125) {
+                var cardContents = document.getElementsByClassName('card-content');
+                for (let i = 0; i < cardContents.length; i++) {
+                    cardContents[i].style.setProperty('--sco-card-bg', 'var(--sco-white)');
+                }
+
+                var authorInfo = document.getElementsByClassName('author-info__sayhi');
+                for (let i = 0; i < authorInfo.length; i++) {
+                    authorInfo[i].style.setProperty('background', 'var(--sco-white-op)');
+                    authorInfo[i].style.setProperty('color', 'var(--sco-white)');
+                }
+            }
+        }
+
+        document.getElementById("coverdiv")?.classList.add("loaded");
+        initThemeColor();
+    } else {
+        document.documentElement.style.setProperty('--sco-main', 'var(--sco-theme)');
+        document.documentElement.style.setProperty('--sco-main-op', 'var(--sco-theme-op)');
+        document.documentElement.style.setProperty('--sco-main-op-deep', 'var(--sco-theme-op-deep)');
+        document.documentElement.style.setProperty('--sco-main-none', 'var(--sco-theme-none)');
+        initThemeColor();
+    }
+}
+
+function initThemeColor() {
+    const currentTop = window.scrollY || document.documentElement.scrollTop;
+    let themeColor;
+    if (currentTop > 0) {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sco-card-bg');
+    } else if (PAGE_CONFIG.is_post) {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sco-main');
+    } else {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sco-background');
+    }
+    changeThemeColor(themeColor);
+}
+
+function changeThemeColor(color) {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+        meta.setAttribute('content', color);
+    }
+}
