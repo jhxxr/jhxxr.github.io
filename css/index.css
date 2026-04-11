@@ -9247,6 +9247,11 @@ h1.page-title + .tag-cloud-list {
   transition: 0.3s;
   color: var(--anzhiyu-white);
 }
+#aside-content .card-widget .author-info__description b,
+#aside-content .card-widget .author-info__description strong {
+  color: #fff;
+  font-weight: 700;
+}
 #aside-content .card-widget .banner-button-group .banner-button {
   padding: 20px 12px;
   color: var(--anzhiyu-white);
