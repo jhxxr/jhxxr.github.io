@@ -6,7 +6,7 @@
   <link href="https://www.jhxjhx.top/atom.xml" rel="self"/>
   
   <link href="https://www.jhxjhx.top/"/>
-  <updated>2026-04-11T09:01:08.127Z</updated>
+  <updated>2026-05-15T04:04:13.889Z</updated>
   <id>https://www.jhxjhx.top/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Trellis 多 CLI 协作体验：Codex、Claude Code、OpenCode 一起干活</title>
+    <link href="https://www.jhxjhx.top/posts/baaafe7a.html"/>
+    <id>https://www.jhxjhx.top/posts/baaafe7a.html</id>
+    <published>2026-05-14T12:30:00.000Z</published>
+    <updated>2026-05-15T04:04:13.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;trellis-多-cli-协作体验codex-claude-code-opencode-一起干活&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="编程" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="热门" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/%E7%83%AD%E9%97%A8/"/>
+    
+    
+    <category term="AI" scheme="https://www.jhxjhx.top/tags/AI/"/>
+    
+    <category term="CLI" scheme="https://www.jhxjhx.top/tags/CLI/"/>
+    
+    <category term="开发工具" scheme="https://www.jhxjhx.top/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>微调一个LLM安全检测模型</title>
@@ -539,34 +570,6 @@
     <category term="python" scheme="https://www.jhxjhx.top/tags/python/"/>
     
     <category term="微信公众号" scheme="https://www.jhxjhx.top/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C课程设计</title>
-    <link href="https://www.jhxjhx.top/posts/e0f79756.html"/>
-    <id>https://www.jhxjhx.top/posts/e0f79756.html</id>
-    <published>2022-06-21T12:00:00.000Z</published>
-    <updated>2024-01-29T05:46:18.736Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;github仓库正在更新&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#github仓库正在更新&quot;&gt;&lt;/a&gt; Github仓库正在更新&lt;/h1&gt;
-&lt;h1 id=&quot;根据老师代码的修改版&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="编程" scheme="https://www.jhxjhx.top/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-    <category term="C语言" scheme="https://www.jhxjhx.top/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="学习笔记" scheme="https://www.jhxjhx.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
