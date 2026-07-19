@@ -28,7 +28,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;trellis-多-cli-协作体验codex-claude-code-opencode-一起干活&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot;</summary>
+    <summary type="html">&lt;h1&gt;Trellis 多 CLI 协作体验：Codex、Claude Code、OpenCode 一起干活&lt;/h1&gt;
+&lt;p&gt;之前用 Claude Code 写代码很爽，但一个工具做所有事，成本和时间上总有些浪费。后来试了 &lt;a</summary>
         
       
     
@@ -59,7 +60,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;微调一个llm安全检测模型&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#微调一个llm安全检测模型&quot;&gt;&lt;/a&gt; 微调一个LLM安全检测模型&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;微调一个LLM安全检测模型&lt;/h1&gt;
 &lt;p&gt;此前做了一个 LLM</summary>
         
       
@@ -89,7 +90,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;应用嵌入模型进行仓库数据向量化基于-baaibge-large-zh-v15-的实践&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#应用嵌入模型进行仓库数据向量化基于-baaibge-large-zh-v15-的实践&quot;&gt;&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1&gt;应用嵌入模型进行仓库数据向量化：基于 BAAI/bge-large-zh-v1.5</summary>
         
       
     
@@ -118,7 +119,10 @@
       
         
         
-    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt;</summary>
+    <summary type="html">&lt;h4 id=&quot;前言&quot;&gt;前言&lt;/h4&gt;
+&lt;p&gt;最近搭建了一个兰空图床，我想挂载一个储存做为我的长期存储图片的图床，想起了之前白嫖的InfiniCLOUD，我的免费额度已经到四十多G了。所以顺便写了一个反代webdav的代码，在1panel一键部署。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4</summary>
         
       
     
@@ -145,12 +149,14 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;排序&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#排序&quot;&gt;&lt;/a&gt; 排序&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;排序&lt;/h1&gt;
 
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Sorting</summary>
+    &lt;title&gt;Sorting Algorithm Complexities&lt;/title&gt;
+    &lt;style&gt;
+        table</summary>
         
       
     
@@ -175,10 +181,12 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;准备&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#准备&quot;&gt;&lt;/a&gt; 准备&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;准备&lt;/h1&gt;
 &lt;p&gt;PVE虚拟机&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.debian.org/&quot;&gt;debian安装包&lt;/a&gt;&lt;/p&gt;
-&lt;h1</summary>
+&lt;h1&gt;安装&lt;/h1&gt;
+&lt;p&gt;填写名字&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -207,7 +215,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;因为有内网穿透的需要，所以今天拿了一台阿里云的机器准备搭建一个Frp，网上找了很多教程，都是旧版ini配置的教程。然而官方文档写的很简洁，服务器端只有一个ip端口绑定。&lt;/p&gt;
+&lt;p&gt;并且如果使用旧版教程，将会提示该方案将被弃用。&lt;/p&gt;
+&lt;p&gt;&lt;i</summary>
         
       
     
@@ -236,7 +247,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;strong&gt;概述：&lt;/strong&gt;&lt;br /&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;概述：&lt;/strong&gt;
 使用 Cloudflare 和 Backblaze B2 搭建图床是一种高效、成本低的方法。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;准备工作：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -298,8 +309,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前期准备&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前期准备&quot;&gt;&lt;/a&gt; 前期准备&lt;/h1&gt;
-&lt;p&gt;赛前准备了21年国赛的送药小车训练，项目使用GitHub作为项目管理，两边同时写推送合并。&lt;br /&gt;
+    <summary type="html">&lt;h1&gt;前期准备&lt;/h1&gt;
+&lt;p&gt;赛前准备了21年国赛的送药小车训练，项目使用GitHub作为项目管理，两边同时写推送合并。&lt;br&gt;
 现已开源，&lt;a</summary>
         
       
@@ -327,7 +338,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt;</summary>
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;最近在准备电赛，做到了k210识别数字，网上很多教程都是在maixhub上在线训练的，这几天发现一个问题，如果同时训练会出现排队的问题，等待时间很长，所以我就准备一手本地训练，但是windows本地环境配置不是很方便，所以我选择了Linux。
+在成功</summary>
         
       
     
@@ -356,7 +369,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;注意&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#注意&quot;&gt;&lt;/a&gt; 注意&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;注意&lt;/h1&gt;
 &lt;p&gt;可以因为网络问题，文章部分图片无法查看，这里提供了&lt;a</summary>
         
       
@@ -384,8 +397,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;为什么丢失&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#为什么丢失&quot;&gt;&lt;/a&gt; 为什么丢失&lt;/h1&gt;
-&lt;p&gt;前几天用了某分区助手（脑子一抽就用了），把电脑的系统盘整坏，电脑开不了机。&lt;br</summary>
+    <summary type="html">&lt;h1&gt;为什么丢失&lt;/h1&gt;
+&lt;p&gt;前几天用了某分区助手（脑子一抽就用了），把电脑的系统盘整坏，电脑开不了机。&lt;br&gt;
+经过我一下午的重装系统，清理磁盘，电脑修好了，博客源文件丢失了。。。&lt;br&gt;
+我以为丢的不多，然后一翻阿里网盘的备份，只有6月的备份了，以后有空就补一下吧。&lt;/</summary>
         
       
     
@@ -410,7 +425,9 @@
       
         
         
-    <summary type="html">&lt;p&gt;前段时间接触了QQ机器人，所以呢我用sillyGirl对接one-bot协议搭建了我的QQ机器人（下次展示）。青龙面板可以定时运行脚本。&lt;br</summary>
+    <summary type="html">&lt;p&gt;前段时间接触了QQ机器人，所以呢我用sillyGirl对接one-bot协议搭建了我的QQ机器人（下次展示）。青龙面板可以定时运行脚本。
+今天我有一个想法：青龙面板运行ocr文字识别的js，通过QQ传入图片的url，再将运行日志发送到QQ。&lt;/p&gt;
+&lt;p&gt;在sillyGir</summary>
         
       
     
