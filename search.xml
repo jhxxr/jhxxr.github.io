@@ -13,18 +13,16 @@
       
       <categories>
           
-          <category> 编程 </category>
-          
-          <category> 热门 </category>
+          <category> AI </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> AI </tag>
-            
             <tag> PDF </tag>
+            
+            <tag> 翻译 </tag>
             
             <tag> 开源 </tag>
             
@@ -44,20 +42,18 @@
       
       <categories>
           
-          <category> 编程 </category>
-          
-          <category> 热门 </category>
+          <category> AI </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> AI </tag>
-            
             <tag> CLI </tag>
             
             <tag> 开发工具 </tag>
+            
+            <tag> Trellis </tag>
             
         </tags>
       
@@ -75,18 +71,20 @@
       
       <categories>
           
-          <category> 编程 </category>
+          <category> AI </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> AI </tag>
+            <tag> LLM </tag>
             
             <tag> 微调 </tag>
             
             <tag> BERT </tag>
+            
+            <tag> 安全 </tag>
             
         </tags>
       
@@ -104,18 +102,18 @@
       
       <categories>
           
-          <category> 编程 </category>
-          
-          <category> 热门 </category>
+          <category> AI </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 精选 </tag>
+            <tag> 嵌入模型 </tag>
             
-            <tag> AI </tag>
+            <tag> 向量化 </tag>
+            
+            <tag> BGE </tag>
             
         </tags>
       
@@ -133,9 +131,7 @@
       
       <categories>
           
-          <category> 服务器 </category>
-          
-          <category> 热门 </category>
+          <category> 运维部署 </category>
           
       </categories>
       
@@ -143,6 +139,10 @@
         <tags>
             
             <tag> Node.js </tag>
+            
+            <tag> WebDAV </tag>
+            
+            <tag> Express </tag>
             
         </tags>
       
@@ -160,14 +160,16 @@
       
       <categories>
           
-          <category> 笔记 </category>
+          <category> 学习笔记 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 学习 </tag>
+            <tag> 数据结构 </tag>
+            
+            <tag> 排序算法 </tag>
             
         </tags>
       
@@ -185,18 +187,18 @@
       
       <categories>
           
-          <category> 服务器 </category>
-          
-          <category> 热门 </category>
+          <category> 运维部署 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 精选 </tag>
+            <tag> PVE </tag>
             
-            <tag> debian </tag>
+            <tag> Debian </tag>
+            
+            <tag> 虚拟机 </tag>
             
         </tags>
       
@@ -214,18 +216,16 @@
       
       <categories>
           
-          <category> 服务器 </category>
-          
-          <category> 热门 </category>
+          <category> 运维部署 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 精选 </tag>
-            
             <tag> frp </tag>
+            
+            <tag> 内网穿透 </tag>
             
         </tags>
       
@@ -243,18 +243,18 @@
       
       <categories>
           
-          <category> 教程 </category>
+          <category> 运维部署 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> Cloudflare </tag>
+            
+            <tag> B2 </tag>
+            
             <tag> 图床 </tag>
-            
-            <tag> 精选 </tag>
-            
-            <tag> 热门 </tag>
             
         </tags>
       
@@ -272,14 +272,18 @@
       
       <categories>
           
-          <category> 编程 </category>
+          <category> 嵌入式 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 学习笔记 </tag>
+            <tag> Quartus </tag>
+            
+            <tag> ModelSim </tag>
+            
+            <tag> FPGA </tag>
             
         </tags>
       
@@ -297,14 +301,14 @@
       
       <categories>
           
-          <category> 编程 </category>
-          
-          <category> 日记 </category>
+          <category> 嵌入式 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 电赛 </tag>
             
             <tag> 竞赛 </tag>
             
@@ -324,16 +328,16 @@
       
       <categories>
           
-          <category> 编程 </category>
+          <category> 嵌入式 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C语言 </tag>
+            <tag> YOLO </tag>
             
-            <tag> python </tag>
+            <tag> K210 </tag>
             
             <tag> 机器学习 </tag>
             
@@ -353,16 +357,18 @@
       
       <categories>
           
-          <category> 编程 </category>
+          <category> 嵌入式 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 学习笔记 </tag>
+            <tag> Proteus </tag>
             
-            <tag> C语言 </tag>
+            <tag> STM32 </tag>
+            
+            <tag> 仿真 </tag>
             
         </tags>
       
@@ -380,14 +386,16 @@
       
       <categories>
           
-          <category> 日记 </category>
+          <category> 生活 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 生活 </tag>
+            <tag> 系统重装 </tag>
+            
+            <tag> 故障排查 </tag>
             
         </tags>
       
@@ -405,7 +413,7 @@
       
       <categories>
           
-          <category> 编程 </category>
+          <category> 运维部署 </category>
           
       </categories>
       
@@ -415,6 +423,8 @@
             <tag> sillyGirl </tag>
             
             <tag> 青龙面板 </tag>
+            
+            <tag> QQ机器人 </tag>
             
         </tags>
       
