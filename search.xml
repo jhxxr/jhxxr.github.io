@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>PageWeave：本地 PDF 翻译桌面工具</title>
+      <link href="/posts/31319cdf.html"/>
+      <url>/posts/31319cdf.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="pageweave本地-pdf-翻译桌面工具"><a class="markdownIt-Anchor" href="#pageweave本地-pdf-翻译桌面工具"></a> PageWeave：本地 PDF 翻译桌面工具</h1><p>读英文论文、技术文档时，最烦的不是看不懂，而是译完版式全毁——图片跑位、表格错乱、公式变乱码。云端翻译服务又要把 PDF 上传出去，敏感材料心里不踏实。</p><p>于是做了 <a href="https://github.com/jhxxr/PageWeave">PageWeave</a>：一个 <strong>Windows 本地 PDF 翻译桌面应用</strong>。拖入 PDF，选语言和 AI 服务商，输出尽量保留原排版的译文。</p><hr /><h2 id="1-它解决什么问题"><a class="markdownIt-Anchor" href="#1-它解决什么问题"></a> 1. 它解决什么问题</h2><p>常见 PDF 翻译链路大致两类：</p><table><thead><tr><th>方式</th><th>优点</th><th>痛点</th></tr></thead><tbody><tr><td>云端网页/App</td><td>开箱即用</td><td>上传隐私风险、排版常崩、依赖网络</td></tr><tr><td>纯 CLI（如 BabelDOC）</td><td>能力强、可脚本化</td><td>装 Python、配环境、记参数，门槛高</td></tr></tbody></table><p>PageWeave 想做的是中间那一层：</p><ul><li><strong>能力</strong>：接 <a href="https://github.com/funstory-ai/BabelDOC">BabelDOC</a>，尽量保留图片、表格、段落结构</li><li><strong>体验</strong>：Tauri 桌面壳，拖拽、进度、日志、取消、打开结果</li><li><strong>本地</strong>：引擎以内置 sidecar 分发，用户不用装 Python</li><li><strong>可配</strong>：多服务商 OpenAI-compatible API，Key 只存在本机</li></ul><p>一句话：<strong>把「能用的 CLI」包成「愿意天天用的桌面工具」</strong>。</p><hr /><h2 id="2-核心功能"><a class="markdownIt-Anchor" href="#2-核心功能"></a> 2. 核心功能</h2><table><thead><tr><th>模块</th><th>能做什么</th></tr></thead><tbody><tr><td>PDF 翻译</td><td>拖拽/选择 PDF，源/目标语言，服务商与模型，实时进度与日志，取消，完成后打开文件/文件夹</td></tr><tr><td>输出模式</td><td>仅译文 / 原文+译文双语对照 / 全部输出</td></tr><tr><td>高级参数</td><td>页码范围、术语表 CSV、OCR 模式、并发池、自定义 system prompt 等</td></tr><tr><td>转 Markdown</td><td>本地 PDF / DOCX / PPTX / XLSX / XLS → <code>.md</code>（基于 markitdown，不依赖 API Key）</td></tr><tr><td>AI 配置</td><td>增删改服务商，测试连接，拉 <code>/models</code>，导出配置（默认不含 Key）</td></tr><tr><td>任务与设置</td><td>任务状态与最近日志；主题/语言、默认目录与服务商、离线资源包、自动更新</td></tr></tbody></table><p>内置预设包括 OpenAI、DeepSeek、硅基流动、阿里云百炼、Moonshot、智谱，以及 Ollama / LM Studio 等本地兼容端点。</p><hr /><h2 id="3-架构怎么拆"><a class="markdownIt-Anchor" href="#3-架构怎么拆"></a> 3. 架构怎么拆</h2><p>技术栈大致是：</p><table><thead><tr><th>层级</th><th>技术</th></tr></thead><tbody><tr><td>桌面 UI</td><td>Tauri 2 + React 19 + TypeScript + Ant Design + Zustand + i18next + Vite</td></tr><tr><td>本地后端</td><td>Rust：文件选择、子进程、SQLite 配置、任务事件</td></tr><tr><td>密钥</td><td>Windows Credential Manager（DPAPI），库里只存 <code>api_key_id</code> 引用</td></tr><tr><td>翻译引擎</td><td>BabelDOC sidecar（PyInstaller 冻结）</td></tr><tr><td>转换引擎</td><td>markitdown sidecar，与翻译链路平行，可单独剥离</td></tr></tbody></table><p>关键设计点有三个。</p><h3 id="31-sidecar而不是让用户装-python"><a class="markdownIt-Anchor" href="#31-sidecar而不是让用户装-python"></a> 3.1 Sidecar，而不是让用户装 Python</h3><p>MVP 阶段用「Rust 调 CLI 子进程」最省事；分发时再把 BabelDOC / markitdown 冻成独立可执行文件，通过 Tauri 的 <code>externalBin</code> + <code>resources</code> 打进安装包。</p><p>用户侧感知就是：装完就能用，首次翻译前在设置里装一下 BabelDOC 离线资源包（模型 + 字体）。</p><h3 id="32-api-key-不落明文"><a class="markdownIt-Anchor" href="#32-api-key-不落明文"></a> 3.2 API Key 不落明文</h3><ul><li>Key 进系统凭据库（DPAPI 加密）</li><li>SQLite 只存引用</li><li>导出配置默认剥离 Key</li><li>日志对 <code>sk-...</code> 一类 token 做掩码</li></ul><p>个人工具也值得把密钥路径做干净，后面才敢放心配各种服务商。</p><h3 id="33-翻译与转-markdown-解耦"><a class="markdownIt-Anchor" href="#33-翻译与转-markdown-解耦"></a> 3.3 翻译与转 Markdown 解耦</h3><p>转 Markdown 走独立 sidecar，不走翻译管线。需要「整本 PDF 先变成可编辑 Markdown」时直接用；不需要的人也可以在构建层面剥离，不拖翻译主路径。</p><hr /><h2 id="4-一次典型使用流程"><a class="markdownIt-Anchor" href="#4-一次典型使用流程"></a> 4. 一次典型使用流程</h2><ol><li>打开应用，在 <strong>AI API 配置</strong> 里加服务商（或用预设），填 Base URL / Key / 模型，点测试连接</li><li><strong>设置</strong> 里确认默认输出目录、默认语言；首次翻译前安装离线资源包</li><li><strong>翻译</strong> 页拖入 PDF，选源/目标语言、输出模式、服务商与模型</li><li>开始翻译，看进度条和实时日志；可随时取消</li><li>完成后「打开文件」或「打开所在文件夹」</li></ol><p>需要术语统一时，在翻译参数里导入 CSV 术语表；扫描件/复杂 PDF 可开 OCR 相关选项。</p><p>开发者本地跑：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pnpm install</span><br><span class="line">pnpm tauri dev</span><br></pre></td></tr></table></figure><p>环境要求：Node ≥ 20、pnpm ≥ 9、Rust（rustup + stable + MSVC）。sidecar 需单独构建，不随 <code>tauri dev</code> 自动生成。</p><hr /><h2 id="5-为什么选这套技术"><a class="markdownIt-Anchor" href="#5-为什么选这套技术"></a> 5. 为什么选这套技术</h2><ul><li><strong>Tauri 2</strong>：体积和内存比 Electron 友好，系统能力（对话框、凭据、更新）够用</li><li><strong>React + Ant Design</strong>：配置页、表格、表单写起来快，适合工具型 UI</li><li><strong>Zustand</strong>：翻译任务、服务商、设置状态分 store，事件流也好挂</li><li><strong>BabelDOC</strong>：版式保留是刚需，自己从零做 PDF 重排不现实</li><li><strong>AGPL-3.0</strong>：集成 BabelDOC 后整体开源，项目本身也按 AGPL-3.0-or-later 发布</li></ul><p>参考过 <a href="https://github.com/coulsontl/ai-toolbox">ai-toolbox</a> 的服务商配置体验，以及 BabelDOC 的 CLI/API 形态，但没有照搬业务代码——桌面壳、密钥、任务流和 markitdown 并行能力是自己长出来的。</p><hr /><h2 id="6-边界与后续"><a class="markdownIt-Anchor" href="#6-边界与后续"></a> 6. 边界与后续</h2><p>当前明确不做（或只做很浅）的部分：</p><ul><li>云同步、账号体系、在线支付</li><li>复杂任务队列与批量编排（单文件/少量文件够用）</li><li>DOCX/PPTX 的「保留版式翻译」（Markdown 转换有，版式级翻译没有）</li><li>OCR 的深度专项优化</li></ul><p>后续更想打磨的是：安装与首次资源包体验、失败重试与错误可读性、更多本地模型场景下的默认参数，以及更新通道的稳定性。</p><hr /><h2 id="7-小结"><a class="markdownIt-Anchor" href="#7-小结"></a> 7. 小结</h2><p>PageWeave 的定位很具体：</p><blockquote><p><strong>Windows 上，本地跑，API 自己配，PDF 尽量保住版式。</strong></p></blockquote><p>如果你也受够了「译完面目全非」或「必须上传才能译」，可以试试：</p><ul><li>仓库：<a href="https://github.com/jhxxr/PageWeave">https://github.com/jhxxr/PageWeave</a></li><li>发布页：<a href="https://github.com/jhxxr/PageWeave/releases">https://github.com/jhxxr/PageWeave/releases</a></li></ul><p>欢迎提 Issue / PR。有真实 PDF 翻车样本也特别有价值——版式翻译的坑，往往只在具体文件里才会露出来。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> 热门 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> PDF </tag>
+            
+            <tag> 开源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Trellis 多 CLI 协作体验：Codex、Claude Code、OpenCode 一起干活</title>
       <link href="/posts/baaafe7a.html"/>
       <url>/posts/baaafe7a.html</url>
@@ -329,9 +360,9 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> C语言 </tag>
+            
+            <tag> 学习笔记 </tag>
             
         </tags>
       
