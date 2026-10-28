@@ -3,11 +3,11 @@
   <title>星染Blog</title>
   
   
-  <link href="https://www.jhxjhx.top/atom.xml" rel="self"/>
+  <link href="https://blog.jhxjhx.top/atom.xml" rel="self"/>
   
-  <link href="https://www.jhxjhx.top/"/>
+  <link href="https://blog.jhxjhx.top/"/>
   <updated>2026-10-28T15:49:19.000Z</updated>
-  <id>https://www.jhxjhx.top/</id>
+  <id>https://blog.jhxjhx.top/</id>
   
   <author>
     <name>星染</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>自建 Tailscale DERP 与 Peer Relay：阿里云 DNS 踩坑全记录</title>
-    <link href="https://www.jhxjhx.top/posts/c947acf9.html"/>
-    <id>https://www.jhxjhx.top/posts/c947acf9.html</id>
+    <link href="https://blog.jhxjhx.top/posts/c947acf9.html"/>
+    <id>https://blog.jhxjhx.top/posts/c947acf9.html</id>
     <published>2026-07-26T11:30:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -34,21 +34,21 @@
     
     
     
-    <category term="运维部署" scheme="https://www.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
+    <category term="运维部署" scheme="https://blog.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="Tailscale" scheme="https://www.jhxjhx.top/tags/Tailscale/"/>
+    <category term="Tailscale" scheme="https://blog.jhxjhx.top/tags/Tailscale/"/>
     
-    <category term="Docker" scheme="https://www.jhxjhx.top/tags/Docker/"/>
+    <category term="Docker" scheme="https://blog.jhxjhx.top/tags/Docker/"/>
     
-    <category term="阿里云" scheme="https://www.jhxjhx.top/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    <category term="阿里云" scheme="https://blog.jhxjhx.top/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>PageWeave：本地 PDF 翻译桌面工具</title>
-    <link href="https://www.jhxjhx.top/posts/31319cdf.html"/>
-    <id>https://www.jhxjhx.top/posts/31319cdf.html</id>
+    <link href="https://blog.jhxjhx.top/posts/31319cdf.html"/>
+    <id>https://blog.jhxjhx.top/posts/31319cdf.html</id>
     <published>2026-07-20T21:00:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -63,21 +63,21 @@
     
     
     
-    <category term="AI" scheme="https://www.jhxjhx.top/categories/AI/"/>
+    <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
-    <category term="PDF" scheme="https://www.jhxjhx.top/tags/PDF/"/>
+    <category term="PDF" scheme="https://blog.jhxjhx.top/tags/PDF/"/>
     
-    <category term="翻译" scheme="https://www.jhxjhx.top/tags/%E7%BF%BB%E8%AF%91/"/>
+    <category term="翻译" scheme="https://blog.jhxjhx.top/tags/%E7%BF%BB%E8%AF%91/"/>
     
-    <category term="开源" scheme="https://www.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
+    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
   <entry>
     <title>Trellis 多 CLI 协作体验：Codex、Claude Code、OpenCode 一起干活</title>
-    <link href="https://www.jhxjhx.top/posts/baaafe7a.html"/>
-    <id>https://www.jhxjhx.top/posts/baaafe7a.html</id>
+    <link href="https://blog.jhxjhx.top/posts/baaafe7a.html"/>
+    <id>https://blog.jhxjhx.top/posts/baaafe7a.html</id>
     <published>2026-06-23T20:30:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -92,21 +92,21 @@
     
     
     
-    <category term="AI" scheme="https://www.jhxjhx.top/categories/AI/"/>
+    <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
-    <category term="CLI" scheme="https://www.jhxjhx.top/tags/CLI/"/>
+    <category term="CLI" scheme="https://blog.jhxjhx.top/tags/CLI/"/>
     
-    <category term="开发工具" scheme="https://www.jhxjhx.top/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    <category term="开发工具" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="Trellis" scheme="https://www.jhxjhx.top/tags/Trellis/"/>
+    <category term="Trellis" scheme="https://blog.jhxjhx.top/tags/Trellis/"/>
     
   </entry>
   
   <entry>
     <title>微调一个LLM安全检测模型</title>
-    <link href="https://www.jhxjhx.top/posts/ca90751e.html"/>
-    <id>https://www.jhxjhx.top/posts/ca90751e.html</id>
+    <link href="https://blog.jhxjhx.top/posts/ca90751e.html"/>
+    <id>https://blog.jhxjhx.top/posts/ca90751e.html</id>
     <published>2026-03-01T22:10:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -122,23 +122,23 @@
     
     
     
-    <category term="AI" scheme="https://www.jhxjhx.top/categories/AI/"/>
+    <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
-    <category term="LLM" scheme="https://www.jhxjhx.top/tags/LLM/"/>
+    <category term="LLM" scheme="https://blog.jhxjhx.top/tags/LLM/"/>
     
-    <category term="微调" scheme="https://www.jhxjhx.top/tags/%E5%BE%AE%E8%B0%83/"/>
+    <category term="微调" scheme="https://blog.jhxjhx.top/tags/%E5%BE%AE%E8%B0%83/"/>
     
-    <category term="BERT" scheme="https://www.jhxjhx.top/tags/BERT/"/>
+    <category term="BERT" scheme="https://blog.jhxjhx.top/tags/BERT/"/>
     
-    <category term="安全" scheme="https://www.jhxjhx.top/tags/%E5%AE%89%E5%85%A8/"/>
+    <category term="安全" scheme="https://blog.jhxjhx.top/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>嵌入模型在仓库数据向量化中的应用</title>
-    <link href="https://www.jhxjhx.top/posts/bb7ff4a.html"/>
-    <id>https://www.jhxjhx.top/posts/bb7ff4a.html</id>
+    <link href="https://blog.jhxjhx.top/posts/bb7ff4a.html"/>
+    <id>https://blog.jhxjhx.top/posts/bb7ff4a.html</id>
     <published>2025-02-10T16:20:00.000Z</published>
     <updated>2024-01-28T17:21:00.000Z</updated>
     
@@ -153,21 +153,21 @@
     
     
     
-    <category term="AI" scheme="https://www.jhxjhx.top/categories/AI/"/>
+    <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
-    <category term="嵌入模型" scheme="https://www.jhxjhx.top/tags/%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9E%8B/"/>
+    <category term="嵌入模型" scheme="https://blog.jhxjhx.top/tags/%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9E%8B/"/>
     
-    <category term="向量化" scheme="https://www.jhxjhx.top/tags/%E5%90%91%E9%87%8F%E5%8C%96/"/>
+    <category term="向量化" scheme="https://blog.jhxjhx.top/tags/%E5%90%91%E9%87%8F%E5%8C%96/"/>
     
-    <category term="BGE" scheme="https://www.jhxjhx.top/tags/BGE/"/>
+    <category term="BGE" scheme="https://blog.jhxjhx.top/tags/BGE/"/>
     
   </entry>
   
   <entry>
     <title>使用 Express 搭建 WebDAV 反向代理服务</title>
-    <link href="https://www.jhxjhx.top/posts/4b83da7c.html"/>
-    <id>https://www.jhxjhx.top/posts/4b83da7c.html</id>
+    <link href="https://blog.jhxjhx.top/posts/4b83da7c.html"/>
+    <id>https://blog.jhxjhx.top/posts/4b83da7c.html</id>
     <published>2024-11-19T21:20:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -182,21 +182,21 @@
     
     
     
-    <category term="运维部署" scheme="https://www.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
+    <category term="运维部署" scheme="https://blog.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="Node.js" scheme="https://www.jhxjhx.top/tags/Node-js/"/>
+    <category term="Node.js" scheme="https://blog.jhxjhx.top/tags/Node-js/"/>
     
-    <category term="WebDAV" scheme="https://www.jhxjhx.top/tags/WebDAV/"/>
+    <category term="WebDAV" scheme="https://blog.jhxjhx.top/tags/WebDAV/"/>
     
-    <category term="Express" scheme="https://www.jhxjhx.top/tags/Express/"/>
+    <category term="Express" scheme="https://blog.jhxjhx.top/tags/Express/"/>
     
   </entry>
   
   <entry>
     <title>数据结构排序算法笔记</title>
-    <link href="https://www.jhxjhx.top/posts/5deeafd.html"/>
-    <id>https://www.jhxjhx.top/posts/5deeafd.html</id>
+    <link href="https://blog.jhxjhx.top/posts/5deeafd.html"/>
+    <id>https://blog.jhxjhx.top/posts/5deeafd.html</id>
     <published>2024-04-04T22:20:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -216,19 +216,19 @@
     
     
     
-    <category term="学习笔记" scheme="https://www.jhxjhx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="https://blog.jhxjhx.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="数据结构" scheme="https://www.jhxjhx.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://blog.jhxjhx.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    <category term="排序算法" scheme="https://www.jhxjhx.top/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <category term="排序算法" scheme="https://blog.jhxjhx.top/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>PVE安装debian</title>
-    <link href="https://www.jhxjhx.top/posts/f27ce81d.html"/>
-    <id>https://www.jhxjhx.top/posts/f27ce81d.html</id>
+    <link href="https://blog.jhxjhx.top/posts/f27ce81d.html"/>
+    <id>https://blog.jhxjhx.top/posts/f27ce81d.html</id>
     <published>2024-02-24T19:20:00.000Z</published>
     <updated>2024-01-28T17:21:00.000Z</updated>
     
@@ -246,21 +246,21 @@
     
     
     
-    <category term="运维部署" scheme="https://www.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
+    <category term="运维部署" scheme="https://blog.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="PVE" scheme="https://www.jhxjhx.top/tags/PVE/"/>
+    <category term="PVE" scheme="https://blog.jhxjhx.top/tags/PVE/"/>
     
-    <category term="Debian" scheme="https://www.jhxjhx.top/tags/Debian/"/>
+    <category term="Debian" scheme="https://blog.jhxjhx.top/tags/Debian/"/>
     
-    <category term="虚拟机" scheme="https://www.jhxjhx.top/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="虚拟机" scheme="https://blog.jhxjhx.top/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>新版Frp内网穿透搭建</title>
-    <link href="https://www.jhxjhx.top/posts/119cc5f4.html"/>
-    <id>https://www.jhxjhx.top/posts/119cc5f4.html</id>
+    <link href="https://blog.jhxjhx.top/posts/119cc5f4.html"/>
+    <id>https://blog.jhxjhx.top/posts/119cc5f4.html</id>
     <published>2024-02-22T13:20:00.000Z</published>
     <updated>2024-01-28T17:21:00.000Z</updated>
     
@@ -275,19 +275,19 @@
     
     
     
-    <category term="运维部署" scheme="https://www.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
+    <category term="运维部署" scheme="https://blog.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="frp" scheme="https://www.jhxjhx.top/tags/frp/"/>
+    <category term="frp" scheme="https://blog.jhxjhx.top/tags/frp/"/>
     
-    <category term="内网穿透" scheme="https://www.jhxjhx.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    <category term="内网穿透" scheme="https://blog.jhxjhx.top/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
     
   </entry>
   
   <entry>
     <title>Cloudflare + B2 搭建图床：详细步骤教程</title>
-    <link href="https://www.jhxjhx.top/posts/73f1df57.html"/>
-    <id>https://www.jhxjhx.top/posts/73f1df57.html</id>
+    <link href="https://blog.jhxjhx.top/posts/73f1df57.html"/>
+    <id>https://blog.jhxjhx.top/posts/73f1df57.html</id>
     <published>2024-01-30T13:00:00.000Z</published>
     <updated>2024-01-30T13:00:00.000Z</updated>
     
@@ -306,21 +306,21 @@
     
     
     
-    <category term="运维部署" scheme="https://www.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
+    <category term="运维部署" scheme="https://blog.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="Cloudflare" scheme="https://www.jhxjhx.top/tags/Cloudflare/"/>
+    <category term="Cloudflare" scheme="https://blog.jhxjhx.top/tags/Cloudflare/"/>
     
-    <category term="B2" scheme="https://www.jhxjhx.top/tags/B2/"/>
+    <category term="B2" scheme="https://blog.jhxjhx.top/tags/B2/"/>
     
-    <category term="图床" scheme="https://www.jhxjhx.top/tags/%E5%9B%BE%E5%BA%8A/"/>
+    <category term="图床" scheme="https://blog.jhxjhx.top/tags/%E5%9B%BE%E5%BA%8A/"/>
     
   </entry>
   
   <entry>
     <title>Quartus中使用Modelsim仿真-找不到库?</title>
-    <link href="https://www.jhxjhx.top/posts/7bbe2393.html"/>
-    <id>https://www.jhxjhx.top/posts/7bbe2393.html</id>
+    <link href="https://blog.jhxjhx.top/posts/7bbe2393.html"/>
+    <id>https://blog.jhxjhx.top/posts/7bbe2393.html</id>
     <published>2023-09-20T23:00:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -339,21 +339,21 @@
     
     
     
-    <category term="嵌入式" scheme="https://www.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    <category term="嵌入式" scheme="https://blog.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-    <category term="Quartus" scheme="https://www.jhxjhx.top/tags/Quartus/"/>
+    <category term="Quartus" scheme="https://blog.jhxjhx.top/tags/Quartus/"/>
     
-    <category term="ModelSim" scheme="https://www.jhxjhx.top/tags/ModelSim/"/>
+    <category term="ModelSim" scheme="https://blog.jhxjhx.top/tags/ModelSim/"/>
     
-    <category term="FPGA" scheme="https://www.jhxjhx.top/tags/FPGA/"/>
+    <category term="FPGA" scheme="https://blog.jhxjhx.top/tags/FPGA/"/>
     
   </entry>
   
   <entry>
     <title>电赛寄录</title>
-    <link href="https://www.jhxjhx.top/posts/1c1c313a.html"/>
-    <id>https://www.jhxjhx.top/posts/1c1c313a.html</id>
+    <link href="https://blog.jhxjhx.top/posts/1c1c313a.html"/>
+    <id>https://blog.jhxjhx.top/posts/1c1c313a.html</id>
     <published>2023-09-12T00:53:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -370,19 +370,19 @@
     
     
     
-    <category term="嵌入式" scheme="https://www.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    <category term="嵌入式" scheme="https://blog.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-    <category term="电赛" scheme="https://www.jhxjhx.top/tags/%E7%94%B5%E8%B5%9B/"/>
+    <category term="电赛" scheme="https://blog.jhxjhx.top/tags/%E7%94%B5%E8%B5%9B/"/>
     
-    <category term="竞赛" scheme="https://www.jhxjhx.top/tags/%E7%AB%9E%E8%B5%9B/"/>
+    <category term="竞赛" scheme="https://blog.jhxjhx.top/tags/%E7%AB%9E%E8%B5%9B/"/>
     
   </entry>
   
   <entry>
     <title>yolo和k210</title>
-    <link href="https://www.jhxjhx.top/posts/23f45749.html"/>
-    <id>https://www.jhxjhx.top/posts/23f45749.html</id>
+    <link href="https://blog.jhxjhx.top/posts/23f45749.html"/>
+    <id>https://blog.jhxjhx.top/posts/23f45749.html</id>
     <published>2023-07-19T22:00:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -397,21 +397,21 @@
     
     
     
-    <category term="嵌入式" scheme="https://www.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    <category term="嵌入式" scheme="https://blog.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-    <category term="YOLO" scheme="https://www.jhxjhx.top/tags/YOLO/"/>
+    <category term="YOLO" scheme="https://blog.jhxjhx.top/tags/YOLO/"/>
     
-    <category term="K210" scheme="https://www.jhxjhx.top/tags/K210/"/>
+    <category term="K210" scheme="https://blog.jhxjhx.top/tags/K210/"/>
     
-    <category term="机器学习" scheme="https://www.jhxjhx.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="https://blog.jhxjhx.top/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>解决proteus仿真出现的奇怪问题</title>
-    <link href="https://www.jhxjhx.top/posts/2abdf5c.html"/>
-    <id>https://www.jhxjhx.top/posts/2abdf5c.html</id>
+    <link href="https://blog.jhxjhx.top/posts/2abdf5c.html"/>
+    <id>https://blog.jhxjhx.top/posts/2abdf5c.html</id>
     <published>2023-04-12T16:00:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -427,21 +427,21 @@
     
     
     
-    <category term="嵌入式" scheme="https://www.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    <category term="嵌入式" scheme="https://blog.jhxjhx.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     
-    <category term="Proteus" scheme="https://www.jhxjhx.top/tags/Proteus/"/>
+    <category term="Proteus" scheme="https://blog.jhxjhx.top/tags/Proteus/"/>
     
-    <category term="STM32" scheme="https://www.jhxjhx.top/tags/STM32/"/>
+    <category term="STM32" scheme="https://blog.jhxjhx.top/tags/STM32/"/>
     
-    <category term="仿真" scheme="https://www.jhxjhx.top/tags/%E4%BB%BF%E7%9C%9F/"/>
+    <category term="仿真" scheme="https://blog.jhxjhx.top/tags/%E4%BB%BF%E7%9C%9F/"/>
     
   </entry>
   
   <entry>
     <title>文章丢失-电脑修理日记</title>
-    <link href="https://www.jhxjhx.top/posts/287d8ef4.html"/>
-    <id>https://www.jhxjhx.top/posts/287d8ef4.html</id>
+    <link href="https://blog.jhxjhx.top/posts/287d8ef4.html"/>
+    <id>https://blog.jhxjhx.top/posts/287d8ef4.html</id>
     <published>2022-11-06T14:53:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -457,19 +457,19 @@
     
     
     
-    <category term="生活" scheme="https://www.jhxjhx.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://blog.jhxjhx.top/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="系统重装" scheme="https://www.jhxjhx.top/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/"/>
+    <category term="系统重装" scheme="https://blog.jhxjhx.top/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/"/>
     
-    <category term="故障排查" scheme="https://www.jhxjhx.top/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/"/>
+    <category term="故障排查" scheme="https://blog.jhxjhx.top/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/"/>
     
   </entry>
   
   <entry>
     <title>实现QQ运行青龙面板脚本</title>
-    <link href="https://www.jhxjhx.top/posts/24c2cc50.html"/>
-    <id>https://www.jhxjhx.top/posts/24c2cc50.html</id>
+    <link href="https://blog.jhxjhx.top/posts/24c2cc50.html"/>
+    <id>https://blog.jhxjhx.top/posts/24c2cc50.html</id>
     <published>2022-04-19T18:00:00.000Z</published>
     <updated>2026-10-28T15:49:19.000Z</updated>
     
@@ -484,14 +484,14 @@
     
     
     
-    <category term="运维部署" scheme="https://www.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
+    <category term="运维部署" scheme="https://blog.jhxjhx.top/categories/%E8%BF%90%E7%BB%B4%E9%83%A8%E7%BD%B2/"/>
     
     
-    <category term="sillyGirl" scheme="https://www.jhxjhx.top/tags/sillyGirl/"/>
+    <category term="sillyGirl" scheme="https://blog.jhxjhx.top/tags/sillyGirl/"/>
     
-    <category term="青龙面板" scheme="https://www.jhxjhx.top/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
+    <category term="青龙面板" scheme="https://blog.jhxjhx.top/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"/>
     
-    <category term="QQ机器人" scheme="https://www.jhxjhx.top/tags/QQ%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+    <category term="QQ机器人" scheme="https://blog.jhxjhx.top/tags/QQ%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
     
   </entry>
   

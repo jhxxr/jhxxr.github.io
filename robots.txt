@@ -1,4 +1,4 @@
-# robots.txt for https://www.jhxjhx.top/
+# robots.txt for https://blog.jhxjhx.top/
 
 User-agent: *
 Allow: /
@@ -6,5 +6,5 @@ Disallow: /img/
 Disallow: /css/
 Disallow: /js/
 
-Sitemap: https://www.jhxjhx.top/sitemap.xml
-Sitemap: https://www.jhxjhx.top/sitemap.txt
+Sitemap: https://blog.jhxjhx.top/sitemap.xml
+Sitemap: https://blog.jhxjhx.top/sitemap.txt
