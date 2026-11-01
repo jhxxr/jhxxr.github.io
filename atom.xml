@@ -6,7 +6,7 @@
   <link href="https://blog.jhxjhx.top/atom.xml" rel="self"/>
   
   <link href="https://blog.jhxjhx.top/"/>
-  <updated>2026-10-28T15:49:19.000Z</updated>
+  <updated>2026-11-01T07:35:04.000Z</updated>
   <id>https://blog.jhxjhx.top/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>APIShare：一个 Key 用全部模型，把分享的 Token 摆在明面上</title>
+    <link href="https://blog.jhxjhx.top/posts/948ec290.html"/>
+    <id>https://blog.jhxjhx.top/posts/948ec290.html</id>
+    <published>2026-11-01T21:00:00.000Z</published>
+    <updated>2026-11-01T07:35:04.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;apishare一个-key-用全部模型把分享的-token-摆在明面上&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#apishare一个-key-用全部模型把分享的-token-摆在明面上&quot;&gt;&lt;/a&gt; APIShare：一个</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
+    
+    
+    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="Go" scheme="https://blog.jhxjhx.top/tags/Go/"/>
+    
+    <category term="AI" scheme="https://blog.jhxjhx.top/tags/AI/"/>
+    
+    <category term="网关" scheme="https://blog.jhxjhx.top/tags/%E7%BD%91%E5%85%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>自建 Tailscale DERP 与 Peer Relay：阿里云 DNS 踩坑全记录</title>
