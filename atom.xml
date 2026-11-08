@@ -6,7 +6,7 @@
   <link href="https://blog.jhxjhx.top/atom.xml" rel="self"/>
   
   <link href="https://blog.jhxjhx.top/"/>
-  <updated>2026-11-08T08:31:32.000Z</updated>
+  <updated>2026-11-08T09:43:31.000Z</updated>
   <id>https://blog.jhxjhx.top/</id>
   
   <author>
@@ -17,19 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>APIShare：一个 Key 用全部模型</title>
-    <link href="https://blog.jhxjhx.top/posts/948ec290.html"/>
-    <id>https://blog.jhxjhx.top/posts/948ec290.html</id>
-    <published>2026-11-01T21:00:00.000Z</published>
-    <updated>2026-11-08T08:31:32.000Z</updated>
+    <title>HomeAgent 出站 Runner 与权限交集</title>
+    <link href="https://blog.jhxjhx.top/posts/af6e502b.html"/>
+    <id>https://blog.jhxjhx.top/posts/af6e502b.html</id>
+    <published>2026-11-08T17:45:00.000Z</published>
+    <updated>2026-11-08T09:43:31.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt; 前言&lt;/h1&gt;
-&lt;p&gt;我手上有几个模型服务的 Key，一直想分给朋友用，一开始用的是</summary>
+    <summary type="html">&lt;p&gt;2026-10-26，我建了 HomeAgent 这个仓库。起因是一件小事：ChatGPT 网页版有 pro 模型，我的项目在另一台机器上。&lt;/p&gt;
+&lt;p&gt;中间缺一条路，让模型能读文件、改代码、跑命令、看日志。&lt;/p&gt;
+&lt;p&gt;还有别人的机器。给朋友的电脑改东西，装</summary>
         
       
     
@@ -40,11 +41,43 @@
     
     <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
     
+    <category term="MCP" scheme="https://blog.jhxjhx.top/tags/MCP/"/>
+    
+    <category term="TypeScript" scheme="https://blog.jhxjhx.top/tags/TypeScript/"/>
+    
+    <category term="自部署" scheme="https://blog.jhxjhx.top/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>APIShare：一个 Key 用全部模型</title>
+    <link href="https://blog.jhxjhx.top/posts/948ec290.html"/>
+    <id>https://blog.jhxjhx.top/posts/948ec290.html</id>
+    <published>2026-11-01T21:00:00.000Z</published>
+    <updated>2026-11-08T09:43:31.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我写了一个 API 网关，叫 &lt;a href=&quot;https://github.com/jhxxr/APISHARE&quot;&gt;APIShare&lt;/a&gt;，Go 的。它做的事一句话能说完：一个 Key，使用上游的全部模型。&lt;/p&gt;
+&lt;p&gt;在这之前我用的是</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
+    
+    
     <category term="Go" scheme="https://blog.jhxjhx.top/tags/Go/"/>
     
     <category term="AI" scheme="https://blog.jhxjhx.top/tags/AI/"/>
     
     <category term="网关" scheme="https://blog.jhxjhx.top/tags/%E7%BD%91%E5%85%B3/"/>
+    
+    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
@@ -98,11 +131,11 @@
     <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
+    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
+    
     <category term="PDF" scheme="https://blog.jhxjhx.top/tags/PDF/"/>
     
     <category term="翻译" scheme="https://blog.jhxjhx.top/tags/%E7%BF%BB%E8%AF%91/"/>
-    
-    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   

@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>APIShare：一个 Key 用全部模型</title>
-      <link href="/posts/948ec290.html"/>
-      <url>/posts/948ec290.html</url>
+      <title>HomeAgent 出站 Runner 与权限交集</title>
+      <link href="/posts/af6e502b.html"/>
+      <url>/posts/af6e502b.html</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1><p>我手上有几个模型服务的 Key，一直想分给朋友用，一开始用的是 new-api。它没什么不好，只是给「中转站」设计的：渠道、用户、分组、充值，一整套。我要的只是「我有额度，分给几个朋友」，折腾了一年多，最后自己写了一个：<a href="https://github.com/jhxxr/APISHARE">APIShare</a>。</p><h1 id="一个-key-用全部模型"><a class="markdownIt-Anchor" href="#一个-key-用全部模型"></a> 一个 Key 用全部模型</h1><p>网关里可以挂任意多条上游，每条配类型、Key、代理和模型白名单，白名单留空就是全部。客户端看到的是一份合并后的模型列表，后面挂了几条上游、几把 Key，它不用知道。朋友只填地址和 Key，Claude Code、Codex、Gemini CLI、随手写的 Python 脚本都能直接跑。</p><p>上游支持 OpenAI（Chat 和 Responses）、Anthropic、Gemini，也内置了 CLIProxyAPI，OAuth 订阅账号池不用另外装。还能做模型映射：朋友请求 <code>chat-fast</code>，实际打给 <code>deepseek-chat</code>，他要用的东西不用自己操心。</p><p>分享最怕一个人的脚本把所有人的额度烧完，所以每个 Key 是独立的：QPS、并发上限、额度、贵模型单独限额、模型白名单、一键禁用。额度填 0 表示不限。</p><h1 id="协议转换"><a class="markdownIt-Anchor" href="#协议转换"></a> 协议转换</h1><p>进来的格式和出去的不一定一样。Claude Code 说的是 Anthropic Messages，我的上游可能是 OpenAI Chat；Gemini CLI 说的是 Gemini，上游可能是 Chat。中间就抽了一层：解析成内部表示，路由鉴权，按目标格式组装，再把事件流逆着拼回去。</p><p>会卡人的地方有几处。推理档位各家叫法不同（<code>reasoning_effort</code>、<code>reasoning.effort</code>、<code>output_config.effort</code>），得双向映射，并按上游实际支持的档位近似。工具调用里 Codex 的 <code>apply_patch</code> 是自由文本工具，得先包成标准函数参数，回来再还原，最怕参数不完整却发了个成功结束，客户端会把同一个补丁再执行一遍。断流的话，第一个字吐出来之前挂了可以偷偷换一条，已经开始输出就绝不重放，不然用户会看着同一段话出现两次。</p><p>对朋友来说这些都不存在，他看到的只有地址和 Key。</p><h1 id="看得见的用量"><a class="markdownIt-Anchor" href="#看得见的用量"></a> 看得见的用量</h1><p><img src="https://img.xinr.de/i/2611/nW58CexkHH.webp" alt="" /></p><p>后台有一页模型总览：每个模型现在的状态、滚动 24 小时的成功率、平均 TPS，以及有哪几条上游能接、各自是不是在冷却。只统计当前能路由的上游，所以页面上的数字说的是「现在」。旁边有个测试按钮，直接拿一条上游打一次真实请求，返回延迟和 Token，不用等朋友来报错。计费走 LiteLLM 价格库，启动时同步、每天自动刷新。</p><p>日志默认留 7 天，但清理前会按「北京时间日期 × 模型」把调用次数、Token、费用聚合进 <code>call_log_daily</code>。日志可以删，统计不能丢，分享这件事看的是长期累计。</p><p><img src="https://img.xinr.de/i/2611/bLQ6xk2fZ4.webp" alt="" /></p><p>给朋友的是另一个公开页（<code>/api/public/overview</code>，没有凭据和余额，只有全站遥测）：累计 Token、一周七天的调用足迹、按调用次数排的模型榜和 Uptime，最底下粘个 <code>sk-...</code> 就能查自己还剩多少额度，省得来问我。</p><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><p>代码在 <a href="https://github.com/jhxxr/APISHARE">jhxxr/APISHARE</a>，Go 写的。</p>]]></content>
+        <content type="html"><![CDATA[<p>2026-10-26，我建了 HomeAgent 这个仓库。起因是一件小事：ChatGPT 网页版有 pro 模型，我的项目在另一台机器上。</p><p>中间缺一条路，让模型能读文件、改代码、跑命令、看日志。</p><p>还有别人的机器。给朋友的电脑改东西，装 Claude Code 或者 Codex 都行。代价是我的 API 密钥留在一台公共使用的机器上。</p><p>这两个场景指向同一个东西：一个从内网主动往外连的 Runner。</p><p>Server 跑在 VPS 上，Docker Compose 加 Caddy，证书自动签。Runner 是我那台 Windows 11 台式。<code>3210</code> 只绑 <code>127.0.0.1</code>，80 和 443 交给 Caddy。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/runner-tui.png" alt="Runner 的终端界面" /></p><p>入口是 <code>/mcp</code>，Streamable HTTP，官方的 MCP SDK v2。Runner 走 WSS 出站，自己不开监听，路由器不用改。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/dashboard.png" alt="客户端、MCP Server、Runner 的实时拓扑" /></p><p>frp 挪端口，这里挪命令，还带一套权限。</p><p>装好第一次接上，读文件能动，<code>list_devices</code> 和 <code>get_project_context</code> 都正常。拉库失败，提交也没成功。</p><p>原因在权限那层。设备能力一条，客户端授权一条，两条取交集，任一条没开就是拒。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/permissions.png" alt="设备权限：项目目录、命令白名单、git 开关" /></p><p>git 单独一组。<code>git_status</code>、<code>git_diff</code>、<code>git_log</code> 只读，<code>git_commit_paths</code> 要写权限。<code>fetch</code>、<code>pull</code>、<code>push</code> 各占一行，<code>push</code> 默认关着。</p><p>调用在服务端就被挡掉，Runner 上的仓库没收到任何命令。后来在面板里把 git 的读写打开，通了。</p><p>这个设计不只为了拦人。<code>pull</code> 只做 fast-forward，仓库分叉它不给 merge，直接拒绝。<code>commit_paths</code> 只提交点名的路径，原来暂存的其它文件原样留着。</p><p>远程工作最怕的不是报错，是它替你把决定做了。</p><p>写入带 <code>expectedSha256</code>，全文摘要对不上就拒绝，不覆盖刚被别人改过的行。多文件编辑进 journal，连接断开以后用 <code>recover_edit_transaction</code> 捡回来。</p><p>进程认 job UUID，不认 OS PID。Linux 用进程组，Windows 用 Job Object。Runner 掉了，整棵进程树一起收。</p><p>长任务的输出留一个滚动尾部。前缀只存最前面 64KB，<code>FINAL_BUILD_ERROR</code> 这类收尾报错在尾部那个工具里。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/jobs.png" alt="作业列表和输出" /></p><p>权限可以临时开。面板里给某个客户端开 30 分钟的写和执行，到点自动收回。收回的时候，在飞的调用取消，托管作业跟着停，基线策略原样恢复。</p><p>命令不必每次手打。项目里配几个别名，<code>test</code>、<code>npm</code>、<code>python</code>，AI 调 <code>run_command</code> 只能挑这几个。工具表里还有按行范围批读、fuzzy 的 unified diff、LSP 的定义跳转和诊断。持久 shell 是会话级的，不是 PTY，也不会脱离 Runner 常驻。</p><p>给朋友的机器留了一条路，叫 Remote Assist。我在面板里生成一张十分钟就废的邀请，他本地跑一行命令。</p><p>他那边自己挑项目，数量在 1 到 16 之间。读、写、执行各开一个勾。时限 30 分钟、2 小时或者 8 小时。</p><p>他按停止，或者到点，会话立刻断。我的密钥不进他的机器。</p><p>10-26 到 11-06，12 天，v0.3.0 到 v0.4.21 一共 24 个版本。工具从 32 个加到 51 个，测试从 14 个铺到 164 个。</p><p>11-04 的一次提交里记着 164/164。验证环境是 Windows 上的 Node 24.14.1，容器里 24.22.1。</p><p>提交里有 <code>Co-Authored-By: Claude Code</code> 这一行。12 天 24 个版本，不是一只手打出来的。</p><p><strong>连接打通不难，难的是打通之后，谁决定它能跑什么。</strong></p><p>命令白名单不是 OS 沙箱。开了 <code>python</code> 或者 <code>npm</code>，它就以 Runner 那个账户的权限跑。所以跑不受信任的东西，换低权限账户，或者塞进容器。</p><p>现在它在跑。Server 在 VPS，Runner 是我那台 Windows 11 台式，开机启动。</p><p>想给朋友用，卡在一个具体的地方：他们手里没有一台能放 Server 的机器。</p><p>代码在 <a href="https://github.com/jhxxr/HomeAgent">jhxxr/HomeAgent</a>，MIT。缺的那台机器不在我这边。</p>]]></content>
       
       
       <categories>
@@ -22,11 +22,42 @@
             
             <tag> 开源 </tag>
             
+            <tag> MCP </tag>
+            
+            <tag> TypeScript </tag>
+            
+            <tag> 自部署 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>APIShare：一个 Key 用全部模型</title>
+      <link href="/posts/948ec290.html"/>
+      <url>/posts/948ec290.html</url>
+      
+        <content type="html"><![CDATA[<p>我写了一个 API 网关，叫 <a href="https://github.com/jhxxr/APISHARE">APIShare</a>，Go 的。它做的事一句话能说完：一个 Key，使用上游的全部模型。</p><p>在这之前我用的是 new-api。它给中转站设计，有渠道、用户、分组、充值一整套；我只想把自己的额度分给几个朋友。范围不一样，配置的重心也不一样。</p><p>那段时间出现过这样的场景：朋友发消息问，是不是我这边 API 挂了。我打开后台翻日志，找到报错的那条渠道，把它禁用，再回他一句好了。收尾这一步一直是我手动做的。</p><p>调度上有几个具体问题。渠道不可用的时候，请求还是先往这一条上发，失败几次之后才会自动禁用，这期间朋友那边就在报错。开了渠道亲和更明显，规则要求锁在这条渠道上，失败了也不重试。禁用之后没有自动定时恢复，要手动启用，或者等「渠道自动测试」跑一遍，那个默认是关的。</p><p>还有观测。上游挂掉、某个 Key 被限流、某个模型当天变慢，后台没有一个地方能直接看出来。等朋友来问，我才去翻日志。</p><p>另外我想在群里说这个月一共分享了多少 Token。这个数 new-api 里有，但不在首页，要进到统计页里翻。我想的是首页直接摆着这个数，下面带一周的趋势。</p><p>后来就自己写了。</p><p>路由部分是把几条上游的模型列表合并成一份给客户端，选上游按优先级和权重，同一层内加权随机，同一会话在 TTL 内留在原上游。会话的标识各家客户端不统一，请求体、请求头、metadata 里都有，认不出来的情况退到首条用户消息的指纹。上游侧有模型白名单，留空表示全部；也可以做映射，客户端请求一个名字，上游收到的可以是另一个。</p><p>失败处理改的次数最多。401、403、429、5xx 和网络错误都算失败，冷却的粒度是 Key 而不是上游：第一次 30 秒，之后指数延长到 10 分钟，同时参考上游的 Retry-After。重试先换同一供应商的其他 Key，没有可用的再按优先级换供应商。</p><p>后台有一页模型总览：每个模型的状态、滚动 24 小时的成功率、平均 TPS，以及哪几条上游能接、是不是在冷却。统计只算当前可路由的上游。旁边有测试按钮，用一条上游发一次真实请求，返回延迟和 Token。</p><p><img src="https://img.xinr.de/i/2611/nW58CexkHH.webp" alt="" /></p><p>公开页给朋友看（<code>/api/public/overview</code>，不含凭据和余额）：累计 Token、一周的调用分布、按调用次数排的模型和 Uptime，底部可以填 <code>sk-...</code> 查剩余额度。日志保留 7 天，清理前按「北京时间日期 × 模型」把次数、Token、费用写进 <code>call_log_daily</code>，统计不随日志删除。</p><p><img src="https://img.xinr.de/i/2611/bLQ6xk2fZ4.webp" alt="" /></p><p>协议转换占的篇幅不多：入站格式和上游格式不一定一致，Claude Code 发的是 Anthropic Messages，上游可能是 OpenAI Chat，中间做一层转换。容易出问题的是推理档位、工具调用和断流。断流的规则是首字输出之前失败可以换一条重试，已经开始输出就不再重放，否则客户端会看到重复内容。</p><p>现在朋友只填地址和 Key。Claude Code、Codex、Gemini CLI 和普通脚本都能直接连。每个人单独一个 Key，额度、QPS、并发上限、白名单和是否启用分开配，额度填 0 表示不限。</p><p>代码在 <a href="https://github.com/jhxxr/APISHARE">jhxxr/APISHARE</a>，README 里有部署说明。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> Go </tag>
             
             <tag> AI </tag>
             
             <tag> 网关 </tag>
+            
+            <tag> 开源 </tag>
             
         </tags>
       
@@ -80,11 +111,11 @@
       
         <tags>
             
+            <tag> 开源 </tag>
+            
             <tag> PDF </tag>
             
             <tag> 翻译 </tag>
-            
-            <tag> 开源 </tag>
             
         </tags>
       
