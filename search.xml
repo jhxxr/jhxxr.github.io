@@ -8,7 +8,7 @@
       <link href="/posts/af6e502b.html"/>
       <url>/posts/af6e502b.html</url>
       
-        <content type="html"><![CDATA[<p>2026-10-26，我建了 HomeAgent 这个仓库。起因是一件小事：ChatGPT 网页版有 pro 模型，我的项目在另一台机器上。</p><p>中间缺一条路，让模型能读文件、改代码、跑命令、看日志。</p><p>还有别人的机器。给朋友的电脑改东西，装 Claude Code 或者 Codex 都行。代价是我的 API 密钥留在一台公共使用的机器上。</p><p>这两个场景指向同一个东西：一个从内网主动往外连的 Runner。</p><p>Server 跑在 VPS 上，Docker Compose 加 Caddy，证书自动签。Runner 是我那台 Windows 11 台式。<code>3210</code> 只绑 <code>127.0.0.1</code>，80 和 443 交给 Caddy。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/runner-tui.png" alt="Runner 的终端界面" /></p><p>入口是 <code>/mcp</code>，Streamable HTTP，官方的 MCP SDK v2。Runner 走 WSS 出站，自己不开监听，路由器不用改。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/dashboard.png" alt="客户端、MCP Server、Runner 的实时拓扑" /></p><p>frp 挪端口，这里挪命令，还带一套权限。</p><p>装好第一次接上，读文件能动，<code>list_devices</code> 和 <code>get_project_context</code> 都正常。拉库失败，提交也没成功。</p><p>原因在权限那层。设备能力一条，客户端授权一条，两条取交集，任一条没开就是拒。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/permissions.png" alt="设备权限：项目目录、命令白名单、git 开关" /></p><p>git 单独一组。<code>git_status</code>、<code>git_diff</code>、<code>git_log</code> 只读，<code>git_commit_paths</code> 要写权限。<code>fetch</code>、<code>pull</code>、<code>push</code> 各占一行，<code>push</code> 默认关着。</p><p>调用在服务端就被挡掉，Runner 上的仓库没收到任何命令。后来在面板里把 git 的读写打开，通了。</p><p>这个设计不只为了拦人。<code>pull</code> 只做 fast-forward，仓库分叉它不给 merge，直接拒绝。<code>commit_paths</code> 只提交点名的路径，原来暂存的其它文件原样留着。</p><p>远程工作最怕的不是报错，是它替你把决定做了。</p><p>写入带 <code>expectedSha256</code>，全文摘要对不上就拒绝，不覆盖刚被别人改过的行。多文件编辑进 journal，连接断开以后用 <code>recover_edit_transaction</code> 捡回来。</p><p>进程认 job UUID，不认 OS PID。Linux 用进程组，Windows 用 Job Object。Runner 掉了，整棵进程树一起收。</p><p>长任务的输出留一个滚动尾部。前缀只存最前面 64KB，<code>FINAL_BUILD_ERROR</code> 这类收尾报错在尾部那个工具里。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/jobs.png" alt="作业列表和输出" /></p><p>权限可以临时开。面板里给某个客户端开 30 分钟的写和执行，到点自动收回。收回的时候，在飞的调用取消，托管作业跟着停，基线策略原样恢复。</p><p>命令不必每次手打。项目里配几个别名，<code>test</code>、<code>npm</code>、<code>python</code>，AI 调 <code>run_command</code> 只能挑这几个。工具表里还有按行范围批读、fuzzy 的 unified diff、LSP 的定义跳转和诊断。持久 shell 是会话级的，不是 PTY，也不会脱离 Runner 常驻。</p><p>给朋友的机器留了一条路，叫 Remote Assist。我在面板里生成一张十分钟就废的邀请，他本地跑一行命令。</p><p>他那边自己挑项目，数量在 1 到 16 之间。读、写、执行各开一个勾。时限 30 分钟、2 小时或者 8 小时。</p><p>他按停止，或者到点，会话立刻断。我的密钥不进他的机器。</p><p>10-26 到 11-06，12 天，v0.3.0 到 v0.4.21 一共 24 个版本。工具从 32 个加到 51 个，测试从 14 个铺到 164 个。</p><p>11-04 的一次提交里记着 164/164。验证环境是 Windows 上的 Node 24.14.1，容器里 24.22.1。</p><p>提交里有 <code>Co-Authored-By: Claude Code</code> 这一行。12 天 24 个版本，不是一只手打出来的。</p><p><strong>连接打通不难，难的是打通之后，谁决定它能跑什么。</strong></p><p>命令白名单不是 OS 沙箱。开了 <code>python</code> 或者 <code>npm</code>，它就以 Runner 那个账户的权限跑。所以跑不受信任的东西，换低权限账户，或者塞进容器。</p><p>现在它在跑。Server 在 VPS，Runner 是我那台 Windows 11 台式，开机启动。</p><p>想给朋友用，卡在一个具体的地方：他们手里没有一台能放 Server 的机器。</p><p>代码在 <a href="https://github.com/jhxxr/HomeAgent">jhxxr/HomeAgent</a>，MIT。缺的那台机器不在我这边。</p>]]></content>
+        <content type="html"><![CDATA[<p>网页版 ChatGPT 有 pro 模型，我的仓库在那台 Windows 台式上。中间隔着一次粘贴：我把代码贴进去，再把改好的贴回来。想要的是它自己翻开仓库，读文件、跑命令、看报错。</p><p>还有一个场景在朋友的机器上。远程改东西，装 Claude Code 或者 Codex 都行，代价是密钥留在一台别人也在用的电脑里。两件事要的是同一个结构：装在内网的 Runner 主动往外连，路由器不用开端口。</p><h2 id="一台-vps-和一台台式"><a class="markdownIt-Anchor" href="#一台-vps-和一台台式"></a> 一台 VPS 和一台台式</h2><p>Server 放在 VPS 上，Docker Compose 起，Caddy 在前面签证书。<code>3210</code> 只绑回环，80 和 443 归它。Runner 装在那台 Windows 11 台式上，开机启动。</p><p>配对在终端里做，填 Server 地址和设备名。浏览器给一个十分钟有效的批准链接，点完就连上。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/runner-tui.png" alt="Runner 的终端界面" /></p><p>入口是 <code>/mcp</code>，Streamable HTTP，官方 SDK v2。客户端接进来要么走 OAuth，要么用我在面板里发的 PAT。PAT 的权限分 read、write、execute、git 四档。面板、SQLite、审计都留在 Server 侧，Runner 那边只存一份设备凭据。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/dashboard.png" alt="客户端、MCP Server、Runner 的实时拓扑" /></p><h2 id="第一次失败"><a class="markdownIt-Anchor" href="#第一次失败"></a> 第一次失败</h2><p>接上以后，读文件和两个发现类工具都正常，git 不动：拉库失败，提交也没成功。查下来不在 remote，在权限。</p><div class="note info flat"><p>默认全关。写、执行、Git 各一组开关，设备能力和客户端授权取交集，少开一层请求就在服务端退回，仓库那边什么都收不到。</p></div><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/permissions.png" alt="设备权限：项目目录、命令白名单、git 开关" /></p><p>后来我把 git 的读写勾上，再试，通了。临时权限也能按分钟给，开 30 分钟到点自己收回，在飞的调用一起停。后面几条限制也围着同一件事：不让一次调用替我做决定。</p><div class="note warning flat"><p>白名单不是沙箱。给了 <code>python</code>，它就以 Runner 那个账户的权限跑。要跑不受信任的东西，换低权限账户或者进容器。</p></div><h2 id="编辑-进程-输出"><a class="markdownIt-Anchor" href="#编辑-进程-输出"></a> 编辑、进程、输出</h2><p>写文件要带整篇的 SHA-256，对不上就拒绝，不覆盖刚被别人改过的行。多文件改动进 journal，连接断过还能捡回来。进程认 job UUID，不认 OS PID。Linux 收进程组，Windows 收 Job Object，Runner 掉了整棵树跟着收。</p><p>长任务的输出不整段保存，前缀截在 64KB，尾部单独滚动，最后那行报错还在。</p><p><img src="https://cdn.jsdelivr.net/gh/jhxxr/HomeAgent@v0.4.21/docs/screenshots/jobs.png" alt="作业列表和输出" /></p><h2 id="朋友的机器"><a class="markdownIt-Anchor" href="#朋友的机器"></a> 朋友的机器</h2><p>Remote Assist。邀请十分钟过期，项目由他自己挑，1 到 16 个，读写执行分开勾，时限 30 分钟到 8 小时。他按停止，我这边立刻断，密钥不进他的电脑。</p><div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>10-26 到 11-06</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>10-26</p></div></div><div class='timeline-item-content'><p>建仓，v0.3.0 公开，32 个工具。</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>10-27</p></div></div><div class='timeline-item-content'><p>v0.4.0，双层权限和受控 Git，<code>fetch</code>、<code>pull</code>、<code>push</code> 分开授权。</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-02</p></div></div><div class='timeline-item-content'><p>v0.4.17 与 v0.4.18，模糊 diff、持久 shell、LSP、PowerShell 引导。</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-04</p></div></div><div class='timeline-item-content'><p>文档双语化，测试 164/164。</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-06</p></div></div><div class='timeline-item-content'><p>v0.4.21 收尾，累计 24 个版本、51 个工具。</p></div></div></div><p><strong>难点不在把连接打通，在打通之后，谁决定它能跑什么。</strong></p><p>现在它在跑，Server 在 VPS，Runner 在台式上，开机启动。用的人只有我。</p><p>代码在 <a href="https://github.com/jhxxr/HomeAgent">jhxxr/HomeAgent</a>，MIT。朋友要用，缺的是一台能放 Server 的机器。</p>]]></content>
       
       
       <categories>
@@ -51,13 +51,13 @@
       
         <tags>
             
+            <tag> 开源 </tag>
+            
             <tag> Go </tag>
             
             <tag> AI </tag>
             
             <tag> 网关 </tag>
-            
-            <tag> 开源 </tag>
             
         </tags>
       
@@ -111,11 +111,11 @@
       
         <tags>
             
-            <tag> 开源 </tag>
-            
             <tag> PDF </tag>
             
             <tag> 翻译 </tag>
+            
+            <tag> 开源 </tag>
             
         </tags>
       

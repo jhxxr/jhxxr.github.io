@@ -6,7 +6,7 @@
   <link href="https://blog.jhxjhx.top/atom.xml" rel="self"/>
   
   <link href="https://blog.jhxjhx.top/"/>
-  <updated>2026-11-08T09:43:31.000Z</updated>
+  <updated>2026-11-08T11:21:33.000Z</updated>
   <id>https://blog.jhxjhx.top/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://blog.jhxjhx.top/posts/af6e502b.html"/>
     <id>https://blog.jhxjhx.top/posts/af6e502b.html</id>
     <published>2026-11-08T17:45:00.000Z</published>
-    <updated>2026-11-08T09:43:31.000Z</updated>
+    <updated>2026-11-08T11:21:33.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;2026-10-26，我建了 HomeAgent 这个仓库。起因是一件小事：ChatGPT 网页版有 pro 模型，我的项目在另一台机器上。&lt;/p&gt;
-&lt;p&gt;中间缺一条路，让模型能读文件、改代码、跑命令、看日志。&lt;/p&gt;
-&lt;p&gt;还有别人的机器。给朋友的电脑改东西，装</summary>
+    <summary type="html">&lt;p&gt;网页版 ChatGPT 有 pro 模型，我的仓库在那台 Windows 台式上。中间隔着一次粘贴：我把代码贴进去，再把改好的贴回来。想要的是它自己翻开仓库，读文件、跑命令、看报错。&lt;/p&gt;
+&lt;p&gt;还有一个场景在朋友的机器上。远程改东西，装 Claude Code 或者</summary>
         
       
     
@@ -71,13 +70,13 @@
     <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
+    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
+    
     <category term="Go" scheme="https://blog.jhxjhx.top/tags/Go/"/>
     
     <category term="AI" scheme="https://blog.jhxjhx.top/tags/AI/"/>
     
     <category term="网关" scheme="https://blog.jhxjhx.top/tags/%E7%BD%91%E5%85%B3/"/>
-    
-    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
@@ -131,11 +130,11 @@
     <category term="AI" scheme="https://blog.jhxjhx.top/categories/AI/"/>
     
     
-    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
-    
     <category term="PDF" scheme="https://blog.jhxjhx.top/tags/PDF/"/>
     
     <category term="翻译" scheme="https://blog.jhxjhx.top/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+    <category term="开源" scheme="https://blog.jhxjhx.top/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
